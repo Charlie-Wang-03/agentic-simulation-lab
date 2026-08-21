@@ -1,6 +1,6 @@
-# Agentic Simulation Lab 0.1.0 — draft release notes
+# Agentic Simulation Lab v0.1.0 release notes
 
-Status: draft only; repository publication preparation is authorized, but no tag, PyPI, Zenodo, or release publication is authorized yet.
+Status: finalized for the published GitHub v0.1.0 release. No PyPI or Zenodo publication is included.
 
 ## Scope
 

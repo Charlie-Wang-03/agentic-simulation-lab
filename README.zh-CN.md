@@ -114,6 +114,6 @@ pytest
 
 仓库原创代码、文档与 fixtures 采用 [Apache License 2.0](LICENSE)。Apache-2.0 不许可 Ansys 软件，也不分发厂商内容。用户必须另行取得 Ansys 许可证并遵守当前 clickwrap；Student 许可证限教育用途，排除商业用途与竞争分析。详见 [Ansys 使用与合规](docs/ANSYS_USAGE_AND_COMPLIANCE.md)、[Student 产品限制](docs/STUDENT_PRODUCT_LIMITS.md)、[官方来源审计](docs/release/OFFICIAL_SOURCE_AUDIT.md)和[许可证决策](docs/release/LICENSE_DECISION.md)。
 
-发布步骤见双语[发布教程](docs/tutorials/publishing.zh-CN.md)与真实状态的[发布检查清单](docs/release/RELEASE_CHECKLIST.md)。只有在全部 hard gates 通过后，才可创建独立 public repository 与唯一 clean initial commit；tag、GitHub release、PyPI 和 Zenodo 仍是独立且未授权的动作。工程结果仍必须由合格专业人员独立复核，完整声明见 [DISCLAIMER.md](DISCLAIMER.md)。
+发布步骤见双语[发布教程](docs/tutorials/publishing.zh-CN.md)与真实状态的[发布检查清单](docs/release/RELEASE_CHECKLIST.md)。独立 public repository 已由通过审计的 clean export 创建；v0.1.0 tag 与 GitHub Release 是单独设 Gate 的最终发布动作，PyPI 和 Zenodo 不属于本次发布。工程结果仍必须由合格专业人员独立复核，完整声明见 [DISCLAIMER.md](DISCLAIMER.md)。
 
 Ansys、Mechanical、Fluent、AEDT、Maxwell、HFSS、Rocky、System Coupling、SpaceClaim 与 PyAnsys 是 Ansys, Inc. 或其子公司在美国或其他国家/地区的商标或注册商标。其他商标归各自权利人所有。

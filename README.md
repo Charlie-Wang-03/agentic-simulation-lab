@@ -118,7 +118,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), use project-relative paths, keep solver
 
 Original repository-owned code, documentation, and fixtures are available under the [Apache License 2.0](LICENSE). Apache-2.0 does not license Ansys software or redistribute vendor content. Users remain responsible for their separately obtained Ansys license and current clickwrap. Student licenses are limited to educational use and exclude commercial use and competitive analysis. Read [Ansys usage and compliance](docs/ANSYS_USAGE_AND_COMPLIANCE.md), [Student product limits](docs/STUDENT_PRODUCT_LIMITS.md), the [official-source audit](docs/release/OFFICIAL_SOURCE_AUDIT.md), and the recorded [license decision](docs/release/LICENSE_DECISION.md).
 
-Publication steps are documented in the bilingual [publishing tutorial](docs/tutorials/publishing.md) and truthful [release checklist](docs/release/RELEASE_CHECKLIST.md). An independent public repository and one clean initial commit may be created only after the documented hard gates pass. Tagging, GitHub release publication, PyPI, and Zenodo remain separate actions.
+Publication steps are documented in the bilingual [publishing tutorial](docs/tutorials/publishing.md) and truthful [release checklist](docs/release/RELEASE_CHECKLIST.md). The independent public repository was created from an audited clean export. The v0.1.0 tag and GitHub Release are separately gated finalization actions; PyPI and Zenodo are not part of this release.
 
 ## Disclaimer
 

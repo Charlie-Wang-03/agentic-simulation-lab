@@ -26,6 +26,6 @@ python tools/check_source_provenance.py --root artifacts/public-exports/export-b
 7. 仅在该新目录执行 `git init`、建立 `main`、生成一个干净的首次 commit、创建空的公开仓库 `Charlie-Wang-03/agentic-simulation-lab`，并只 push `main`。
 8. 配置元数据与安全设置；在任何 tag 或发布前审阅 v0.1.0 release plan。
 
-未来公开仓库必须具有独立历史，不能带入任何 private remote、branch、commit、tag、reflog、worktree metadata 或 R&D-only 文件。
+公开仓库具有独立历史，不能带入任何 private remote、branch、commit、tag、reflog、worktree metadata 或 R&D-only 文件。
 
-唯一允许的公开维护者标识是 `Charlie-Wang-03`。不要猜测或公开姓名、邮箱、no-reply 地址、主机名或许可证端点。
+唯一允许的公开维护者标识是 `Charlie-Wang-03`。只能使用维护者提供的脱敏 Git metadata；不得猜测或公开真实姓名、私人邮箱、主机名或许可证端点。
