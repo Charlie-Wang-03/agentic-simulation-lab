@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "domain": "dem",
+  "title": "Dem",
+  "cases": [
+    {
+      "slug": "angle-of-repose",
+      "title": "Smoke Angle Of Repose",
+      "entrypoint": "benchmarks/dem/cases/smoke_angle_of_repose.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C001",
+      "solver": "Rocky",
+      "analysis": "Angle Of Repose",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_d_angle_of_repose/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "cfd-dem-one-way",
+      "title": "Smoke Cfd Dem One Way",
+      "entrypoint": "benchmarks/dem/cases/smoke_cfd_dem_one_way.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C002",
+      "solver": "Rocky",
+      "analysis": "Cfd Dem One Way",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_i_one_way/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "cfd-dem-two-way",
+      "title": "Smoke Cfd Dem Two Way",
+      "entrypoint": "benchmarks/dem/cases/smoke_cfd_dem_two_way.py",
+      "role": "benchmark",
+      "status": "BLOCKED",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C003",
+      "solver": "Rocky",
+      "analysis": "Cfd Dem Two Way",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_j_two_way/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "hopper-discharge",
+      "title": "Smoke Hopper Discharge",
+      "entrypoint": "benchmarks/dem/cases/smoke_hopper_discharge.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C004",
+      "solver": "Rocky",
+      "analysis": "Hopper Discharge",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_e_hopper/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "nonspherical-particles",
+      "title": "Smoke Nonspherical Particles",
+      "entrypoint": "benchmarks/dem/cases/smoke_nonspherical_particles.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C005",
+      "solver": "Rocky",
+      "analysis": "Nonspherical Particles",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_g_nonspherical/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "particle-collision",
+      "title": "Smoke Particle Collision",
+      "entrypoint": "benchmarks/dem/cases/smoke_particle_collision.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C006",
+      "solver": "Rocky",
+      "analysis": "Particle Collision",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_b_collision/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "particle-freefall",
+      "title": "Smoke Particle Freefall",
+      "entrypoint": "benchmarks/dem/cases/run_particle_freefall.py",
+      "result_file": "rocky_dem/case_a_freefall/result.json",
+      "result_format": "legacy",
+      "timeout_seconds": 300,
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C007",
+      "solver": "Rocky",
+      "analysis": "Particle Freefall",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "particle-friction",
+      "title": "Smoke Particle Friction",
+      "entrypoint": "benchmarks/dem/cases/smoke_particle_friction.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C008",
+      "solver": "Rocky",
+      "analysis": "Particle Friction",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_c_friction/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "particle-thermal",
+      "title": "Smoke Particle Thermal",
+      "entrypoint": "benchmarks/dem/cases/smoke_particle_thermal.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C009",
+      "solver": "Rocky",
+      "analysis": "Particle Thermal",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_h_thermal/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "validate-rocky-dataset",
+      "title": "Smoke Rocky Dataset",
+      "entrypoint": "benchmarks/dem/cases/smoke_rocky_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C010",
+      "solver": "Python validator/generator",
+      "analysis": "Rocky Dataset",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/dataset/dataset_index.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "rotating-drum",
+      "title": "Smoke Rotating Drum",
+      "entrypoint": "benchmarks/dem/cases/smoke_rotating_drum.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C011",
+      "solver": "Rocky",
+      "analysis": "Rotating Drum",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "rocky_dem/case_f_rotating_drum/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "rocky-dataset",
+      "title": "Validate Rocky Dataset",
+      "entrypoint": "benchmarks/dem/cases/validate_rocky_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/dem/references/suite_summary.json",
+      "id": "C012",
+      "solver": "Python validator/generator",
+      "analysis": "Validate Rocky Dataset",
+      "reference": "benchmarks/dem/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    }
+  ],
+  "required_products": [
+    "Rocky"
+  ],
+  "runner": "benchmarks/dem/run_suite.py"
+}

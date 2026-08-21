@@ -1,0 +1,164 @@
+{
+  "schema_version": 2,
+  "domain": "materials",
+  "title": "Materials",
+  "cases": [
+    {
+      "slug": "creep",
+      "title": "Smoke Creep",
+      "entrypoint": "benchmarks/materials/cases/smoke_creep.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/materials/references/historical_results.json",
+      "id": "C001",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Creep",
+      "reference": "benchmarks/materials/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "materials/creep/creep_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fatigue",
+      "title": "Smoke Fatigue",
+      "entrypoint": "benchmarks/materials/cases/smoke_fatigue.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/materials/references/historical_results.json",
+      "id": "C002",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Fatigue",
+      "reference": "benchmarks/materials/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "materials/fatigue/fatigue_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fracture",
+      "title": "Smoke Fracture",
+      "entrypoint": "benchmarks/materials/cases/smoke_fracture.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/materials/references/historical_results.json",
+      "id": "C003",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Fracture",
+      "reference": "benchmarks/materials/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "materials/fracture/fracture_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "hyperelastic",
+      "title": "Smoke Hyperelastic",
+      "entrypoint": "benchmarks/materials/cases/smoke_hyperelastic.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/materials/references/historical_results.json",
+      "id": "C004",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Hyperelastic",
+      "reference": "benchmarks/materials/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "materials/hyperelastic/hyperelastic_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "orthotropic",
+      "title": "Smoke Orthotropic",
+      "entrypoint": "benchmarks/materials/cases/smoke_orthotropic.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/materials/references/historical_results.json",
+      "id": "C005",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Orthotropic",
+      "reference": "benchmarks/materials/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "materials/orthotropic/orthotropic_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "plasticity",
+      "title": "Smoke Plasticity",
+      "entrypoint": "benchmarks/materials/cases/smoke_plasticity.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/materials/references/historical_results.json",
+      "id": "C006",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Plasticity",
+      "reference": "benchmarks/materials/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "materials/plasticity/plasticity_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "single-crystal-elasticity",
+      "title": "Smoke Single Crystal Elasticity",
+      "entrypoint": "benchmarks/materials/cases/smoke_single_crystal_elasticity.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/materials/references/historical_results.json",
+      "id": "C007",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Single Crystal Elasticity",
+      "reference": "benchmarks/materials/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "materials/single_crystal_elasticity/single_crystal_elasticity_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "viscoelastic",
+      "title": "Smoke Viscoelastic",
+      "entrypoint": "benchmarks/materials/cases/smoke_viscoelastic.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/materials/references/historical_results.json",
+      "id": "C008",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Viscoelastic",
+      "reference": "benchmarks/materials/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "materials/viscoelastic/viscoelastic_results.json",
+      "result_format": "legacy"
+    }
+  ],
+  "required_products": [
+    "Mechanical",
+    "MAPDL"
+  ],
+  "runner": "benchmarks/materials/run_suite.py"
+}

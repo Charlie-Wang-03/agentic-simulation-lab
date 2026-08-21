@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "cases": {
+    "fluent-connect": "PASS",
+    "fluent-laminar-channel": "PASS",
+    "fluent-turbulent-pipe": "PASS",
+    "fluent-cylinder": "PASS",
+    "fluent-wind-tunnel": "PASS",
+    "fluent-natural-convection": "PASS",
+    "fluent-compressible-nozzle": "PASS",
+    "fluent-dataset": "PASS"
+  },
+  "dataset_validation": {
+    "case_count": 12,
+    "coordinates_consistent": true,
+    "nan_inf_free": true,
+    "metadata_complete": true
+  }
+}

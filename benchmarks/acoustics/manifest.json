@@ -1,0 +1,220 @@
+{
+  "schema_version": 2,
+  "domain": "acoustics",
+  "title": "Acoustics",
+  "cases": [
+    {
+      "slug": "acoustic-cavity-modal",
+      "title": "Smoke Acoustic Cavity Modal",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_cavity_modal.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C001",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Acoustic Cavity Modal",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_b_cavity_modal/case_b_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "acoustic-dataset",
+      "title": "Smoke Acoustic Dataset",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C002",
+      "solver": "Python validator/generator",
+      "analysis": "Acoustic Dataset",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_i_dataset/case_i_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "acoustic-impedance",
+      "title": "Smoke Acoustic Impedance",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_impedance.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C003",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Acoustic Impedance",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_h_impedance/case_h_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "acoustic-pml",
+      "title": "Smoke Acoustic Pml",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_pml.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C004",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Acoustic Pml",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/phase0_pml/pml_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "acoustic-radiation",
+      "title": "Smoke Acoustic Radiation",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_radiation.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C005",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Acoustic Radiation",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_e_radiation/case_e_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "acoustic-structural-coupling",
+      "title": "Smoke Acoustic Structural Coupling",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_structural_coupling.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C006",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Acoustic Structural Coupling",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_g_coupled/case_g_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "acoustic-transient",
+      "title": "Smoke Acoustic Transient",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_transient.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C007",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Acoustic Transient",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_d_transient/case_d_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "acoustic-tube",
+      "title": "Smoke Acoustic Tube",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_tube.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C008",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Acoustic Tube",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_a_tube/case_a_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "helmholtz-resonator",
+      "title": "Smoke Helmholtz Resonator",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_helmholtz_resonator.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C009",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Helmholtz Resonator",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_c_helmholtz/case_c_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "vibroacoustic-radiation",
+      "title": "Smoke Vibroacoustic Radiation",
+      "entrypoint": "benchmarks/acoustics/cases/smoke_vibroacoustic_radiation.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C010",
+      "solver": "MAPDL/Mechanical",
+      "analysis": "Vibroacoustic Radiation",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "acoustics/case_f_vibroacoustic/case_f_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "acoustics-dataset",
+      "title": "Validate Acoustics Dataset",
+      "entrypoint": "benchmarks/acoustics/cases/validate_acoustics_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/acoustics/references/suite_summary.json",
+      "id": "C011",
+      "solver": "Python validator/generator",
+      "analysis": "Validate Acoustics Dataset",
+      "reference": "benchmarks/acoustics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    }
+  ],
+  "required_products": [
+    "Mechanical",
+    "MAPDL",
+    "Fluent"
+  ],
+  "runner": "benchmarks/acoustics/run_suite.py"
+}

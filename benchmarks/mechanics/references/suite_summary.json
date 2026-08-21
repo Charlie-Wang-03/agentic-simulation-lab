@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "PARTIAL",
+  "source": "manifest aggregation backed by case reference checksums",
+  "counts": {
+    "NOT_RUN": 3,
+    "PASS": 9
+  },
+  "cases": [
+    {
+      "id": "C001",
+      "slug": "connect",
+      "status": "NOT_RUN",
+      "reference": null
+    },
+    {
+      "id": "C002",
+      "slug": "contact-friction",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C003",
+      "slug": "forced-vibration",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C004",
+      "slug": "impact",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C005",
+      "slug": "joint-drive",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C006",
+      "slug": "modal-cantilever",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C007",
+      "slug": "multibody-flexible",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C008",
+      "slug": "multibody-rigid",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C009",
+      "slug": "spring-damper",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C010",
+      "slug": "static-cantilever",
+      "status": "PASS",
+      "reference": "benchmarks/mechanics/references/historical_results.json"
+    },
+    {
+      "id": "C011",
+      "slug": "spaceclaim-multibody-geometry",
+      "status": "NOT_RUN",
+      "reference": null
+    },
+    {
+      "id": "C012",
+      "slug": "spaceclaim-single-link-geometry",
+      "status": "NOT_RUN",
+      "reference": null
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-simulation-lab"
+version = "0.1.0"
+description = "Agent-first automation, reproducible simulation, and physics-validation workflows for Ansys simulation software"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = []
+authors = [{name = "Charlie-Wang-03"}]
+keywords = ["engineering-simulation", "physics-validation", "scientific-computing", "pyansys"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: MacOS",
+]
+
+[project.optional-dependencies]
+mechanical = ["ansys-mechanical-core"]
+fluent = ["ansys-fluent-core"]
+mapdl = ["ansys-mapdl-core"]
+aedt = ["pyaedt"]
+rocky = ["ansys-rocky-core"]
+system-coupling = ["ansys-systemcoupling-core"]
+data = ["numpy", "pandas"]
+dev = ["pytest>=8", "ruff>=0.6", "numpy>=1.26", "build>=1.2", "setuptools>=77", "wheel"]
+all = ["agentic-simulation-lab[mechanical,fluent,mapdl,aedt,rocky,system-coupling,data,dev]"]
+
+[project.scripts]
+agentic-sim = "agentic_simulation_lab.cli:entrypoint"
+
+[project.urls]
+Homepage = "https://github.com/Charlie-Wang-03/agentic-simulation-lab"
+Documentation = "https://github.com/Charlie-Wang-03/agentic-simulation-lab/tree/main/docs"
+Issues = "https://github.com/Charlie-Wang-03/agentic-simulation-lab/issues"
+Repository = "https://github.com/Charlie-Wang-03/agentic-simulation-lab"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120

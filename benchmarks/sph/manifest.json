@@ -1,0 +1,290 @@
+{
+  "schema_version": 2,
+  "domain": "sph",
+  "title": "Sph",
+  "cases": [
+    {
+      "slug": "prepare-sph-dataset",
+      "title": "Prepare Sph Dataset",
+      "entrypoint": "benchmarks/sph/cases/prepare_sph_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C001",
+      "solver": "Python validator/generator",
+      "analysis": "Prepare Sph Dataset",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "sph-capabilities",
+      "title": "Probe Sph Capabilities",
+      "entrypoint": "benchmarks/sph/cases/probe_sph_capabilities.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C002",
+      "solver": "Rocky",
+      "analysis": "Probe Sph Capabilities",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "sph-dam-break",
+      "title": "Smoke Sph Dam Break",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_dam_break.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C003",
+      "solver": "Rocky",
+      "analysis": "Sph Dam Break",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_b_dam_break/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "validate-sph-dataset",
+      "title": "Smoke Sph Dataset",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C004",
+      "solver": "Python validator/generator",
+      "analysis": "Sph Dataset",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_l_dataset/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-flexible-structure",
+      "title": "Smoke Sph Flexible Structure",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_flexible_structure.py",
+      "role": "benchmark",
+      "status": "BLOCKED",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C005",
+      "solver": "Rocky",
+      "analysis": "Sph Flexible Structure",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_i_flexible_structure/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-hydrostatic",
+      "title": "Smoke Sph Hydrostatic",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_hydrostatic.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C006",
+      "solver": "Rocky",
+      "analysis": "Sph Hydrostatic",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_a_hydrostatic/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-jet-impact",
+      "title": "Smoke Sph Jet Impact",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_jet_impact.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C007",
+      "solver": "Rocky",
+      "analysis": "Sph Jet Impact",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_d_jet_impact/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-moving-boundary",
+      "title": "Smoke Sph Moving Boundary",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_moving_boundary.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C008",
+      "solver": "Rocky",
+      "analysis": "Sph Moving Boundary",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_e_moving_boundary/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-non-newtonian",
+      "title": "Smoke Sph Non Newtonian",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_non_newtonian.py",
+      "role": "benchmark",
+      "status": "BLOCKED",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C009",
+      "solver": "Rocky",
+      "analysis": "Sph Non Newtonian",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_f_non_newtonian/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-resolution",
+      "title": "Smoke Sph Resolution",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_resolution.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C010",
+      "solver": "Rocky",
+      "analysis": "Sph Resolution",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_j_resolution/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-rigid-body",
+      "title": "Smoke Sph Rigid Body",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_rigid_body.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C011",
+      "solver": "Rocky",
+      "analysis": "Sph Rigid Body",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_h_rigid_body/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-sloshing",
+      "title": "Smoke Sph Sloshing",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_sloshing.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C012",
+      "solver": "Rocky",
+      "analysis": "Sph Sloshing",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_c_sloshing/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-thermal",
+      "title": "Smoke Sph Thermal",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_thermal.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C013",
+      "solver": "Rocky",
+      "analysis": "Sph Thermal",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_g_thermal/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-vof-comparison",
+      "title": "Smoke Sph Vof Comparison",
+      "entrypoint": "benchmarks/sph/cases/smoke_sph_vof_comparison.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C014",
+      "solver": "Rocky",
+      "analysis": "Sph Vof Comparison",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "sph_free_surface/case_k_vof_comparison/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "sph-dataset",
+      "title": "Validate Sph Dataset",
+      "entrypoint": "benchmarks/sph/cases/validate_sph_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/sph/references/suite_summary.json",
+      "id": "C015",
+      "solver": "Python validator/generator",
+      "analysis": "Validate Sph Dataset",
+      "reference": "benchmarks/sph/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    }
+  ],
+  "required_products": [
+    "Rocky"
+  ],
+  "runner": "benchmarks/sph/run_suite.py"
+}

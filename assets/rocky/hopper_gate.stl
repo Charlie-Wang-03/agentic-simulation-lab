@@ -1,0 +1,16 @@
+solid hopper_gate
+  facet normal 0 0 1
+    outer loop
+      vertex -0.025 -0.025 0.019
+      vertex 0.025 -0.025 0.019
+      vertex 0.025 0.025 0.019
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -0.025 -0.025 0.019
+      vertex 0.025 0.025 0.019
+      vertex -0.025 0.025 0.019
+    endloop
+  endfacet
+endsolid hopper_gate

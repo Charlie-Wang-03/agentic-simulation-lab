@@ -1,0 +1,18 @@
+name: Benchmark proposal
+description: Propose a solver-backed case and physical validation criteria
+body:
+  - type: input
+    id: domain
+    attributes:
+      label: Domain
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "Do not attach proprietary solver files, license data, confidential models, private paths, tokens, or personal information. A benchmark here means canonical physics validation, not competitive product analysis."
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Physical acceptance criteria
+    validations:
+      required: true

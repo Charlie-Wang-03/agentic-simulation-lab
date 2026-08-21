@@ -1,0 +1,236 @@
+{
+  "schema_version": 2,
+  "domain": "porous_geomechanics",
+  "title": "Porous Geomechanics",
+  "cases": [
+    {
+      "slug": "porous-geomechanics-capabilities",
+      "title": "Probe Porous Geomechanics Capabilities",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/probe_porous_geomechanics_capabilities.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C001",
+      "solver": "Fluent/MAPDL",
+      "analysis": "Probe Porous Geomechanics Capabilities",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "anisotropic-porous",
+      "title": "Smoke Anisotropic Porous",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_anisotropic_porous.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C002",
+      "solver": "Fluent",
+      "analysis": "Anisotropic Porous",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/anisotropic_porous/anisotropic_porous_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "darcy-flow",
+      "title": "Smoke Darcy Flow",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_darcy_flow.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C003",
+      "solver": "Fluent",
+      "analysis": "Darcy Flow",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/darcy_flow/darcy_flow_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "forchheimer-flow",
+      "title": "Smoke Forchheimer Flow",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_forchheimer_flow.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C004",
+      "solver": "Fluent",
+      "analysis": "Forchheimer Flow",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/forchheimer_flow/forchheimer_flow_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "geomechanics-material",
+      "title": "Smoke Geomechanics Material",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_geomechanics_material.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C005",
+      "solver": "MAPDL",
+      "analysis": "Geomechanics Material",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/geomechanics_material/geomechanics_material_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "geostatic-consolidation",
+      "title": "Smoke Geostatic Consolidation",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_geostatic_consolidation.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C006",
+      "solver": "MAPDL",
+      "analysis": "Geostatic Consolidation",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/geostatic_consolidation/geostatic_consolidation_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "validate-porous-dataset",
+      "title": "Smoke Porous Dataset",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_porous_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C007",
+      "solver": "Python validator/generator",
+      "analysis": "Porous Dataset",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/porous_dataset/porous_dataset_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "porous-heat-transfer",
+      "title": "Smoke Porous Heat Transfer",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_porous_heat_transfer.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C008",
+      "solver": "Fluent",
+      "analysis": "Porous Heat Transfer",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/porous_heat_transfer/porous_heat_transfer_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "porous-species",
+      "title": "Smoke Porous Species",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_porous_species.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C009",
+      "solver": "Fluent",
+      "analysis": "Porous Species",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/porous_species/porous_species_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "terzaghi-consolidation",
+      "title": "Smoke Terzaghi Consolidation",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_terzaghi_consolidation.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C010",
+      "solver": "MAPDL",
+      "analysis": "Terzaghi Consolidation",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/terzaghi_consolidation/terzaghi_consolidation_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "thermo-poroelastic",
+      "title": "Smoke Thermo Poroelastic",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_thermo_poroelastic.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "id": "C011",
+      "solver": "MAPDL",
+      "analysis": "Thermo Poroelastic",
+      "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "porous_geomechanics/thermo_poroelastic/thermo_poroelastic_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "porous-dataset",
+      "title": "Validate Porous Dataset",
+      "entrypoint": "benchmarks/porous_geomechanics/cases/validate_porous_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/porous_geomechanics/references/historical_results.json",
+      "id": "C012",
+      "solver": "Python validator/generator",
+      "analysis": "Validate Porous Dataset",
+      "reference": "benchmarks/porous_geomechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    }
+  ],
+  "required_products": [
+    "Fluent",
+    "MAPDL"
+  ],
+  "runner": "benchmarks/porous_geomechanics/run_suite.py"
+}

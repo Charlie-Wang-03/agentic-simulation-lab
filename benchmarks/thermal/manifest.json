@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "domain": "thermal",
+  "title": "Thermal",
+  "cases": [
+    {
+      "slug": "thermal-conduction",
+      "title": "Smoke Thermal Conduction",
+      "entrypoint": "benchmarks/thermal/cases/smoke_thermal_conduction.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/thermal/references/historical_results.json",
+      "id": "C001",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Thermal Conduction",
+      "reference": "benchmarks/thermal/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermal_conduction_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "thermal-contact",
+      "title": "Smoke Thermal Contact",
+      "entrypoint": "benchmarks/thermal/cases/smoke_thermal_contact.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/thermal/references/historical_results.json",
+      "id": "C002",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Thermal Contact",
+      "reference": "benchmarks/thermal/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermal_contact_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "thermal-convection",
+      "title": "Smoke Thermal Convection",
+      "entrypoint": "benchmarks/thermal/cases/smoke_thermal_convection.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/thermal/references/historical_results.json",
+      "id": "C003",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Thermal Convection",
+      "reference": "benchmarks/thermal/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermal_convection_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "thermal-heat-generation",
+      "title": "Smoke Thermal Heat Generation",
+      "entrypoint": "benchmarks/thermal/cases/smoke_thermal_heat_generation.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/thermal/references/historical_results.json",
+      "id": "C004",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Thermal Heat Generation",
+      "reference": "benchmarks/thermal/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermal_heat_generation_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "thermal-radiation",
+      "title": "Smoke Thermal Radiation",
+      "entrypoint": "benchmarks/thermal/cases/smoke_thermal_radiation.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/thermal/references/historical_results.json",
+      "id": "C005",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Thermal Radiation",
+      "reference": "benchmarks/thermal/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermal_radiation_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "thermal-structural",
+      "title": "Smoke Thermal Structural",
+      "entrypoint": "benchmarks/thermal/cases/smoke_thermal_structural.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/thermal/references/historical_results.json",
+      "id": "C006",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Thermal Structural",
+      "reference": "benchmarks/thermal/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermal_structural_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "thermal-transient",
+      "title": "Smoke Thermal Transient",
+      "entrypoint": "benchmarks/thermal/cases/smoke_thermal_transient.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/thermal/references/historical_results.json",
+      "id": "C007",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Thermal Transient",
+      "reference": "benchmarks/thermal/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermal_transient_results.json",
+      "result_format": "legacy"
+    }
+  ],
+  "required_products": [
+    "Mechanical",
+    "MAPDL"
+  ],
+  "runner": "benchmarks/thermal/run_suite.py"
+}

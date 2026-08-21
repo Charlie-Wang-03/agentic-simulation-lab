@@ -1,0 +1,202 @@
+{
+  "schema_version": 2,
+  "domain": "multiphysics",
+  "title": "Multiphysics",
+  "cases": [
+    {
+      "slug": "cht-fluent",
+      "title": "Smoke Cht Fluent",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_cht_fluent.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C001",
+      "solver": "Fluent/Mechanical",
+      "analysis": "Cht Fluent",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "cht_fluent.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "cht-system-coupling",
+      "title": "Smoke Cht System Coupling",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_cht_system_coupling.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C002",
+      "solver": "Fluent/Mechanical/System Coupling",
+      "analysis": "Cht System Coupling",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "cht_system_coupling.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fsi-one-way",
+      "title": "Smoke Fsi One Way",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_fsi_one_way.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C003",
+      "solver": "Fluent/Mechanical/System Coupling",
+      "analysis": "Fsi One Way",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fsi_one_way.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fsi-turek-hron",
+      "title": "Smoke Fsi Turek Hron",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_fsi_turek_hron.py",
+      "role": "benchmark",
+      "status": "FAIL",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C004",
+      "solver": "Fluent/Mechanical/System Coupling",
+      "analysis": "Fsi Turek Hron",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fsi_turek_hron.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fsi-two-way",
+      "title": "Smoke Fsi Two Way",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_fsi_two_way.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C005",
+      "solver": "Fluent/Mechanical/System Coupling",
+      "analysis": "Fsi Two Way",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fsi_two_way.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "validate-multiphysics-dataset",
+      "title": "Smoke Multiphysics Dataset",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_multiphysics_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C006",
+      "solver": "Python validator/generator",
+      "analysis": "Multiphysics Dataset",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "multiphysics_dataset.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "system-coupling-connect",
+      "title": "Smoke System Coupling Connect",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_system_coupling_connect.py",
+      "result_file": "system_coupling_connect.json",
+      "result_format": "legacy",
+      "timeout_seconds": 300,
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C007",
+      "solver": "Fluent/Mechanical/System Coupling",
+      "analysis": "System Coupling Connect",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "thermal-fluid-structural",
+      "title": "Smoke Thermal Fluid Structural",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_thermal_fluid_structural.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C008",
+      "solver": "Fluent/Mechanical",
+      "analysis": "Thermal Fluid Structural",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermal_fluid_structural.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "thermo-fsi",
+      "title": "Smoke Thermo Fsi",
+      "entrypoint": "benchmarks/multiphysics/cases/smoke_thermo_fsi.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C009",
+      "solver": "Fluent/Mechanical/System Coupling",
+      "analysis": "Thermo Fsi",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "thermo_fsi.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "multiphysics-dataset",
+      "title": "Validate Multiphysics Dataset",
+      "entrypoint": "benchmarks/multiphysics/cases/validate_multiphysics_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/multiphysics/references/historical_results.json",
+      "id": "C010",
+      "solver": "Python validator/generator",
+      "analysis": "Validate Multiphysics Dataset",
+      "reference": "benchmarks/multiphysics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    }
+  ],
+  "required_products": [
+    "Fluent",
+    "Mechanical",
+    "System Coupling"
+  ],
+  "runner": "benchmarks/multiphysics/run_suite.py"
+}

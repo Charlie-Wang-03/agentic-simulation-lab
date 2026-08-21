@@ -1,0 +1,67 @@
+{
+  "generated_at_utc": "2026-08-20T15:50:26.292822+00:00",
+  "source_of_truth": "latest durable CLI run records",
+  "cases": {
+    "mechanical_mapdl": {
+      "domain": "mechanics",
+      "case": "static-cantilever",
+      "status": "PASS",
+      "run_record": "artifacts/runs/mechanics/static-cantilever/20260820T154016Z/run.json",
+      "observed_result_statuses": [
+        {
+          "path": "static_cantilever_results.json",
+          "status": "PASS"
+        }
+      ]
+    },
+    "fluent": {
+      "domain": "cfd",
+      "case": "fluent-laminar-channel",
+      "status": "PASS",
+      "run_record": "artifacts/runs/cfd/fluent-laminar-channel/20260820T154049Z/run.json",
+      "observed_result_statuses": [
+        {
+          "path": "fluent_laminar_channel.json",
+          "status": "PASS"
+        }
+      ]
+    },
+    "aedt": {
+      "domain": "electromagnetics",
+      "case": "electrostatic",
+      "status": "FAIL",
+      "run_record": "artifacts/runs/electromagnetics/electrostatic/20260820T154230Z/run.json",
+      "observed_result_statuses": [
+        {
+          "path": "electromagnetics/case_a_electrostatic/result.json",
+          "status": "FAIL"
+        }
+      ],
+      "classification": "Official AEDT Student discovery passed, but the supported PyAEDT gRPC session failed to start; no transport bypass was attempted."
+    },
+    "rocky": {
+      "domain": "dem",
+      "case": "particle-freefall",
+      "status": "PASS",
+      "run_record": "artifacts/runs/dem/particle-freefall/20260820T154734Z/run.json",
+      "observed_result_statuses": [
+        {
+          "path": "rocky_dem/case_a_freefall/result.json",
+          "status": "PASS"
+        }
+      ]
+    },
+    "system_coupling": {
+      "domain": "multiphysics",
+      "case": "system-coupling-connect",
+      "status": "PASS",
+      "run_record": "artifacts/runs/multiphysics/system-coupling-connect/20260820T154827Z/run.json",
+      "observed_result_statuses": [
+        {
+          "path": "system_coupling_connect.json",
+          "status": "PASS"
+        }
+      ]
+    }
+  }
+}

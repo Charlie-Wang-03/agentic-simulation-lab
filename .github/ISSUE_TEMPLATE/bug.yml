@@ -1,0 +1,19 @@
+name: Bug report
+description: Report a reproducible defect without private solver or license data
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction and environment
+      description: Redact user paths, hostnames, and license-server details.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "Do not attach proprietary solver files, license data, tokens, private addresses, confidential models, or personal information. Use private vulnerability reporting for security issues."

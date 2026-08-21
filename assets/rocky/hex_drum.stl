@@ -1,0 +1,170 @@
+solid hex_drum
+  facet normal 0 0 0
+    outer loop
+      vertex 0.04 -0.02 0.06
+      vertex 0.04 0.02 0.06
+      vertex 0.02 0.02 0.094641
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.04 -0.02 0.06
+      vertex 0.02 0.02 0.094641
+      vertex 0.02 -0.02 0.094641
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.02 -0.02 0.094641
+      vertex 0.02 0.02 0.094641
+      vertex -0.02 0.02 0.094641
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.02 -0.02 0.094641
+      vertex -0.02 0.02 0.094641
+      vertex -0.02 -0.02 0.094641
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.02 -0.02 0.094641
+      vertex -0.02 0.02 0.094641
+      vertex -0.04 0.02 0.06
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.02 -0.02 0.094641
+      vertex -0.04 0.02 0.06
+      vertex -0.04 -0.02 0.06
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.04 -0.02 0.06
+      vertex -0.04 0.02 0.06
+      vertex -0.02 0.02 0.025359
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.04 -0.02 0.06
+      vertex -0.02 0.02 0.025359
+      vertex -0.02 -0.02 0.025359
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.02 -0.02 0.025359
+      vertex -0.02 0.02 0.025359
+      vertex 0.02 0.02 0.025359
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.02 -0.02 0.025359
+      vertex 0.02 0.02 0.025359
+      vertex 0.02 -0.02 0.025359
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.02 -0.02 0.025359
+      vertex 0.02 0.02 0.025359
+      vertex 0.04 0.02 0.06
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.02 -0.02 0.025359
+      vertex 0.04 0.02 0.06
+      vertex 0.04 -0.02 0.06
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 -0.02 0.06
+      vertex 0.04 -0.02 0.06
+      vertex 0.02 -0.02 0.094641
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 -0.02 0.06
+      vertex 0.02 -0.02 0.094641
+      vertex -0.02 -0.02 0.094641
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 -0.02 0.06
+      vertex -0.02 -0.02 0.094641
+      vertex -0.04 -0.02 0.06
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 -0.02 0.06
+      vertex -0.04 -0.02 0.06
+      vertex -0.02 -0.02 0.025359
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 -0.02 0.06
+      vertex -0.02 -0.02 0.025359
+      vertex 0.02 -0.02 0.025359
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 -0.02 0.06
+      vertex 0.02 -0.02 0.025359
+      vertex 0.04 -0.02 0.06
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 0.02 0.06
+      vertex 0.02 0.02 0.094641
+      vertex 0.04 0.02 0.06
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 0.02 0.06
+      vertex -0.02 0.02 0.094641
+      vertex 0.02 0.02 0.094641
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 0.02 0.06
+      vertex -0.04 0.02 0.06
+      vertex -0.02 0.02 0.094641
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 0.02 0.06
+      vertex -0.02 0.02 0.025359
+      vertex -0.04 0.02 0.06
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 0.02 0.06
+      vertex 0.02 0.02 0.025359
+      vertex -0.02 0.02 0.025359
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0 0.02 0.06
+      vertex 0.04 0.02 0.06
+      vertex 0.02 0.02 0.025359
+    endloop
+  endfacet
+endsolid hex_drum

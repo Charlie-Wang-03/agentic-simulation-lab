@@ -1,0 +1,46 @@
+{
+  "case": "electrostatic",
+  "status": "FAIL",
+  "product": "Electronics Desktop Student 2025 R2",
+  "discovery_trust": "PASS",
+  "failure_stage": "supported PyAEDT gRPC session startup",
+  "error": "Exception: Failed to start a supported PyAEDT gRPC session; endpoint details redacted.",
+  "cleanup_complete": true,
+  "acceptance_thresholds_changed": false,
+  "authoritative_run_record": "artifacts/runs/electromagnetics/electrostatic/20260820T154230Z/run.json",
+  "targeted_reliability_diagnosis": {
+    "status": "COMPLETE",
+    "current_case_status_changed": false,
+    "python_version": "3.12.13",
+    "pyaedt_version": "1.4.0",
+    "observed_aedt_version": "Electronics Desktop Student 2025 R2",
+    "constructor_arguments_supported": true,
+    "supported_constructor_kwargs": [
+      "version",
+      "non_graphical",
+      "new_desktop",
+      "close_on_exit",
+      "student_version"
+    ],
+    "default_transport": "secure-local gRPC",
+    "diagnosis_ladder": {
+      "python_pyaedt": "PASS",
+      "installation_discovery": "PASS",
+      "executable_trust": "PASS",
+      "version_compatibility": "BLOCKED",
+      "session_startup": "NOT_RUN",
+      "project_design_creation": "NOT_RUN",
+      "minimal_solve": "NOT_RUN",
+      "release_cleanup": "PASS"
+    },
+    "narrowest_cause": "AEDT Student 2025 R2 and earlier do not support PyAEDT's default secure-local gRPC transport",
+    "classification": "external product/API version limitation under the authorized transport policy",
+    "forbidden_alternative_not_attempted": "insecure/pre-service-pack transport fallback",
+    "official_reference": "https://aedt.docs.pyansys.com/version/stable/Getting_started/Troubleshooting.html",
+    "fresh_diagnostic_run_record": "artifacts/runs/electromagnetics/electrostatic/20260821T041819Z/run.json",
+    "constructor_attempts": 0,
+    "solver_launches": 0,
+    "remaining_owned_processes": 0,
+    "historical_failure_preserved": true
+  }
+}

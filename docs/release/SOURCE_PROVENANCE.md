@@ -1,0 +1,36 @@
+# Source-provenance audit
+
+Checked: 2026-08-21
+
+Status: **PASS for the tracked candidate tree.**
+
+This audit classifies every shipped content family using the fail-closed categories required for public release. `UNCLEAR` content is not permitted in a public candidate.
+
+| Content family | Classification | Evidence and boundary |
+|---|---|---|
+| Python package, CLI, tools, tests, agent skills, benchmark scripts, and prose | OWNED | Repository-authored implementation and documentation; no external copyright/SPDX header or copied source block was found in tracked source. |
+| Analytical formulas, standard physical equations, factual API/product names, and manifest/result schemas | PUBLIC-DOMAIN / FACTUAL | Canonical scientific relations and factual interoperability identifiers are not copied expressive vendor content. |
+| JSON reference evidence and Markdown reports | OWNED | Locally generated measurements and repository-authored summaries; proprietary solver databases and raw generated projects remain excluded. |
+| Seven `assets/rocky/*.stl` fixtures | OWNED | Simple repository-generated educational geometry; exact file hashes are pinned below. |
+| External links to official documentation and terms | PUBLIC-DOMAIN / FACTUAL | Links and short factual descriptions are citations, not redistributed documentation. |
+| Third-party dependencies | PERMISSIVELY LICENSED + ATTRIBUTED | Installed separately; licenses and roles are recorded in `THIRD_PARTY_NOTICES.md`; no dependency source is vendored. |
+
+No tracked Ansys documentation prose, official example/model asset, screenshot, logo, installer, binary, library, license file, solver database, third-party dataset, or unattributed third-party source snippet was identified. The HFSS WR-90 implementation was manually compared with the cited public example as described in `OFFICIAL_SOURCE_AUDIT.md`; it uses factual public APIs but different repository-authored geometry, parameters, validation, flow, and prose.
+
+## Owned binary fixture hashes
+
+| Path | SHA-256 |
+|---|---|
+| `assets/rocky/floor.stl` | `e2dbd91ff9953653e21059685e817f5a05066e222b6486d2d87781d7a920dd10` |
+| `assets/rocky/hex_drum.stl` | `51d5610b5df77cedfbd848154882a50419905030c68d7996476a5577bfb55921` |
+| `assets/rocky/hopper.stl` | `aed50bdeaa3f23b86c23c46253b6d257e4bea2f1993e6d52d88422770e6f4b56` |
+| `assets/rocky/hopper_gate.stl` | `f8586e5770aa7e827f9077182b867f9a1d308a96d715fe5d0d8ea9b2f48dd489` |
+| `assets/rocky/sph_hydro_tank.stl` | `a35588472998a89ec63c41b19cd32118be49fd195c87a70a22c771fb6e6f09e8` |
+| `assets/rocky/sph_open_tank.stl` | `b22202fa6d90733be11c86dcd31bab1aec8806531573eb93f596891d78659d5b` |
+| `assets/rocky/sph_piston.stl` | `52a8822abeaecd7230aee36c21455a1bf5f883abc3f36d1a307dfe8f67301158` |
+
+The automated provenance gate rejects any additional non-text asset, any hash change to these fixtures, common image/logo formats, proprietary/generated solver formats, symlinks, and source files carrying an unreviewed external copyright or SPDX header. Manual review remains required for expressive copying that static checks cannot establish.
+
+## Publication rule
+
+Only `OWNED`, `PERMISSIVELY LICENSED + ATTRIBUTED`, and `PUBLIC-DOMAIN / FACTUAL` content may be exported. Any new `UNCLEAR` item is a publication blocker until removed or supported by provenance and redistribution evidence.

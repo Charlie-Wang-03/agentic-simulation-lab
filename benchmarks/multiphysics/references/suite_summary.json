@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "FAIL",
+  "source": "manifest aggregation backed by case reference checksums",
+  "counts": {
+    "FAIL": 1,
+    "PASS": 9
+  },
+  "cases": [
+    {
+      "id": "C001",
+      "slug": "cht-fluent",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C002",
+      "slug": "cht-system-coupling",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C003",
+      "slug": "fsi-one-way",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C004",
+      "slug": "fsi-turek-hron",
+      "status": "FAIL",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C005",
+      "slug": "fsi-two-way",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C006",
+      "slug": "validate-multiphysics-dataset",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C007",
+      "slug": "system-coupling-connect",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C008",
+      "slug": "thermal-fluid-structural",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C009",
+      "slug": "thermo-fsi",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    },
+    {
+      "id": "C010",
+      "slug": "multiphysics-dataset",
+      "status": "PASS",
+      "reference": "benchmarks/multiphysics/references/historical_results.json"
+    }
+  ]
+}

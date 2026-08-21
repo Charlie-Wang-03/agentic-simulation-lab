@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "records": {
+    "contact-friction": {
+      "sha256": "6d283cc30a6bc469af6d274786ed073355057706d72b68488d4a98f885031ee6",
+      "historical_name": "contact_friction_results.json",
+      "observed": {
+        "status": "PASS",
+        "checks": {
+          "history_available": true,
+          "contact_closed": true,
+          "contact_pressure_positive": true,
+          "friction_force_matches_coulomb": true,
+          "sliding_decelerates": true,
+          "coulomb_velocity_sanity": true,
+          "finite_results": true
+        }
+      }
+    },
+    "forced-vibration": {
+      "sha256": "fcca3e928ef2f4b6db1c281189eb7824507d905d2e81140b118c1a2431679d58",
+      "historical_name": "forced_vibration_results.json",
+      "observed": {
+        "status": "PASS",
+        "checks": {
+          "two_frequencies_solved": true,
+          "finite_positive_amplitudes": true,
+          "frequency_response_matches_theory": true,
+          "near_resonance_amplified": true
+        }
+      }
+    },
+    "impact": {
+      "sha256": "5a3cf7575f022fc496195928756a7ccb7358265aedcbf2f07f191016a99df3d7",
+      "historical_name": "impact_results.json",
+      "observed": {
+        "status": "PASS",
+        "checks": {
+          "history_available": true,
+          "contact_occurred": true,
+          "contact_pressure_positive": true,
+          "velocity_reversed": true,
+          "impact_force_positive": true,
+          "energy_order_of_magnitude": true,
+          "finite_results": true
+        }
+      }
+    },
+    "joint-drive": {
+      "sha256": "8ca4d0d290bf7ede3955aa619add3a4ec1ad86ffe227b21a36c467ff8cd88f1b",
+      "historical_name": "joint_drive_results.json",
+      "observed": {
+        "status": "PASS",
+        "checks": {
+          "solution_done": true,
+          "native_revolute_joint": true,
+          "prescribed_rotation": true,
+          "history_complete": true,
+          "angle_tracks_drive": true,
+          "velocity_and_acceleration_finite": true,
+          "no_solver_errors": true
+        }
+      }
+    },
+    "modal-cantilever": {
+      "sha256": "62298acc5f2e70e134db3124b44656b1ca4f2d6d9e9755b1b4710249c9e09e2f",
+      "historical_name": "modal_cantilever_results.json",
+      "observed": {
+        "status": "PASS"
+      }
+    },
+    "multibody-flexible": {
+      "sha256": "f2430b5adb66305a4c2f32f51fcdca4287fa15ccc14398c16f1af3335180e6f2",
+      "historical_name": "multibody_flexible_results.json",
+      "observed": {
+        "status": "PASS",
+        "checks": {
+          "solution_done": true,
+          "rigid_and_flexible_bodies": true,
+          "two_revolute_joints": true,
+          "mesh_created": true,
+          "history_complete": true,
+          "rigid_motion_present": true,
+          "flexible_motion_present": true,
+          "deformation_positive_finite": true,
+          "stress_positive_finite": true,
+          "ground_drift_small": true,
+          "no_solver_errors": true,
+          "finite_history": true
+        }
+      }
+    },
+    "multibody-rigid": {
+      "sha256": "e21d7734466c5945e1ee1780c32b8a633effcffdda0cab549971d1695fdf27f8",
+      "historical_name": "multibody_rigid_results.json",
+      "observed": {
+        "status": "PASS",
+        "checks": {
+          "solution_done": true,
+          "two_bodies": true,
+          "two_revolute_joints": true,
+          "history_complete": true,
+          "gravity_produced_motion": true,
+          "ground_drift_small": true,
+          "finite_history": true
+        }
+      }
+    },
+    "spring-damper": {
+      "sha256": "4e2e597700b27744175df40e742ac16665535a0c9ac7277d8ca0c0e2cf4de855",
+      "historical_name": "spring_damper_results.json",
+      "observed": {
+        "status": "PASS",
+        "checks": {
+          "solver_history": true,
+          "finite_response": true,
+          "decaying_response": true,
+          "theory_rmse_below_2_percent": true
+        }
+      }
+    },
+    "static-cantilever": {
+      "sha256": "37eeebd43287e840ecd33c572b6132e5004077b125064e664063553541cde583",
+      "historical_name": "static_cantilever_results.json",
+      "observed": {
+        "status": "PASS"
+      }
+    }
+  }
+}

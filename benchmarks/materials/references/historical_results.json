@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "records": {
+    "creep": {
+      "sha256": "9ec7202f2ae8532c7e605193bbb890fdff610d6b66e67e6336d87e048b6a6dfe",
+      "historical_name": "creep_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "D",
+        "title": "Norton secondary creep",
+        "solver": {
+          "product": "Ansys MAPDL Student",
+          "version": "2026 R1 / 261",
+          "units": "SI"
+        },
+        "checks": {
+          "history_has_40_points": true,
+          "creep_grows": true,
+          "positive_rate": true,
+          "late_time_error_below_5pct": true
+        }
+      }
+    },
+    "fatigue": {
+      "sha256": "e7318d5bd5d2b65239887ac89d28fa030e0d6d24257f9427e426fba0611b1048",
+      "historical_name": "fatigue_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "E",
+        "title": "S-N fatigue with Goodman mean-stress correction",
+        "solver": {
+          "product": "Ansys MAPDL Student",
+          "version": "2026 R1 / 261",
+          "units": "SI"
+        },
+        "checks": {
+          "two_stress_states_solved": true,
+          "stress_range_positive": true,
+          "reaction_load_conserved": true,
+          "life_within_sn_range": true,
+          "finite_damage": true
+        }
+      }
+    },
+    "fracture": {
+      "sha256": "86d9e2ffdbac659593c697b3e6a0f1843d3a1140bba6e945f4176a6539be9a31",
+      "historical_name": "fracture_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "F",
+        "title": "Mode-I center crack SIF",
+        "solver": {
+          "product": "Ansys MAPDL Student",
+          "version": "2026 R1 / 261",
+          "units": "SI"
+        },
+        "checks": {
+          "five_contours": true,
+          "ki_positive": true,
+          "contour_scatter_below_15pct": true,
+          "infinite_plate_error_below_12pct": true
+        }
+      }
+    },
+    "hyperelastic": {
+      "sha256": "fec91cfc73abe2c0248288e0f3427ac145a59452c2889304242bc92bcd137d07",
+      "historical_name": "hyperelastic_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "B",
+        "title": "Neo-Hookean large-deformation tension",
+        "solver": {
+          "product": "Ansys MAPDL Student",
+          "version": "2026 R1 / 261",
+          "units": "SI"
+        },
+        "checks": {
+          "stretch_at_least_1p5": true,
+          "positive_force": true,
+          "stress_error_below_8pct": true,
+          "energy_error_below_10pct": true
+        }
+      }
+    },
+    "orthotropic": {
+      "sha256": "8beb8254050e94dac4dc6029097389c1612ad0477e346cd8c7691c7a0032f757",
+      "historical_name": "orthotropic_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "G",
+        "title": "Orthotropic lamina orientation response",
+        "solver": {
+          "product": "Ansys MAPDL Student",
+          "version": "2026 R1 / 261",
+          "units": "SI"
+        },
+        "checks": {
+          "three_orientations": true,
+          "0deg_error_below_3pct": true,
+          "45deg_error_below_5pct": true,
+          "90deg_error_below_3pct": true,
+          "anisotropy_observed": true
+        }
+      }
+    },
+    "plasticity": {
+      "sha256": "3c6b4343a3fbac57fa6ff3ace07a5f7fe584cd0d90f4896f4398e6758575477e",
+      "historical_name": "plasticity_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "A",
+        "title": "Bilinear plasticity load/unload",
+        "solver": {
+          "product": "Ansys MAPDL Student",
+          "version": "2026 R1 / 261",
+          "units": "SI"
+        },
+        "checks": {
+          "yield_reached": true,
+          "residual_strain_positive": true,
+          "reaction_stress_matches_load": true,
+          "residual_error_below_5pct": true,
+          "curve_error_below_8pct": true
+        }
+      }
+    },
+    "single-crystal-elasticity": {
+      "sha256": "e0aece370bdad88eb8d55ead89a0b5e36aee3b9e7685a86af3e30b415f97a852",
+      "historical_name": "single_crystal_elasticity_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "H",
+        "title": "Cubic single-crystal directional elasticity",
+        "solver": {
+          "product": "Ansys MAPDL Student",
+          "version": "2026 R1 / 261",
+          "units": "SI"
+        },
+        "checks": {
+          "three_directions": true,
+          "all_errors_below_3pct": true,
+          "directional_anisotropy_observed": true
+        }
+      }
+    },
+    "viscoelastic": {
+      "sha256": "df2d615f3b23492702f9325da2f91ba3cb85f79840d738c657d0d6563a3570d6",
+      "historical_name": "viscoelastic_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "C",
+        "title": "Prony stress-relaxation",
+        "solver": {
+          "product": "Ansys MAPDL Student",
+          "version": "2026 R1 / 261",
+          "units": "SI"
+        },
+        "checks": {
+          "history_has_40_points": true,
+          "stress_relaxes": true,
+          "long_term_modulus_positive": true,
+          "maximum_error_below_4pct": true
+        }
+      }
+    }
+  }
+}

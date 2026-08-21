@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "timestamp_utc": "2026-08-16T03:08:34.605294+00:00",
+  "preflight": {
+    "case": "Phase 0",
+    "title": "Ansys 261 porous/geomechanics capability probe",
+    "status": "PASS",
+    "timestamp_utc": "2026-08-16T03:08:23.064020+00:00",
+    "solver_version": "Ansys Student 2026 R1 / 261",
+    "units": "SI",
+    "fluent": {
+      "status": "PASS",
+      "porous_zone": true,
+      "porosity": 0.35,
+      "viscous_resistance": [
+        100000000.0,
+        200000000.0
+      ],
+      "inertial_resistance": [
+        10.0,
+        20.0
+      ],
+      "anisotropic_resistance": true,
+      "porous_energy": true,
+      "porous_species_transport": true,
+      "pyfluent_version": "0.41.0"
+    },
+    "mapdl": {
+      "status": "PASS",
+      "exit_code": 0,
+      "pymapdl_installed": true,
+      "CPT212_pore_pressure_element": true,
+      "ANTYPE_SOIL_recognized": true,
+      "transient_structural_pore_diffusion": true,
+      "geostatic_commands_to_test_in_case_G": [
+        "INISTATE",
+        "ACEL",
+        "initial pore-pressure DOF"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "checks": {
+      "fluent_porous_settings_roundtrip": true,
+      "mapdl_coupled_pore_element_available": true,
+      "mapdl_batch_completed": true
+    },
+    "interpretation": {
+      "ANTYPE_SOIL": "Reported exactly from the solver probe; CPT212 transient coupling remains the authoritative capability for Cases F/G.",
+      "api_policy": "A feature is not marked PASS until a solved case passes a physical check."
+    },
+    "files": [
+      "outputs/porous_geomechanics/phase0_capabilities/phase0.msh",
+      "outputs/porous_geomechanics/phase0_capabilities/phase0_capabilities.inp",
+      "outputs/porous_geomechanics/phase0_capabilities/phase0_capabilities_solver.out"
+    ]
+  },
+  "runs": [],
+  "cases": [
+    {
+      "case": "A",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/darcy_flow/darcy_flow_results.json"
+    },
+    {
+      "case": "B",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/forchheimer_flow/forchheimer_flow_results.json"
+    },
+    {
+      "case": "C",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/anisotropic_porous/anisotropic_porous_results.json"
+    },
+    {
+      "case": "D",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/porous_heat_transfer/porous_heat_transfer_results.json"
+    },
+    {
+      "case": "E",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/porous_species/porous_species_results.json"
+    },
+    {
+      "case": "F",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/terzaghi_consolidation/terzaghi_consolidation_results.json"
+    },
+    {
+      "case": "G",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/geostatic_consolidation/geostatic_consolidation_results.json"
+    },
+    {
+      "case": "H",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/geomechanics_material/geomechanics_material_results.json"
+    },
+    {
+      "case": "I",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/thermo_poroelastic/thermo_poroelastic_results.json"
+    },
+    {
+      "case": "J",
+      "status": "PASS",
+      "result_file": "outputs/porous_geomechanics/porous_dataset/porous_dataset_results.json"
+    }
+  ],
+  "report": "POROUS_MEDIA_GEOMECHANICS_REPORT.md"
+}

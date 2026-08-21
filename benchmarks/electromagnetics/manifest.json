@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "domain": "electromagnetics",
+  "title": "Electromagnetics",
+  "cases": [
+    {
+      "slug": "electrostatic-dataset",
+      "title": "Generate Electrostatic Dataset",
+      "entrypoint": "benchmarks/electromagnetics/cases/generate_electrostatic_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C001",
+      "solver": "Python validator/generator",
+      "analysis": "Generate Electrostatic Dataset",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/dataset_electrostatic_10/metadata.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "aedt-connect",
+      "title": "Smoke Aedt Connect",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_aedt_connect.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C002",
+      "solver": "AEDT",
+      "analysis": "Aedt Connect",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/smoke/maxwell_connect_official.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "dc-conduction",
+      "title": "Smoke Dc Conduction",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_dc_conduction.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C003",
+      "solver": "AEDT",
+      "analysis": "Dc Conduction",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/case_b_dc_conduction/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "eddy-current",
+      "title": "Smoke Eddy Current",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_eddy_current.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C004",
+      "solver": "AEDT",
+      "analysis": "Eddy Current",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/case_d_eddy_current/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "electrostatic",
+      "title": "Smoke Electrostatic",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_electrostatic.py",
+      "result_file": "electromagnetics/case_a_electrostatic/result.json",
+      "result_format": "legacy",
+      "timeout_seconds": 600,
+      "role": "benchmark",
+      "status": "FAIL",
+      "evidence": "benchmarks/electromagnetics/references/release_regression.json",
+      "id": "C005",
+      "solver": "AEDT",
+      "analysis": "Electrostatic",
+      "reference": "benchmarks/electromagnetics/references/release_regression.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "electrothermal-coupling",
+      "title": "Smoke Electrothermal Coupling",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_electrothermal_coupling.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C006",
+      "solver": "AEDT",
+      "analysis": "Electrothermal Coupling",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/case_g_electrothermal/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "force-mechanical-coupling",
+      "title": "Smoke Force Mechanical Coupling",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_force_mechanical_coupling.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C007",
+      "solver": "AEDT",
+      "analysis": "Force Mechanical Coupling",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/case_h_force_mechanical/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "hfss-connect",
+      "title": "Smoke Hfss Connect",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_hfss_connect.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C008",
+      "solver": "AEDT",
+      "analysis": "Hfss Connect",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/smoke/hfss_connect_official.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "hfss-waveguide",
+      "title": "Smoke Hfss Waveguide",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_hfss_waveguide.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C009",
+      "solver": "AEDT",
+      "analysis": "Hfss Waveguide",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/case_f_hfss_waveguide/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "magnetostatic",
+      "title": "Smoke Magnetostatic",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_magnetostatic.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C010",
+      "solver": "AEDT",
+      "analysis": "Magnetostatic",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/case_c_magnetostatic/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "transient-magnetic",
+      "title": "Smoke Transient Magnetic",
+      "entrypoint": "benchmarks/electromagnetics/cases/smoke_transient_magnetic.py",
+      "role": "benchmark",
+      "status": "BLOCKED",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C011",
+      "solver": "AEDT",
+      "analysis": "Transient Magnetic",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "electromagnetics/case_e_transient/result.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "electromagnetics-dataset",
+      "title": "Validate Electromagnetics Dataset",
+      "entrypoint": "benchmarks/electromagnetics/cases/validate_electromagnetics_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+      "id": "C012",
+      "solver": "Python validator/generator",
+      "analysis": "Validate Electromagnetics Dataset",
+      "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    }
+  ],
+  "required_products": [
+    "AEDT"
+  ],
+  "runner": "benchmarks/electromagnetics/run_suite.py"
+}

@@ -1,0 +1,177 @@
+{
+  "status": "PARTIAL",
+  "mode": "validate-existing",
+  "product": "Ansys Rocky Student 26.1 native SPH",
+  "cases": [
+    {
+      "case": "A",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_a_hydrostatic/result.json",
+      "checks": {
+        "solver_advanced": true,
+        "at_least_20_elements": true,
+        "mass_conservation_lt_1pct": true,
+        "density_deviation_lt_5pct": true,
+        "hydrostatic_rmse_lt_50pct_head": true,
+        "mean_speed_lt_0p1_m_per_s": true,
+        "finite_fields": true
+      }
+    },
+    {
+      "case": "B",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_b_dam_break/result.json",
+      "checks": {
+        "solver_advanced": true,
+        "at_least_100_elements": true,
+        "front_advances": true,
+        "mass_conservation_lt_1pct": true,
+        "finite_history": true,
+        "five_or_more_snapshots": true,
+        "projection_finite": true
+      }
+    },
+    {
+      "case": "C",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_c_sloshing/result.json",
+      "checks": {
+        "both_solvers_advanced": true,
+        "finite_amplitudes": true,
+        "near_resonance_response_larger": true,
+        "time_histories": true
+      }
+    },
+    {
+      "case": "D",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_d_jet_impact/result.json",
+      "checks": {
+        "solver_advanced": true,
+        "jet_elements_generated": true,
+        "impact_pressure_positive": true,
+        "jet_spreads_on_plate": true,
+        "momentum_force_finite": true,
+        "native_pressure_distribution_exported": true
+      }
+    },
+    {
+      "case": "E",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_e_moving_boundary/result.json",
+      "checks": {
+        "solver_advanced": true,
+        "horizontal_kinetic_energy_increases": true,
+        "fluid_velocity_nonzero": true,
+        "free_surface_deforms": true,
+        "momentum_reaction_force_nonzero": true
+      }
+    },
+    {
+      "case": "F",
+      "status": "BLOCKED",
+      "result_file": "outputs/sph_free_surface/case_f_non_newtonian/result.json",
+      "checks": {},
+      "status_detail": "BLOCKED BY CURRENT PRODUCT MODE"
+    },
+    {
+      "case": "G",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_g_thermal/result.json",
+      "checks": {
+        "solver_advanced": true,
+        "temperature_field_exported": true,
+        "liquid_cools": true,
+        "temperature_bounded": true,
+        "energy_balance_lt_1pct": true,
+        "finite_heat_rate": true
+      }
+    },
+    {
+      "case": "H",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_h_rigid_body/result.json",
+      "checks": {
+        "solver_advanced": true,
+        "fluid_fields": true,
+        "rigid_body_state_api": true,
+        "body_moves": true,
+        "impact_pressure_positive": true,
+        "fluid_to_body_force_api": true,
+        "force_history_finite": true
+      }
+    },
+    {
+      "case": "I",
+      "status": "BLOCKED",
+      "result_file": "outputs/sph_free_surface/case_i_flexible_structure/result.json",
+      "checks": {},
+      "status_detail": "BLOCKED BY CURRENT API"
+    },
+    {
+      "case": "J",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_j_resolution/result.json",
+      "checks": {
+        "all_solvers_advanced": true,
+        "element_count_increases": true,
+        "mass_conservation_lt_1pct": true,
+        "fronts_finite": true,
+        "medium_closer_to_fine": true
+      }
+    },
+    {
+      "case": "K",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_k_vof_comparison/result.json",
+      "checks": {
+        "sph_pass": true,
+        "vof_pass": true,
+        "five_comparison_points": true,
+        "dimensionless_front_rmse_lt_0p25": true,
+        "sph_mass_drift_lt_1pct": true,
+        "vof_volume_drift_lt_8pct": true
+      }
+    },
+    {
+      "case": "L",
+      "status": "PASS",
+      "result_file": "outputs/sph_free_surface/case_l_dataset/result.json",
+      "checks": {
+        "ten_cases": true,
+        "all_solvers_advanced": true,
+        "raw_tables_nonempty": true,
+        "mass_conservation_lt_1pct": true,
+        "fronts_finite": true
+      }
+    }
+  ],
+  "blocked_cases": [
+    {
+      "case": "F",
+      "status": "BLOCKED",
+      "result_file": "outputs/sph_free_surface/case_f_non_newtonian/result.json",
+      "checks": {},
+      "status_detail": "BLOCKED BY CURRENT PRODUCT MODE"
+    },
+    {
+      "case": "I",
+      "status": "BLOCKED",
+      "result_file": "outputs/sph_free_surface/case_i_flexible_structure/result.json",
+      "checks": {},
+      "status_detail": "BLOCKED BY CURRENT API"
+    }
+  ],
+  "unexpected_failures": [],
+  "dataset_validator": {
+    "script": "validate_sph_dataset.py",
+    "return_code": 0,
+    "elapsed_s": 0.13077719998545945,
+    "stdout_tail": "0122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"sph_03_h0.06_mu0.0012\",\n      \"status\": \"PASS\",\n      \"row_count\": 28,\n      \"time_count\": 4,\n      \"relative_mass_drift\": 0.0,\n      \"density_range_kg_m3\": [\n        998.2000122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"sph_04_h0.06_mu0.0014\",\n      \"status\": \"PASS\",\n      \"row_count\": 28,\n      \"time_count\": 4,\n      \"relative_mass_drift\": 0.0,\n      \"density_range_kg_m3\": [\n        998.2000122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"sph_05_h0.06_mu0.0016\",\n      \"status\": \"PASS\",\n      \"row_count\": 28,\n      \"time_count\": 4,\n      \"relative_mass_drift\": 0.0,\n      \"density_range_kg_m3\": [\n        998.2000122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"sph_06_h0.08_mu0.0008\",\n      \"status\": \"PASS\",\n      \"row_count\": 56,\n      \"time_count\": 4,\n      \"relative_mass_drift\": 0.0,\n      \"density_range_kg_m3\": [\n        998.2000122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"sph_07_h0.08_mu0.0010\",\n      \"status\": \"PASS\",\n      \"row_count\": 56,\n      \"time_count\": 4,\n      \"relative_mass_drift\": 0.0,\n      \"density_range_kg_m3\": [\n        998.2000122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"sph_08_h0.08_mu0.0012\",\n      \"status\": \"PASS\",\n      \"row_count\": 56,\n      \"time_count\": 4,\n      \"relative_mass_drift\": 0.0,\n      \"density_range_kg_m3\": [\n        998.2000122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"sph_09_h0.08_mu0.0014\",\n      \"status\": \"PASS\",\n      \"row_count\": 56,\n      \"time_count\": 4,\n      \"relative_mass_drift\": 0.0,\n      \"density_range_kg_m3\": [\n        998.2000122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"sph_10_h0.08_mu0.0016\",\n      \"status\": \"PASS\",\n      \"row_count\": 56,\n      \"time_count\": 4,\n      \"relative_mass_drift\": 0.0,\n      \"density_range_kg_m3\": [\n        998.2000122070312,\n        998.2000122070312\n      ],\n      \"projection_shape\": [\n        4,\n        16,\n        31,\n        4\n      ],\n      \"errors\": []\n    }\n  ],\n  \"errors\": []\n}\n",
+    "stderr_tail": ""
+  },
+  "launch_records": [],
+  "pass_count": 10,
+  "case_count": 12,
+  "status_detail": "PASS WITH EXPLICIT BLOCK"
+}

@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "generated_utc": "2026-08-16T02:06:46.929094+00:00",
+  "checks": {
+    "nine_cases": true,
+    "all_cases_pass": true,
+    "pml_pass": true,
+    "dataset_validation_pass": true,
+    "all_runs_zero": true,
+    "finite_results": true
+  },
+  "runs": [
+    {
+      "case": "A",
+      "script": "smoke_acoustic_tube.py",
+      "exit_code": 0
+    },
+    {
+      "case": "B",
+      "script": "smoke_acoustic_cavity_modal.py",
+      "exit_code": 0
+    },
+    {
+      "case": "C",
+      "script": "smoke_helmholtz_resonator.py",
+      "exit_code": 0
+    },
+    {
+      "case": "D",
+      "script": "smoke_acoustic_transient.py",
+      "exit_code": 0
+    },
+    {
+      "case": "E",
+      "script": "smoke_acoustic_radiation.py",
+      "exit_code": 0
+    },
+    {
+      "case": "F",
+      "script": "smoke_vibroacoustic_radiation.py",
+      "exit_code": 0
+    },
+    {
+      "case": "G",
+      "script": "smoke_acoustic_structural_coupling.py",
+      "exit_code": 0
+    },
+    {
+      "case": "H",
+      "script": "smoke_acoustic_impedance.py",
+      "exit_code": 0
+    },
+    {
+      "case": "I",
+      "script": "smoke_acoustic_dataset.py",
+      "exit_code": 0
+    },
+    {
+      "case": "PML",
+      "script": "smoke_acoustic_pml.py",
+      "exit_code": 0
+    },
+    {
+      "case": "VALIDATE",
+      "script": "validate_acoustics_dataset.py",
+      "exit_code": 0
+    }
+  ],
+  "report": "ACOUSTICS_WAVE_PHYSICS_REPORT.md",
+  "cases": {
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS",
+    "F": "PASS",
+    "G": "PASS",
+    "H": "PASS",
+    "I": "PASS"
+  },
+  "pml": "PASS",
+  "dataset_validation": "PASS"
+}

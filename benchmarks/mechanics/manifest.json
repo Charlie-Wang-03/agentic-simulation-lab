@@ -1,0 +1,241 @@
+{
+  "schema_version": 2,
+  "domain": "mechanics",
+  "title": "Mechanics",
+  "cases": [
+    {
+      "slug": "connect",
+      "title": "Smoke Connect",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_connect.py",
+      "role": "benchmark",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "id": "C001",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Connect",
+      "reference": null,
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "case-result.json",
+      "result_format": "v1"
+    },
+    {
+      "slug": "contact-friction",
+      "title": "Smoke Contact Friction",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_contact_friction.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C002",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Contact Friction",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "contact_friction_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "forced-vibration",
+      "title": "Smoke Forced Vibration",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_forced_vibration.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C003",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Forced Vibration",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "forced_vibration_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "impact",
+      "title": "Smoke Impact",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_impact.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C004",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Impact",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "impact_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "joint-drive",
+      "title": "Smoke Joint Drive",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_joint_drive.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C005",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Joint Drive",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "joint_drive_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "modal-cantilever",
+      "title": "Smoke Modal Cantilever",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_modal_cantilever.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C006",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Modal Cantilever",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "modal_cantilever_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "multibody-flexible",
+      "title": "Smoke Multibody Flexible",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_multibody_flexible.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C007",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Multibody Flexible",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "multibody_flexible_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "multibody-rigid",
+      "title": "Smoke Multibody Rigid",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_multibody_rigid.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C008",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Multibody Rigid",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "multibody_rigid_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "spring-damper",
+      "title": "Smoke Spring Damper",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_spring_damper.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C009",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Spring Damper",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "spring_damper_results.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "static-cantilever",
+      "title": "Smoke Static Cantilever",
+      "entrypoint": "benchmarks/mechanics/cases/smoke_static_cantilever.py",
+      "result_file": "static_cantilever_results.json",
+      "result_format": "legacy",
+      "timeout_seconds": 300,
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/mechanics/references/historical_results.json",
+      "id": "C010",
+      "solver": "Mechanical/MAPDL",
+      "analysis": "Static Cantilever",
+      "reference": "benchmarks/mechanics/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "spaceclaim-multibody-geometry",
+      "title": "Spaceclaim Multibody Geometry",
+      "entrypoint": "benchmarks/mechanics/cases/spaceclaim_multibody_geometry.py",
+      "role": "benchmark",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "id": "C011",
+      "solver": "SpaceClaim",
+      "analysis": "Spaceclaim Multibody Geometry",
+      "reference": null,
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "case-result.json",
+      "result_format": "v1"
+    },
+    {
+      "slug": "spaceclaim-single-link-geometry",
+      "title": "Spaceclaim Single Link Geometry",
+      "entrypoint": "benchmarks/mechanics/cases/spaceclaim_single_link_geometry.py",
+      "role": "benchmark",
+      "status": "NOT_RUN",
+      "evidence": null,
+      "id": "C012",
+      "solver": "SpaceClaim",
+      "analysis": "Spaceclaim Single Link Geometry",
+      "reference": null,
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "case-result.json",
+      "result_format": "v1"
+    }
+  ],
+  "required_products": [
+    "Mechanical",
+    "MAPDL"
+  ],
+  "runner": "benchmarks/mechanics/run_suite.py"
+}

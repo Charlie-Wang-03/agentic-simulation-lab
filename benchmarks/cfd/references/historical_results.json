@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "records": {
+    "fluent-acoustics": {
+      "sha256": "ef53bd8225fbe4baa3bc5fb5293e6beb066bb2259fd135b17ce97bae24de96a7",
+      "historical_name": "fluent_acoustics.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_acoustics",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "fwh_model_configured": true,
+          "cylinder_source_zone_configured": true,
+          "observer_defined": true,
+          "pressure_signal_nonzero": true,
+          "dominant_frequency_matches_flow": true,
+          "frequency_in_shedding_range": true,
+          "finite_spectrum": true
+        }
+      }
+    },
+    "fluent-airfoil": {
+      "sha256": "f211ba0bc86d1daa8b621e3b1cef2a6ea7ce55bd16d24f96f17bea0f1b6c08e5",
+      "historical_name": "fluent_airfoil.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_airfoil",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "all_fields_valid": true,
+          "lift_monotonic": true,
+          "zero_aoa_lift_near_zero": true,
+          "lift_slope_reasonable": true,
+          "all_drag_positive": true,
+          "finite_results": true
+        }
+      }
+    },
+    "fluent-backward-step": {
+      "sha256": "e3905b432babfc44397a31ddb8d1b81620ae6777b412c003677767acb64906ad",
+      "historical_name": "fluent_backward_step.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_backward_step",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "reattachment_detected": true,
+          "reattachment_in_benchmark_range": true,
+          "mass_error_lt_2pct": true,
+          "field_npz_valid": true,
+          "recirculation_present": true
+        }
+      }
+    },
+    "fluent-cavity": {
+      "sha256": "a994a0e9e10bc53d147602902428e3766d321895b4d528e4e9cf2ae5da09a466",
+      "historical_name": "fluent_cavity.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_cavity",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "Re_100": {
+            "field_npz_valid": true,
+            "main_vortex_location_within_0p18L": true,
+            "centerline_u_reasonable": true,
+            "finite_pressure": true
+          },
+          "Re_1000": {
+            "field_npz_valid": true,
+            "main_vortex_location_within_0p18L": true,
+            "centerline_u_reasonable": true,
+            "finite_pressure": true
+          }
+        }
+      }
+    },
+    "fluent-compressible-nozzle": {
+      "sha256": "14c60743a4da8ecc2cbacd5d6687e7d63ba7e0fcae2ff03e79483cdac471a39f",
+      "historical_name": "fluent_compressible_nozzle.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_compressible_nozzle",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "throat_choked": true,
+          "exit_supersonic": true,
+          "exit_mach_error_lt_25pct": true,
+          "mass_flow_error_lt_25pct": true,
+          "temperature_drops": true
+        }
+      }
+    },
+    "fluent-cylinder": {
+      "sha256": "13bbbc3e8035414f02b76be600e0d1c9c06e671b6ac29130917dc37c8491bd5f",
+      "historical_name": "fluent_cylinder.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_cylinder",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "re_equals_40": true,
+          "classic_cd_range": true,
+          "lift_near_zero": true,
+          "wake_deficit_visible": true
+        }
+      }
+    },
+    "fluent-cylinder-unsteady": {
+      "sha256": "42f756ed076ee456e9f1adb2afc8956e00e1a73ef04cc5a139485eb8c702bb8c",
+      "historical_name": "fluent_cylinder_unsteady.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_cylinder_unsteady",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "strouhal_in_classic_range": true,
+          "mean_cd_in_classic_range": true,
+          "periodic_lift_nonzero": true,
+          "late_rms_stationary": true,
+          "all_snapshots_valid": true,
+          "finite_history": true
+        }
+      }
+    },
+    "fluent-laminar-channel": {
+      "sha256": "f308eb3cf3888a0be3b22594de8e0a05043880fcc807fd6e9f9e37d4430af428",
+      "historical_name": "fluent_laminar_channel.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_laminar_channel",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "pressure_drop_error_lt_8pct": true,
+          "max_velocity_error_lt_3pct": true,
+          "mass_conservation_error_lt_1pct": true,
+          "profile_l2_error_lt_4pct": true
+        }
+      }
+    },
+    "fluent-les-des": {
+      "sha256": "4283e25eb800cb9570bb3275fc083bafe1f909d74ce6b2c2e05bc0423eadc903",
+      "historical_name": "fluent_les_des.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_les_des",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "les_model_ran": true,
+          "nonzero_unsteady_lift": true,
+          "dominant_frequency_reasonable": true,
+          "timespace_dataset_valid": true,
+          "five_snapshots": true,
+          "finite_history": true
+        }
+      }
+    },
+    "fluent-mesh-sensitivity": {
+      "sha256": "6baf0fb87e5d21ad17e99ac38fb85e28d4ac69943f52695f32411a7c76c21516",
+      "historical_name": "fluent_mesh_sensitivity.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_mesh_sensitivity",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "cell_counts_increase": true,
+          "all_reattachment_detected": true,
+          "medium_fine_change_lt_8pct": true,
+          "all_mass_errors_lt_2pct": true,
+          "coarse_and_fine_fields_valid": true
+        }
+      }
+    },
+    "fluent-natural-convection": {
+      "sha256": "239cc94112cab63e9fb4b7d291832b5e8a5681ff91cd36a05453be427436680b",
+      "historical_name": "fluent_natural_convection.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_natural_convection",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "rayleigh_in_benchmark_range": true,
+          "temperature_bounded": true,
+          "flow_developed": true,
+          "nusselt_benchmark_range": true
+        }
+      }
+    },
+    "fluent-optimization-parallel": {
+      "sha256": "b5f44868bb6622b4d6fefd23937210a710679ee2c0ef0e1800b700fd4556b7fc",
+      "historical_name": "fluent_optimization_parallel.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_optimization_parallel",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "optimization_has_9_cases": true,
+          "five_new_fluent_runs": true,
+          "best_objective_positive": true,
+          "at_least_two_parallel_counts": true,
+          "parallel_result_consistency": true,
+          "finite_wall_times": true
+        }
+      }
+    },
+    "fluent-parametric-dataset": {
+      "sha256": "a91350703841c53f0bd3675a543122502e2d16fc552f011395cf89f3ad4d646b",
+      "historical_name": "fluent_parametric_dataset.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_parametric_dataset",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "case_count_12": true,
+          "all_case_exports_valid": true,
+          "validator_pass": true,
+          "consistent_node_count": true,
+          "consistent_cell_count": true
+        }
+      }
+    },
+    "fluent-rans-models": {
+      "sha256": "ed58f46509813cab70a59409748add2108dc4733c4c9392b0fef4901d1fbce38",
+      "historical_name": "fluent_rans_models.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_rans_models",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "both_reattachment_detected": true,
+          "reattachment_in_broad_range": true,
+          "yplus_exported": true,
+          "wall_shear_exported": true,
+          "tke_exported": true,
+          "model_specific_dissipation_exported": true,
+          "finite_results": true
+        }
+      }
+    },
+    "fluent-sliding-mesh": {
+      "sha256": "c538603c61a4aa7c76a672824a99e28c21b53ee6fb662178b4d5d4d4abae63eb",
+      "historical_name": "fluent_sliding_mesh.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_sliding_mesh",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "two_fluid_zones": true,
+          "sliding_interface_created": true,
+          "nonzero_torque": true,
+          "periodic_torque_variation": true,
+          "finite_history": true,
+          "four_snapshots": true
+        }
+      }
+    },
+    "fluent-species": {
+      "sha256": "5bc4b76747c80643c7e4d130fca2f34ef3eadcb0d71c0a4428410cb15555953c",
+      "historical_name": "fluent_species.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_species",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "species_bounded": true,
+          "species_sum_error_lt_1e_5": true,
+          "mixing_visible": true,
+          "outlet_profile_mixed": true,
+          "field_npz_finite": true
+        }
+      }
+    },
+    "fluent-turbulent-pipe": {
+      "sha256": "65f363a2a4a37b99477be7d73cb2c15eb2162eb75c05bd18d0e038e0070ca92a",
+      "historical_name": "fluent_turbulent_pipe.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_turbulent_pipe",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "re_turbulent": true,
+          "friction_factor_error_lt_30pct": true,
+          "wall_shear_balance_lt_35pct": true,
+          "mean_velocity_error_lt_2pct": true,
+          "mass_balance_lt_1pct": true,
+          "mass_flow_theory_lt_1pct": true
+        }
+      }
+    },
+    "fluent-vof": {
+      "sha256": "87ba8818c638e71583e27b38a52399bb8484f17512d0c3d8cd2bd181a28cee3a",
+      "historical_name": "fluent_vof.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_vof",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "vof_field_bounded": true,
+          "initial_water_fraction_reasonable": true,
+          "front_advances": true,
+          "volume_fraction_drift_lt_8pct": true,
+          "timespace_dataset_valid": true,
+          "five_snapshots": true,
+          "finite_history": true
+        }
+      }
+    },
+    "fluent-wind-tunnel": {
+      "sha256": "ba5d2b72097eda07b7b07302e5162cf724283f92cd919c51b97c8daf6158740f",
+      "historical_name": "fluent_wind_tunnel.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fluent_wind_tunnel",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "positive_drag": true,
+          "bluff_body_cd_range": true,
+          "wake_deficit_visible": true,
+          "turbulent_reynolds": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "timestamp_utc": "2026-08-15T12:55:13.156383+00:00",
+  "checks": {
+    "eight_cases": true,
+    "all_cases_pass": true,
+    "all_runs_zero": true,
+    "no_new_ansys_processes": true
+  },
+  "runs": [],
+  "cases": [
+    {
+      "case": "A",
+      "status": "PASS",
+      "result_file": "outputs/materials/plasticity/plasticity_results.json"
+    },
+    {
+      "case": "B",
+      "status": "PASS",
+      "result_file": "outputs/materials/hyperelastic/hyperelastic_results.json"
+    },
+    {
+      "case": "C",
+      "status": "PASS",
+      "result_file": "outputs/materials/viscoelastic/viscoelastic_results.json"
+    },
+    {
+      "case": "D",
+      "status": "PASS",
+      "result_file": "outputs/materials/creep/creep_results.json"
+    },
+    {
+      "case": "E",
+      "status": "PASS",
+      "result_file": "outputs/materials/fatigue/fatigue_results.json"
+    },
+    {
+      "case": "F",
+      "status": "PASS",
+      "result_file": "outputs/materials/fracture/fracture_results.json"
+    },
+    {
+      "case": "G",
+      "status": "PASS",
+      "result_file": "outputs/materials/orthotropic/orthotropic_results.json"
+    },
+    {
+      "case": "H",
+      "status": "PASS",
+      "result_file": "outputs/materials/single_crystal_elasticity/single_crystal_elasticity_results.json"
+    }
+  ],
+  "report": "MATERIAL_SOLID_MECHANICS_REPORT.md",
+  "remaining_processes": []
+}

@@ -1,0 +1,58 @@
+solid hopper
+  facet normal 0 0 0
+    outer loop
+      vertex -0.04 -0.04 0.08
+      vertex 0.04 -0.04 0.08
+      vertex 0.012 -0.012 0.02
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.04 -0.04 0.08
+      vertex 0.012 -0.012 0.02
+      vertex -0.012 -0.012 0.02
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.04 0.04 0.08
+      vertex -0.04 0.04 0.08
+      vertex -0.012 0.012 0.02
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.04 0.04 0.08
+      vertex -0.012 0.012 0.02
+      vertex 0.012 0.012 0.02
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.04 -0.04 0.08
+      vertex 0.04 0.04 0.08
+      vertex 0.012 0.012 0.02
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex 0.04 -0.04 0.08
+      vertex 0.012 0.012 0.02
+      vertex 0.012 -0.012 0.02
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.04 0.04 0.08
+      vertex -0.04 -0.04 0.08
+      vertex -0.012 -0.012 0.02
+    endloop
+  endfacet
+  facet normal 0 0 0
+    outer loop
+      vertex -0.04 0.04 0.08
+      vertex -0.012 -0.012 0.02
+      vertex -0.012 0.012 0.02
+    endloop
+  endfacet
+endsolid hopper

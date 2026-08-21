@@ -1,0 +1,185 @@
+{
+  "case_g": {
+    "final_status": "FAIL",
+    "acceptance_thresholds_changed": false,
+    "runs": [
+      {
+        "label": "historical_baseline",
+        "fuel_conversion": 1.0,
+        "maximum_temperature_K": 3048.0,
+        "reaction_peak_x_m": 0.0,
+        "outcome": "FAIL"
+      },
+      {
+        "label": "targeted_retest_1",
+        "inlet_velocity_m_s": 0.1,
+        "fuel_conversion": 1.0,
+        "maximum_temperature_K": 2784.062,
+        "outlet_temperature_K": 2131.0,
+        "reaction_peak_x_m": 0.003,
+        "carbon_balance_relative_error": 0.00013736,
+        "max_species_sum_error": 1.4e-10,
+        "outcome": "FAIL",
+        "failed_checks": [
+          "reaction_zone_is_internal"
+        ]
+      },
+      {
+        "label": "targeted_retest_2",
+        "inlet_velocity_m_s": 0.25,
+        "fuel_conversion": 1.0,
+        "maximum_temperature_K": 3263.591441,
+        "outlet_temperature_K": 2664.9694694,
+        "reaction_peak_x_m": 0.004,
+        "carbon_balance_relative_error": 0.2668631453877632,
+        "max_species_sum_error": 1.3000001075624823e-10,
+        "outcome": "FAIL",
+        "failed_checks": [
+          "temperature_below_3000K_sanity_bound",
+          "reaction_zone_is_internal",
+          "carbon_balance_lt_5pct"
+        ]
+      }
+    ],
+    "interpretation": "The built-in irreversible one-step methane-air mechanism and coarse ignition/flame resolution did not produce a stable, internal premixed flame. Higher velocity caused temperature clipping, reverse flow, and carbon imbalance."
+  },
+  "case_j": {
+    "historical_status": "FAIL",
+    "corrected_status": "FAIL",
+    "diagnostic_executed": true,
+    "targeted_fix": "Use Fluent's accepted enthalpy field for final-step transient storage measurement.",
+    "prepared_method": "Compare inlet/outlet total-enthalpy flux with integrated outer-wall heat and measured final-step transient enthalpy accumulation; also check mass-flow and carbon-flux closure.",
+    "targeted_reliability_offline_audit": {
+      "status": "COMPLETE",
+      "control_volume": "reacting fluid plus conjugate solid, unit depth",
+      "equation": "dE_cv/dt = mdot_in*h_total,in - mdot_out*h_total,out - Q_wall,out",
+      "sign_convention": "accounting uses positive inlet/outlet mass-flow magnitudes and positive outward wall heat; PyFluent per-zone report presentation is preserved raw and direction is assigned from explicit boundary roles, while the exported total surface heat flux must independently show Fluent's outward-negative sign",
+      "units": {
+        "mass_flow": "kg/s/m",
+        "specific_enthalpy": "J/kg",
+        "stored_energy": "J/m",
+        "flux_accumulation_residual": "W/m"
+      },
+      "fluent_quantity_basis": {
+        "total_enthalpy": "sensible plus chemical plus kinetic energy for species models",
+        "mass_integral": "sum of density times cell volume times field quantity",
+        "two_dimensional_integrals": "reported for unit depth",
+        "solid_reference": "constant reference offsets cancel in the stored-energy time derivative"
+      },
+      "historical_independent_recomputation": {
+        "residual_W_per_m": -4.908873085638277,
+        "relative_error": 0.1595101883255324,
+        "threshold": 0.1,
+        "status": "FAIL"
+      },
+      "surface_heat_comparison": {
+        "exported_field_W_per_m": 26.5469548229,
+        "native_integral_W_per_m": 27.66941152545065,
+        "relative_difference": 0.040565,
+        "interpretation": "consistent within 10%; the difference does not explain the full global residual"
+      },
+      "hypotheses": {
+        "H1": "energy sign/accounting implementation defect; historical arithmetic did not support this",
+        "H2": "Fluent report definition mismatch; official quantity semantics support total enthalpy and mass integral",
+        "H3": "final-step storage derivative is sampling-sensitive; requires a fixed-window discriminating check",
+        "H4": "the residual is a truthful under-resolved transient balance if the fixed-window check remains above 10%"
+      },
+      "authorized_retest_plan": "one fixed 10-step (0.05 s) window with matched trapezoidal boundary-flux averages; unchanged mesh, dt, chemistry, boundaries, iterations, and 10% threshold",
+      "intermediate_retest_20260821T041953Z": {
+        "status": "FAIL",
+        "physics_measurement_reached": false,
+        "finding": "PyFluent per-zone mass-flow report presentation did not match the low-level signed face-flux assumption",
+        "classification": "repository accounting-interface defect",
+        "evidence": "artifacts/runs/phase_reactive/reactive-cht/20260821T041953Z/run.json"
+      },
+      "confirmatory_retest_plan": "assign direction from explicit inlet/outlet/cold-wall roles, preserve raw report values, require the exported cold-wall heat field to confirm Fluent's outward-negative sign, and execute the same predeclared H3 window once"
+    },
+    "targeted_reliability_fresh_result": {
+      "status": "FAIL",
+      "authoritative_run_record": "artifacts/runs/phase_reactive/reactive-cht/20260821T042456Z/run.json",
+      "hypothesis_tested": "H3 final-step storage sampling noise",
+      "hypothesis_outcome": "REJECTED; the fixed-window error remains materially above the unchanged threshold",
+      "supported_interpretation": "H4 truthful under-resolved transient balance at the current model and numerical settings",
+      "solver_reruns": 2,
+      "physics_measurement_runs": 1,
+      "window": {
+        "intervals": 10,
+        "duration_s": 0.05,
+        "advective_enthalpy_net_in_W_per_m": 19.65541743908804,
+        "wall_heat_out_W_per_m": 27.847481233677268,
+        "accumulation_W_per_m": -3.26336575235473,
+        "residual_W_per_m": -4.9286980422344975,
+        "relative_error": 0.15842378204770063,
+        "threshold": 0.1,
+        "status": "FAIL"
+      },
+      "final_step_relative_error": 0.15998075816814747,
+      "surface_heat_relative_difference": 0.04056669949479053,
+      "raw_report_signs": {
+        "mass_flow_in": "positive",
+        "mass_flow_out": "negative",
+        "native_wall_heat": "negative",
+        "exported_wall_heat": "negative"
+      },
+      "unchanged": [
+        "mesh",
+        "time step",
+        "600 total time steps",
+        "20 iterations per step",
+        "chemistry",
+        "boundary conditions",
+        "10% threshold"
+      ],
+      "historical_15_951pct_failure_preserved": true,
+      "catalog_status_changed": false
+    },
+    "results": {
+      "outlet_mass_fractions": {
+        "ch4": 0.05356920656990849,
+        "o2": 0.214292390673357,
+        "co2": 0.003925016157092923,
+        "h2o": 0.00321338698923583,
+        "n2": 0.7249999996104057
+      },
+      "outlet_temperature_K": 915.0072084000001,
+      "maximum_fluid_temperature_K": 1001.220612,
+      "solid_temperature_range_K": [
+        900.0,
+        902.6886885
+      ],
+      "peak_reaction_rate": 0.0005509342738,
+      "outer_wall_heat_W_per_m": 26.5469548229,
+      "mass_flow_in_kg_s_per_m": 0.0001347178728035387,
+      "mass_flow_out_kg_s_per_m": 0.0001347178754009,
+      "mass_flow_balance_relative_error": 1.928000523541403e-08,
+      "inlet_total_enthalpy_J_kg": 549937.2506496907,
+      "outlet_total_enthalpy_J_kg": 404037.6560185514,
+      "total_enthalpy_flux_drop_W_per_m": 19.65528198217391,
+      "integrated_outer_wall_heat_W_per_m": 27.66941152545065,
+      "stored_enthalpy_before_final_step_J_per_m": 42787.501267164145,
+      "stored_enthalpy_after_final_step_J_per_m": 42787.48574088186,
+      "transient_enthalpy_accumulation_W_per_m": -3.105256457638461,
+      "global_energy_residual_W_per_m": -4.908873085638277,
+      "global_total_enthalpy_balance_relative_error": 0.1595101883255324,
+      "energy_balance_qualification": "instantaneous total-enthalpy flux equals external wall heat loss plus final-step transient enthalpy accumulation",
+      "carbon_balance_relative_error": 2.1196956507290732e-08,
+      "max_species_sum_error": 9.200007422549561e-11
+    },
+    "checks": {
+      "native_finite_rate_reaction_nonzero": true,
+      "solid_temperature_responds": true,
+      "outer_wall_heat_transfer_positive": true,
+      "interface_created": true,
+      "species_sum_error_lt_1e-4": true,
+      "carbon_balance_lt_5pct": true,
+      "mass_flow_balance_lt_1pct": true,
+      "global_total_enthalpy_balance_lt_10pct": false
+    },
+    "failed_checks": [
+      "global_total_enthalpy_balance_lt_10pct"
+    ],
+    "acceptance_thresholds_changed": false,
+    "authoritative_run_record": "artifacts/runs/phase_reactive/reactive-cht/20260820T153635Z/run.json",
+    "preserved_initial_api_failure": "artifacts/runs/phase_reactive/reactive-cht/20260820T153221Z/run.json"
+  }
+}

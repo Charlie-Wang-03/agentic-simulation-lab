@@ -1,0 +1,275 @@
+{
+  "schema_version": 2,
+  "domain": "phase_reactive",
+  "title": "Phase Reactive",
+  "cases": [
+    {
+      "slug": "fluent-melting",
+      "title": "Smoke Fluent Melting",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_fluent_melting.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C001",
+      "solver": "Fluent",
+      "analysis": "Fluent Melting",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_b.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "phase-reactive-capabilities",
+      "title": "Probe Phase Reactive Capabilities",
+      "entrypoint": "benchmarks/phase_reactive/cases/probe_phase_reactive_capabilities.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C002",
+      "solver": "Fluent/MAPDL",
+      "analysis": "Probe Phase Reactive Capabilities",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "combustion-radiation",
+      "title": "Smoke Combustion Radiation",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_combustion_radiation.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C003",
+      "solver": "Fluent",
+      "analysis": "Combustion Radiation",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_i.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "diffusion-flame",
+      "title": "Smoke Diffusion Flame",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_diffusion_flame.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C004",
+      "solver": "Fluent",
+      "analysis": "Diffusion Flame",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_h.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "finite-rate-reactor",
+      "title": "Smoke Finite Rate Reactor",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_finite_rate_reactor.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C005",
+      "solver": "Fluent",
+      "analysis": "Finite Rate Reactor",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_f.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "moving-heat-source",
+      "title": "Smoke Moving Heat Source",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_moving_heat_source.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C006",
+      "solver": "Reduced-order Python",
+      "analysis": "Moving Heat Source",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_d.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "natural-convection-melting",
+      "title": "Smoke Natural Convection Melting",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_natural_convection_melting.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C007",
+      "solver": "Fluent",
+      "analysis": "Natural Convection Melting",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_c.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "phase-change-dataset",
+      "title": "Smoke Phase Change Dataset",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_phase_change_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C008",
+      "solver": "Python validator/generator",
+      "analysis": "Phase Change Dataset",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_k.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "premixed-combustion",
+      "title": "Smoke Premixed Combustion",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_premixed_combustion.py",
+      "role": "benchmark",
+      "status": "FAIL",
+      "evidence": "benchmarks/phase_reactive/references/targeted_diagnostics.json",
+      "id": "C009",
+      "solver": "Fluent",
+      "analysis": "Premixed Combustion",
+      "reference": "benchmarks/phase_reactive/references/targeted_diagnostics.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_g.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "reaction-diffusion",
+      "title": "Smoke Reaction Diffusion",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_reaction_diffusion.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C010",
+      "solver": "Reduced-order Python",
+      "analysis": "Reaction Diffusion",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_e.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "reactive-cht",
+      "title": "Smoke Reactive Cht",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_reactive_cht.py",
+      "role": "benchmark",
+      "status": "FAIL",
+      "evidence": "benchmarks/phase_reactive/references/targeted_diagnostics.json",
+      "id": "C011",
+      "solver": "Fluent",
+      "analysis": "Reactive Cht",
+      "reference": "benchmarks/phase_reactive/references/targeted_diagnostics.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_j.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "reactive-dataset",
+      "title": "Smoke Reactive Dataset",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_reactive_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C012",
+      "solver": "Python validator/generator",
+      "analysis": "Reactive Dataset",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_l.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "stefan-phase-change",
+      "title": "Smoke Stefan Phase Change",
+      "entrypoint": "benchmarks/phase_reactive/cases/smoke_stefan_phase_change.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C013",
+      "solver": "Reduced-order Python",
+      "analysis": "Stefan Phase Change",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "phase_reactive/case_a.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "phase-reactive-dataset",
+      "title": "Validate Phase Reactive Dataset",
+      "entrypoint": "benchmarks/phase_reactive/cases/validate_phase_reactive_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+      "id": "C014",
+      "solver": "Python validator/generator",
+      "analysis": "Validate Phase Reactive Dataset",
+      "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    }
+  ],
+  "required_products": [
+    "Fluent",
+    "MAPDL",
+    "reduced-order Python"
+  ],
+  "runner": "benchmarks/phase_reactive/run_suite.py"
+}

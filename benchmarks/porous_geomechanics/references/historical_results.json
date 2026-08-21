@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "records": {
+    "anisotropic-porous": {
+      "sha256": "ccd3cabd7f14f07541dc8c178289d8454db85c19694839d4cd9cb64763a51f14",
+      "historical_name": "anisotropic_porous_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "C",
+        "title": "Anisotropic porous resistance tensor",
+        "solver": "Ansys Fluent",
+        "checks": {
+          "isotropic_reference_solved": true,
+          "anisotropic_x_permeability_error_lt_3pct": true,
+          "orthogonal_resistance_roundtrip": true,
+          "flow_direction_changes_for_diagonal_gradient": true
+        }
+      }
+    },
+    "darcy-flow": {
+      "sha256": "401b5167aaafe2e900efd0ec4bde464b8fe2367feba7aed1db1c0c19a4d3d793",
+      "historical_name": "darcy_flow_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "A",
+        "title": "Darcy one-dimensional seepage",
+        "solver": "Ansys Fluent",
+        "checks": {
+          "pressure_gradient_error_lt_3pct": true,
+          "flow_rate_positive": true,
+          "permeability_error_lt_3pct": true
+        }
+      }
+    },
+    "forchheimer-flow": {
+      "sha256": "f0ea3aa54c1cfdffb0710bda628e8509d49d4b074c82c27eb28e1b4841df7f6f",
+      "historical_name": "forchheimer_flow_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "B",
+        "title": "Darcy-Forchheimer nonlinear seepage",
+        "solver": "Ansys Fluent",
+        "checks": {
+          "seven_conditions": true,
+          "linear_coefficient_error_lt_5pct": true,
+          "quadratic_coefficient_error_lt_5pct": true,
+          "fit_r2_gt_0p999": true,
+          "darcy_and_inertial_regions": true
+        }
+      }
+    },
+    "geomechanics-material": {
+      "sha256": "d04bad5198ae714d91caeb5ba5d2618c159a39ba4f662b0bd68012ab8f059859",
+      "historical_name": "geomechanics_material_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "H",
+        "title": "Nonlinear geomechanical plane-strain compression",
+        "solver": "Ansys MAPDL",
+        "checks": {
+          "confining_pressure_positive": true,
+          "yield_reached": true,
+          "yield_error_lt_18pct": true,
+          "plastic_strain_grows": true,
+          "finite_volumetric_strain": true
+        }
+      }
+    },
+    "geostatic-consolidation": {
+      "sha256": "752c4d0ee69f9c6f7e1f637eaa1bce890fea41ea2353572fb82ac9bbf7b7db0e",
+      "historical_name": "geostatic_consolidation_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "G",
+        "title": "Geostatic initialization and consolidation",
+        "solver": "Ansys MAPDL",
+        "checks": {
+          "hydrostatic_profile_error_lt_8pct": true,
+          "initial_stress_increases_with_depth": true,
+          "geostatic_stress_scale_reasonable": true,
+          "load_generates_excess_pore_pressure": true,
+          "excess_pressure_dissipates": true,
+          "settlement_develops": true
+        }
+      }
+    },
+    "validate-porous-dataset": {
+      "sha256": "9a534bbeaff5c6060d7386d378af6304e2ec7db11058147720ef5237147bbbe3",
+      "historical_name": "porous_dataset_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "J",
+        "title": "Parameterized poromechanics transient dataset"
+      }
+    },
+    "porous-heat-transfer": {
+      "sha256": "4f2466e926e65f519bbd3ed52a6ad85a8ae15a92ec8cdc1414ba3394c7cfb26e",
+      "historical_name": "porous_heat_transfer_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "D",
+        "title": "Porous-media heat transfer",
+        "solver": "Ansys Fluent",
+        "checks": {
+          "temperature_rises": true,
+          "heat_input_positive": true,
+          "energy_balance_lt_8pct": true,
+          "temperature_finite": true
+        }
+      }
+    },
+    "porous-species": {
+      "sha256": "6790544b7482ae9c038776284918a47caba8bf3a5446bf4ededbe375959d7dc6",
+      "historical_name": "porous_species_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "E",
+        "title": "Porous-media transient species transport",
+        "solver": "Ansys Fluent",
+        "checks": {
+          "species_bounded": true,
+          "species_sum_error_lt_1e_4": true,
+          "breakthrough_monotonic": true,
+          "front_reaches_outlet": true,
+          "breakthrough_time_within_35pct": true
+        }
+      }
+    },
+    "terzaghi-consolidation": {
+      "sha256": "ebc767493524881e40363bb11101b6631594f127f1401b5d6cbadec79e23972d",
+      "historical_name": "terzaghi_consolidation_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "F",
+        "title": "Terzaghi one-dimensional consolidation",
+        "solver": "Ansys MAPDL",
+        "checks": {
+          "native_pore_pressure_positive": true,
+          "pore_pressure_dissipates": true,
+          "profile_l2_max_lt_12pct": true,
+          "degree_error_max_lt_8pct": true,
+          "settlement_grows": true,
+          "final_settlement_within_8pct": true
+        }
+      }
+    },
+    "thermo-poroelastic": {
+      "sha256": "6abbe8b2d99e504457329beb39a63d4fc86119a617f2532e8a0bc80fd119f3ba",
+      "historical_name": "thermo_poroelastic_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "I",
+        "title": "Thermo-poroelastic three-field coupling",
+        "solver": "Ansys MAPDL",
+        "checks": {
+          "temperature_field_solved": true,
+          "pore_pressure_field_responds": true,
+          "displacement_field_responds": true,
+          "drained_top_pressure_zero": true,
+          "all_fields_finite": true
+        }
+      }
+    },
+    "porous-dataset": {
+      "sha256": "9a534bbeaff5c6060d7386d378af6304e2ec7db11058147720ef5237147bbbe3",
+      "historical_name": "porous_dataset_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "J",
+        "title": "Parameterized poromechanics transient dataset"
+      }
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "records": {
+    "cht-fluent": {
+      "sha256": "3f23b36df223f935273285043408e601a7a84a5ababa6302ced73653b271744c",
+      "historical_name": "cht_fluent.json",
+      "observed": {
+        "status": "PASS",
+        "case": "cht_fluent",
+        "solver": {
+          "product": "Ansys Fluent Student",
+          "requested_version": "2026 R1 / 261"
+        },
+        "checks": {
+          "fluid_cools": true,
+          "solid_conducts": true,
+          "interface_temperature_bounded": true,
+          "heat_transfer_positive": true,
+          "global_energy_balance_lt_8pct": true,
+          "heat_below_conduction_upper_bound": true,
+          "field_export_valid": true
+        }
+      }
+    },
+    "cht-system-coupling": {
+      "sha256": "0efd441dfcaf646cf8bf8a18cefe77368397e300087d763193d60499fbb62ed5",
+      "historical_name": "cht_system_coupling.json",
+      "observed": {
+        "status": "PASS",
+        "case": "cht_system_coupling",
+        "checks": {
+          "two_participants_registered": true,
+          "interface_created": true,
+          "two_data_transfers": true,
+          "fluid_heats": true,
+          "interface_temperature_physical": true,
+          "solid_temperature_physical": true,
+          "interface_heat_nonzero": true,
+          "mapping_artifact_present": true,
+          "coupling_iterations_recorded": true,
+          "interface_heat_conservation_lt_0_1pct": true,
+          "clean_shutdown": true
+        }
+      }
+    },
+    "fsi-one-way": {
+      "sha256": "e2113a8468d32aaf0e292cfd8862967ca9cfd1daae05fa4041b78a03376bbc6b",
+      "historical_name": "fsi_one_way.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fsi_one_way",
+        "checks": {
+          "fluent_source_pass": true,
+          "pressure_and_viscous_force_present": true,
+          "all_structure_nodes_mapped": true,
+          "mapped_force_conservation_lt_1e_10": true,
+          "reaction_balance_lt_0_1pct": true,
+          "positive_displacement": true,
+          "tip_deflection_order_sane": true,
+          "stress_nonzero": true,
+          "clean_shutdown": true
+        }
+      }
+    },
+    "fsi-turek-hron": {
+      "sha256": "d8e684aea3f4734bd22a19206ab6ed69ea981836a440b4e8df55e6461bad8a5e",
+      "historical_name": "fsi_turek_hron.json",
+      "observed": {
+        "status": "FAIL",
+        "case": "fsi_turek_hron",
+        "checks": {
+          "official_assets_used": true,
+          "two_way_transfers": true,
+          "ten_startup_steps": true,
+          "mapping_100_percent": true,
+          "motion_nonzero": true,
+          "forces_finite": true,
+          "formal_34_35s_window_reached": false,
+          "beam_tip_history_extracted": false,
+          "frequency_and_amplitude_compared": false,
+          "clean_shutdown": true
+        }
+      }
+    },
+    "fsi-two-way": {
+      "sha256": "4135593207f781021f82db1e2914a9fadb039049e45be76f789834c7bc0127f6",
+      "historical_name": "fsi_two_way.json",
+      "observed": {
+        "status": "PASS",
+        "case": "fsi_two_way",
+        "checks": {
+          "ten_time_steps": true,
+          "mapping_100_percent": true,
+          "coupling_iterations_recorded": true,
+          "structure_moves": true,
+          "motion_feedback_changes_force": true,
+          "force_conservation_lt_1pct": true,
+          "positive_cell_volume": true,
+          "fluid_fields_finite": true,
+          "stress_extracted": true
+        }
+      }
+    },
+    "validate-multiphysics-dataset": {
+      "sha256": "dfff48799479c08f20e5f13d277fdac938a71da3db9090e331cda8d058ff1e33",
+      "historical_name": "multiphysics_dataset.json",
+      "observed": {
+        "status": "PASS",
+        "case": "multiphysics_dataset",
+        "checks": {
+          "eight_actual_case_F_sequences": true,
+          "all_exports_valid": true,
+          "dataset_validator_pass": true,
+          "structural_displacement_and_stress_included": true,
+          "fluid_and_structural_meshes_independent": true,
+          "clean_shutdown": true
+        }
+      }
+    },
+    "system-coupling-connect": {
+      "sha256": "fee3732a4197876d29286458ee525a6b40853de71fb04095ff6ec7935245a1dd",
+      "historical_name": "system_coupling_connect.json",
+      "observed": {
+        "status": "PASS",
+        "case": "system_coupling_connect",
+        "checks": {
+          "launcher_found": true,
+          "import_available": true,
+          "ping": true,
+          "server_is_26_1": true,
+          "clean_shutdown": true
+        }
+      }
+    },
+    "thermal-fluid-structural": {
+      "sha256": "ecb0c96cd1f8fcfdb092a61b70deb0d680498fe64a9d4c6c1c2e97c916ad6462",
+      "historical_name": "thermal_fluid_structural.json",
+      "observed": {
+        "status": "PASS",
+        "case": "thermal_fluid_structural",
+        "checks": {
+          "source_case_actual": true,
+          "temperature_gradient_nonzero": true,
+          "all_nodes_mapped": true,
+          "mapped_temperatures_finite": true,
+          "thermal_displacement_nonzero": true,
+          "thermal_stress_nonzero": true,
+          "stress_order_sane": true,
+          "clean_shutdown": true
+        }
+      }
+    },
+    "thermo-fsi": {
+      "sha256": "26810e27e09822df9e004672150b825190fb41d3d216a2d440f86eaa7863932b",
+      "historical_name": "thermo_fsi.json",
+      "observed": {
+        "status": "PASS",
+        "case": "thermo_fsi",
+        "checks": {
+          "forc_input": true,
+          "hflw_input": true,
+          "incd_output": true,
+          "temp_output": true,
+          "four_transfers_created": true,
+          "all_interface_nodes_mapped": true,
+          "mapped_area_at_least_99pct": true,
+          "coupling_iterations_recorded": true,
+          "solid_temperature_finite": true,
+          "solid_displacement_nonzero": true,
+          "solid_stress_nonzero": true,
+          "fluid_fields_finite": true,
+          "heat_conservation_lt_1pct": true,
+          "no_negative_volume": true,
+          "clean_shutdown": true,
+          "force_conservation_lt_2pct": true
+        }
+      }
+    },
+    "multiphysics-dataset": {
+      "sha256": "dfff48799479c08f20e5f13d277fdac938a71da3db9090e331cda8d058ff1e33",
+      "historical_name": "multiphysics_dataset.json",
+      "observed": {
+        "status": "PASS",
+        "case": "multiphysics_dataset",
+        "checks": {
+          "eight_actual_case_F_sequences": true,
+          "all_exports_valid": true,
+          "dataset_validator_pass": true,
+          "structural_displacement_and_stress_included": true,
+          "fluid_and_structural_meshes_independent": true,
+          "clean_shutdown": true
+        }
+      }
+    }
+  }
+}

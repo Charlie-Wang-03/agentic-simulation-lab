@@ -1,0 +1,255 @@
+from __future__ import annotations
+
+import hashlib
+import os
+import platform
+import re
+import subprocess
+from pathlib import Path
+
+TEXT_SUFFIXES = {".py", ".md", ".json", ".toml", ".yaml", ".yml", ".txt", ".cff", ".ini"}
+FORBIDDEN = (
+    re.compile(r"[A-Za-z]:[\\/]" + "Users" + r"[\\/]", re.IGNORECASE),
+    re.compile(r"(?:^|[\s'\"(])/(?:home|Users)/[^/\s]+/", re.IGNORECASE | re.MULTILINE),
+    re.compile("D:" + r"[\\/]" + "simulation_files" + r"[\\/]", re.IGNORECASE),
+    re.compile("charlie" + "wang", re.IGNORECASE),
+    re.compile(r"LAPTOP-[A-Z0-9-]+", re.IGNORECASE),
+    re.compile("ansys-pymechanical" + "-smoke", re.IGNORECASE),
+)
+SKIP_PARTS = {
+    "artifacts", ".git", ".venv", "venv", "dist", "build", "__pycache__", ".pytest_cache", ".ruff_cache"
+}
+GENERATED_SUFFIXES = {
+    ".7z",
+    ".aedt",
+    ".agdb",
+    ".cas",
+    ".dat",
+    ".dll",
+    ".dylib",
+    ".exe",
+    ".gz",
+    ".lic",
+    ".mechdb",
+    ".msh",
+    ".rar",
+    ".rocky",
+    ".rst",
+    ".scdoc",
+    ".so",
+    ".tar",
+    ".wbpj",
+    ".zip",
+}
+EMAIL = re.compile(r"(?i)\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\b")
+SECRET_NAME = re.compile(
+    "(?i)(ANTHROPIC" + r"_[A-Z0-9_]*|OPENAI" + r"_[A-Z0-9_]*|API" + r"_KEY|AUTH" + r"_TOKEN|"
+    "LICENSE" + r"_SERVER)"
+)
+SECRET_VALUE = re.compile(
+    r"(?i)(api[_-]?key|password|access[_-]?token)\s*[:=]\s*['\"]?[^\s'\"]{8,}"
+)
+PRIVATE_NETWORK_ENDPOINT = re.compile(
+    r"\b(?:127(?:\.\d{1,3}){3}|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|"
+    r"172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2})(?::\d+)?\b"
+)
+MAX_PUBLIC_BYTES = 2_000_000
+LARGE_FILE_ALLOWLIST: set[str] = set()
+EXPORT_PROHIBITED_PARTS = {
+    ".git", "artifacts", ".venv", "venv", "dist", "build", "__pycache__", ".pytest_cache", ".ruff_cache"
+}
+OWNED_BINARY_ASSETS = {
+    "assets/rocky/floor.stl": "e2dbd91ff9953653e21059685e817f5a05066e222b6486d2d87781d7a920dd10",
+    "assets/rocky/hex_drum.stl": "51d5610b5df77cedfbd848154882a50419905030c68d7996476a5577bfb55921",
+    "assets/rocky/hopper.stl": "aed50bdeaa3f23b86c23c46253b6d257e4bea2f1993e6d52d88422770e6f4b56",
+    "assets/rocky/hopper_gate.stl": "f8586e5770aa7e827f9077182b867f9a1d308a96d715fe5d0d8ea9b2f48dd489",
+    "assets/rocky/sph_hydro_tank.stl": "a35588472998a89ec63c41b19cd32118be49fd195c87a70a22c771fb6e6f09e8",
+    "assets/rocky/sph_open_tank.stl": "b22202fa6d90733be11c86dcd31bab1aec8806531573eb93f596891d78659d5b",
+    "assets/rocky/sph_piston.stl": "52a8822abeaecd7230aee36c21455a1bf5f883abc3f36d1a307dfe8f67301158",
+}
+APACHE_2_LICENSE_SHA256 = "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+PROHIBITED_MEDIA_SUFFIXES = {".bmp", ".gif", ".ico", ".jpeg", ".jpg", ".pdf", ".png", ".svg", ".webp"}
+SOURCE_HEADER_MARKER = re.compile(r"(?im)^\s*(?:#|//|/\*)?\s*(?:copyright\b|spdx-license-identifier\b)")
+
+
+def audit(root: Path) -> list[str]:
+    errors: list[str] = []
+    generic = {"runner", "root", "user", "admin", "administrator", "codex"}
+    private_markers = {
+        value.lower()
+        for value in (os.environ.get("USERNAME"), platform.node())
+        if value and len(value) > 3 and value.lower() not in generic
+    }
+    candidates = [
+        path
+        for path in root.rglob("*")
+        if path.is_file() and not SKIP_PARTS.intersection(path.relative_to(root).parts)
+    ]
+    relative_candidates = [path.relative_to(root).as_posix() for path in candidates]
+    ignored: set[str] = set()
+    if (root / ".git").is_dir() and relative_candidates:
+        try:
+            completed = subprocess.run(
+                ["git", "-c", f"safe.directory={root.resolve().as_posix()}", "check-ignore", "--stdin"],
+                cwd=root,
+                input="\n".join(relative_candidates),
+                text=True,
+                capture_output=True,
+                check=False,
+                timeout=30,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            errors.append(f"unable to evaluate Git ignore rules safely: {exc}")
+        else:
+            if completed.returncode not in {0, 1}:
+                errors.append(
+                    "unable to evaluate Git ignore rules safely: "
+                    f"git check-ignore exited {completed.returncode}"
+                )
+            else:
+                ignored = set(completed.stdout.splitlines())
+    for path, relative in zip(candidates, relative_candidates, strict=True):
+        if relative in ignored:
+            continue
+        if path.stat().st_size > MAX_PUBLIC_BYTES and relative not in LARGE_FILE_ALLOWLIST:
+            errors.append(f"{relative}: public candidate exceeds 2 MB and is not allowlisted")
+        if path.suffix.lower() in GENERATED_SUFFIXES or path.name.endswith((".tmp", ".bak", "~")):
+            errors.append(f"{relative}: generated or temporary file")
+        if path.suffix.lower() not in TEXT_SUFFIXES:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        forbidden = any(pattern.search(text) for pattern in FORBIDDEN)
+        if relative == "docs/MIGRATION.md":
+            forbidden = any(pattern.search(text) for pattern in FORBIDDEN[:-1])
+        if forbidden:
+            errors.append(f"{relative}: forbidden public path or legacy name")
+        lowered = text.lower()
+        if any(marker in lowered for marker in private_markers):
+            errors.append(f"{relative}: private username or hostname")
+        if SECRET_NAME.search(text) or SECRET_VALUE.search(text):
+            errors.append(f"{relative}: possible embedded secret")
+        if EMAIL.search(text):
+            errors.append(f"{relative}: public email address is not permitted")
+        if "/references/" in f"/{relative}" and PRIVATE_NETWORK_ENDPOINT.search(text):
+            errors.append(f"{relative}: private or loopback network endpoint in public reference evidence")
+    return errors
+
+
+def audit_source_provenance(root: Path) -> list[str]:
+    """Fail closed on unclassified binary/media assets and unattributed source headers."""
+    errors: list[str] = []
+    required = ("THIRD_PARTY_NOTICES.md", "docs/release/SOURCE_PROVENANCE.md")
+    for relative in required:
+        if not (root / relative).is_file():
+            errors.append(f"{relative}: required source-provenance evidence is missing")
+    if (root / ".git").is_dir():
+        try:
+            completed = subprocess.run(
+                [
+                    "git",
+                    "-c",
+                    f"safe.directory={root.resolve().as_posix()}",
+                    "ls-files",
+                    "-z",
+                    "--cached",
+                    "--others",
+                    "--exclude-standard",
+                ],
+                cwd=root,
+                text=True,
+                capture_output=True,
+                check=False,
+                timeout=30,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return [f"unable to enumerate candidate provenance safely: {exc}"]
+        if completed.returncode:
+            return [f"unable to enumerate candidate provenance safely: git exited {completed.returncode}"]
+        candidates = [root.joinpath(*Path(item).parts) for item in completed.stdout.split("\0") if item]
+    else:
+        candidates = list(root.rglob("*"))
+    for path in sorted(candidates):
+        if not path.is_file() or SKIP_PARTS.intersection(path.relative_to(root).parts):
+            continue
+        relative = path.relative_to(root).as_posix()
+        if path.is_symlink():
+            errors.append(f"{relative}: symlink has unclear source provenance")
+            continue
+        expected_hash = OWNED_BINARY_ASSETS.get(relative)
+        if expected_hash is not None:
+            observed_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+            if observed_hash != expected_hash:
+                errors.append(f"{relative}: owned fixture hash differs from the reviewed provenance record")
+            continue
+        suffix = path.suffix.casefold()
+        if suffix == ".stl":
+            errors.append(f"{relative}: unclassified geometry asset")
+            continue
+        if suffix in GENERATED_SUFFIXES:
+            errors.append(f"{relative}: proprietary/generated solver format has no public provenance")
+            continue
+        if suffix in PROHIBITED_MEDIA_SUFFIXES:
+            errors.append(f"{relative}: external media/logo provenance is not allowlisted")
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            errors.append(f"{relative}: unclassified binary content")
+            continue
+        if suffix in {".c", ".cc", ".cpp", ".h", ".hpp", ".js", ".py", ".rs", ".ts"}:
+            header = "\n".join(text.splitlines()[:25])
+            if SOURCE_HEADER_MARKER.search(header):
+                errors.append(f"{relative}: external copyright/SPDX source header requires attribution review")
+    return errors
+
+
+def audit_release_metadata(root: Path) -> list[str]:
+    """Require the approved repository license and consistent public package metadata."""
+    errors: list[str] = []
+    license_path = root / "LICENSE"
+    if not license_path.is_file():
+        errors.append("LICENSE: approved Apache-2.0 repository license is missing")
+    else:
+        observed_hash = hashlib.sha256(license_path.read_bytes()).hexdigest()
+        if observed_hash != APACHE_2_LICENSE_SHA256:
+            errors.append("LICENSE: content does not match the reviewed unmodified Apache-2.0 text")
+
+    metadata_path = root / "pyproject.toml"
+    try:
+        metadata = metadata_path.read_text(encoding="utf-8")
+    except OSError as exc:
+        errors.append(f"pyproject.toml: unable to read release metadata: {exc}")
+    else:
+        required_metadata = ('license = "Apache-2.0"', 'license-files = ["LICENSE"]')
+        for declaration in required_metadata:
+            if declaration not in metadata:
+                errors.append(f"pyproject.toml: missing {declaration}")
+
+    readme_path = root / "README.md"
+    try:
+        readme = readme_path.read_text(encoding="utf-8")
+    except OSError as exc:
+        errors.append(f"README.md: unable to read release metadata: {exc}")
+    else:
+        if "Apache License 2.0" not in readme or "does not license Ansys" not in readme:
+            errors.append("README.md: Apache-2.0 grant and Ansys license boundary are not both declared")
+    return errors
+
+
+def audit_export(root: Path) -> list[str]:
+    """Audit an exported candidate without applying source-tree ignore exemptions."""
+    errors = audit(root) + audit_source_provenance(root) + audit_release_metadata(root)
+    if not root.is_dir():
+        return [f"export root is not a directory: {root}"]
+    for name in sorted(EXPORT_PROHIBITED_PARTS):
+        if (root / name).exists():
+            errors.append(f"{name}: prohibited in exported tree")
+    if (root / "config" / "local.toml").exists():
+        errors.append("config/local.toml: local configuration in exported tree")
+    for path in root.rglob("*"):
+        if path.is_symlink():
+            errors.append(f"{path.relative_to(root).as_posix()}: symbolic links are not permitted in exported tree")
+    return errors

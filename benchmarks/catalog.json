@@ -1,0 +1,2610 @@
+{
+  "schema_version": 1,
+  "project": "agentic-simulation-lab",
+  "domains": [
+    {
+      "domain": "acoustics",
+      "title": "Acoustics",
+      "manifest": "benchmarks/acoustics/manifest.json",
+      "cases": [
+        {
+          "slug": "acoustic-cavity-modal",
+          "title": "Smoke Acoustic Cavity Modal",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_cavity_modal.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C001",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Acoustic Cavity Modal",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_b_cavity_modal/case_b_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "acoustic-dataset",
+          "title": "Smoke Acoustic Dataset",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C002",
+          "solver": "Python validator/generator",
+          "analysis": "Acoustic Dataset",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_i_dataset/case_i_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "acoustic-impedance",
+          "title": "Smoke Acoustic Impedance",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_impedance.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C003",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Acoustic Impedance",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_h_impedance/case_h_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "acoustic-pml",
+          "title": "Smoke Acoustic Pml",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_pml.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C004",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Acoustic Pml",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/phase0_pml/pml_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "acoustic-radiation",
+          "title": "Smoke Acoustic Radiation",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_radiation.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C005",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Acoustic Radiation",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_e_radiation/case_e_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "acoustic-structural-coupling",
+          "title": "Smoke Acoustic Structural Coupling",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_structural_coupling.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C006",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Acoustic Structural Coupling",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_g_coupled/case_g_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "acoustic-transient",
+          "title": "Smoke Acoustic Transient",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_transient.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C007",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Acoustic Transient",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_d_transient/case_d_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "acoustic-tube",
+          "title": "Smoke Acoustic Tube",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_acoustic_tube.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C008",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Acoustic Tube",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_a_tube/case_a_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "helmholtz-resonator",
+          "title": "Smoke Helmholtz Resonator",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_helmholtz_resonator.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C009",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Helmholtz Resonator",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_c_helmholtz/case_c_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "vibroacoustic-radiation",
+          "title": "Smoke Vibroacoustic Radiation",
+          "entrypoint": "benchmarks/acoustics/cases/smoke_vibroacoustic_radiation.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C010",
+          "solver": "MAPDL/Mechanical",
+          "analysis": "Vibroacoustic Radiation",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "acoustics/case_f_vibroacoustic/case_f_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "acoustics-dataset",
+          "title": "Validate Acoustics Dataset",
+          "entrypoint": "benchmarks/acoustics/cases/validate_acoustics_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/acoustics/references/suite_summary.json",
+          "id": "C011",
+          "solver": "Python validator/generator",
+          "analysis": "Validate Acoustics Dataset",
+          "reference": "benchmarks/acoustics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "cfd",
+      "title": "Cfd",
+      "manifest": "benchmarks/cfd/manifest.json",
+      "cases": [
+        {
+          "slug": "fluent-acoustics",
+          "title": "Smoke Fluent Acoustics",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_acoustics.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C001",
+          "solver": "Fluent",
+          "analysis": "Fluent Acoustics",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_acoustics.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-airfoil",
+          "title": "Smoke Fluent Airfoil",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_airfoil.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C002",
+          "solver": "Fluent",
+          "analysis": "Fluent Airfoil",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_airfoil.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-backward-step",
+          "title": "Smoke Fluent Backward Step",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_backward_step.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C003",
+          "solver": "Fluent",
+          "analysis": "Fluent Backward Step",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_backward_step.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-cavity",
+          "title": "Smoke Fluent Cavity",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_cavity.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C004",
+          "solver": "Fluent",
+          "analysis": "Fluent Cavity",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_cavity.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-compressible-nozzle",
+          "title": "Smoke Fluent Compressible Nozzle",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_compressible_nozzle.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C005",
+          "solver": "Fluent",
+          "analysis": "Fluent Compressible Nozzle",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_compressible_nozzle.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-connect",
+          "title": "Smoke Fluent Connect",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_connect.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/suite_summary.json",
+          "id": "C006",
+          "solver": "Fluent",
+          "analysis": "Fluent Connect",
+          "reference": "benchmarks/cfd/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_phase0_connect.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-cylinder",
+          "title": "Smoke Fluent Cylinder",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_cylinder.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C007",
+          "solver": "Fluent",
+          "analysis": "Fluent Cylinder",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_cylinder.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-cylinder-unsteady",
+          "title": "Smoke Fluent Cylinder Unsteady",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_cylinder_unsteady.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C008",
+          "solver": "Fluent",
+          "analysis": "Fluent Cylinder Unsteady",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_cylinder_unsteady.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-laminar-channel",
+          "title": "Smoke Fluent Laminar Channel",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_laminar_channel.py",
+          "result_file": "fluent_laminar_channel.json",
+          "result_format": "legacy",
+          "timeout_seconds": 600,
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C009",
+          "solver": "Fluent",
+          "analysis": "Fluent Laminar Channel",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "fluent-les-des",
+          "title": "Smoke Fluent Les Des",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_les_des.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C010",
+          "solver": "Fluent",
+          "analysis": "Fluent Les Des",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_les_des.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-mesh-sensitivity",
+          "title": "Smoke Fluent Mesh Sensitivity",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_mesh_sensitivity.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C011",
+          "solver": "Fluent",
+          "analysis": "Fluent Mesh Sensitivity",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_mesh_sensitivity.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-natural-convection",
+          "title": "Smoke Fluent Natural Convection",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_natural_convection.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C012",
+          "solver": "Fluent",
+          "analysis": "Fluent Natural Convection",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_natural_convection.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-optimization-parallel",
+          "title": "Smoke Fluent Optimization Parallel",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_optimization_parallel.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C013",
+          "solver": "Fluent",
+          "analysis": "Fluent Optimization Parallel",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_optimization_parallel.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-parametric-dataset",
+          "title": "Smoke Fluent Parametric Dataset",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_parametric_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C014",
+          "solver": "Python validator/generator",
+          "analysis": "Fluent Parametric Dataset",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "case-result.json",
+          "result_format": "v1"
+        },
+        {
+          "slug": "fluent-rans-models",
+          "title": "Smoke Fluent Rans Models",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_rans_models.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C015",
+          "solver": "Fluent",
+          "analysis": "Fluent Rans Models",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_rans_models.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-sliding-mesh",
+          "title": "Smoke Fluent Sliding Mesh",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_sliding_mesh.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C016",
+          "solver": "Fluent",
+          "analysis": "Fluent Sliding Mesh",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_sliding_mesh.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-species",
+          "title": "Smoke Fluent Species",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_species.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C017",
+          "solver": "Fluent",
+          "analysis": "Fluent Species",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_species.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-turbulent-pipe",
+          "title": "Smoke Fluent Turbulent Pipe",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_turbulent_pipe.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C018",
+          "solver": "Fluent",
+          "analysis": "Fluent Turbulent Pipe",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_turbulent_pipe.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-vof",
+          "title": "Smoke Fluent Vof",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_vof.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C019",
+          "solver": "Fluent",
+          "analysis": "Fluent Vof",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_vof.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-wind-tunnel",
+          "title": "Smoke Fluent Wind Tunnel",
+          "entrypoint": "benchmarks/cfd/cases/smoke_fluent_wind_tunnel.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/historical_results.json",
+          "id": "C020",
+          "solver": "Fluent",
+          "analysis": "Fluent Wind Tunnel",
+          "reference": "benchmarks/cfd/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fluent_wind_tunnel.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fluent-dataset",
+          "title": "Validate Fluent Dataset",
+          "entrypoint": "benchmarks/cfd/cases/validate_fluent_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/cfd/references/suite_summary.json",
+          "id": "C021",
+          "solver": "Python validator/generator",
+          "analysis": "Validate Fluent Dataset",
+          "reference": "benchmarks/cfd/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "dem",
+      "title": "Dem",
+      "manifest": "benchmarks/dem/manifest.json",
+      "cases": [
+        {
+          "slug": "angle-of-repose",
+          "title": "Smoke Angle Of Repose",
+          "entrypoint": "benchmarks/dem/cases/smoke_angle_of_repose.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C001",
+          "solver": "Rocky",
+          "analysis": "Angle Of Repose",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_d_angle_of_repose/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "cfd-dem-one-way",
+          "title": "Smoke Cfd Dem One Way",
+          "entrypoint": "benchmarks/dem/cases/smoke_cfd_dem_one_way.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C002",
+          "solver": "Rocky",
+          "analysis": "Cfd Dem One Way",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_i_one_way/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "cfd-dem-two-way",
+          "title": "Smoke Cfd Dem Two Way",
+          "entrypoint": "benchmarks/dem/cases/smoke_cfd_dem_two_way.py",
+          "role": "benchmark",
+          "status": "BLOCKED",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C003",
+          "solver": "Rocky",
+          "analysis": "Cfd Dem Two Way",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_j_two_way/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "hopper-discharge",
+          "title": "Smoke Hopper Discharge",
+          "entrypoint": "benchmarks/dem/cases/smoke_hopper_discharge.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C004",
+          "solver": "Rocky",
+          "analysis": "Hopper Discharge",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_e_hopper/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "nonspherical-particles",
+          "title": "Smoke Nonspherical Particles",
+          "entrypoint": "benchmarks/dem/cases/smoke_nonspherical_particles.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C005",
+          "solver": "Rocky",
+          "analysis": "Nonspherical Particles",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_g_nonspherical/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "particle-collision",
+          "title": "Smoke Particle Collision",
+          "entrypoint": "benchmarks/dem/cases/smoke_particle_collision.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C006",
+          "solver": "Rocky",
+          "analysis": "Particle Collision",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_b_collision/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "particle-freefall",
+          "title": "Smoke Particle Freefall",
+          "entrypoint": "benchmarks/dem/cases/run_particle_freefall.py",
+          "result_file": "rocky_dem/case_a_freefall/result.json",
+          "result_format": "legacy",
+          "timeout_seconds": 300,
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C007",
+          "solver": "Rocky",
+          "analysis": "Particle Freefall",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "particle-friction",
+          "title": "Smoke Particle Friction",
+          "entrypoint": "benchmarks/dem/cases/smoke_particle_friction.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C008",
+          "solver": "Rocky",
+          "analysis": "Particle Friction",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_c_friction/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "particle-thermal",
+          "title": "Smoke Particle Thermal",
+          "entrypoint": "benchmarks/dem/cases/smoke_particle_thermal.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C009",
+          "solver": "Rocky",
+          "analysis": "Particle Thermal",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_h_thermal/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "validate-rocky-dataset",
+          "title": "Smoke Rocky Dataset",
+          "entrypoint": "benchmarks/dem/cases/smoke_rocky_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C010",
+          "solver": "Python validator/generator",
+          "analysis": "Rocky Dataset",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/dataset/dataset_index.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "rotating-drum",
+          "title": "Smoke Rotating Drum",
+          "entrypoint": "benchmarks/dem/cases/smoke_rotating_drum.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C011",
+          "solver": "Rocky",
+          "analysis": "Rotating Drum",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "rocky_dem/case_f_rotating_drum/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "rocky-dataset",
+          "title": "Validate Rocky Dataset",
+          "entrypoint": "benchmarks/dem/cases/validate_rocky_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/dem/references/suite_summary.json",
+          "id": "C012",
+          "solver": "Python validator/generator",
+          "analysis": "Validate Rocky Dataset",
+          "reference": "benchmarks/dem/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "electromagnetics",
+      "title": "Electromagnetics",
+      "manifest": "benchmarks/electromagnetics/manifest.json",
+      "cases": [
+        {
+          "slug": "electrostatic-dataset",
+          "title": "Generate Electrostatic Dataset",
+          "entrypoint": "benchmarks/electromagnetics/cases/generate_electrostatic_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C001",
+          "solver": "Python validator/generator",
+          "analysis": "Generate Electrostatic Dataset",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/dataset_electrostatic_10/metadata.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "aedt-connect",
+          "title": "Smoke Aedt Connect",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_aedt_connect.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C002",
+          "solver": "AEDT",
+          "analysis": "Aedt Connect",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/smoke/maxwell_connect_official.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "dc-conduction",
+          "title": "Smoke Dc Conduction",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_dc_conduction.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C003",
+          "solver": "AEDT",
+          "analysis": "Dc Conduction",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/case_b_dc_conduction/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "eddy-current",
+          "title": "Smoke Eddy Current",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_eddy_current.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C004",
+          "solver": "AEDT",
+          "analysis": "Eddy Current",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/case_d_eddy_current/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "electrostatic",
+          "title": "Smoke Electrostatic",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_electrostatic.py",
+          "result_file": "electromagnetics/case_a_electrostatic/result.json",
+          "result_format": "legacy",
+          "timeout_seconds": 600,
+          "role": "benchmark",
+          "status": "FAIL",
+          "evidence": "benchmarks/electromagnetics/references/release_regression.json",
+          "id": "C005",
+          "solver": "AEDT",
+          "analysis": "Electrostatic",
+          "reference": "benchmarks/electromagnetics/references/release_regression.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "electrothermal-coupling",
+          "title": "Smoke Electrothermal Coupling",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_electrothermal_coupling.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C006",
+          "solver": "AEDT",
+          "analysis": "Electrothermal Coupling",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/case_g_electrothermal/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "force-mechanical-coupling",
+          "title": "Smoke Force Mechanical Coupling",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_force_mechanical_coupling.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C007",
+          "solver": "AEDT",
+          "analysis": "Force Mechanical Coupling",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/case_h_force_mechanical/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "hfss-connect",
+          "title": "Smoke Hfss Connect",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_hfss_connect.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C008",
+          "solver": "AEDT",
+          "analysis": "Hfss Connect",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/smoke/hfss_connect_official.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "hfss-waveguide",
+          "title": "Smoke Hfss Waveguide",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_hfss_waveguide.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C009",
+          "solver": "AEDT",
+          "analysis": "Hfss Waveguide",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/case_f_hfss_waveguide/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "magnetostatic",
+          "title": "Smoke Magnetostatic",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_magnetostatic.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C010",
+          "solver": "AEDT",
+          "analysis": "Magnetostatic",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/case_c_magnetostatic/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "transient-magnetic",
+          "title": "Smoke Transient Magnetic",
+          "entrypoint": "benchmarks/electromagnetics/cases/smoke_transient_magnetic.py",
+          "role": "benchmark",
+          "status": "BLOCKED",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C011",
+          "solver": "AEDT",
+          "analysis": "Transient Magnetic",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "electromagnetics/case_e_transient/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "electromagnetics-dataset",
+          "title": "Validate Electromagnetics Dataset",
+          "entrypoint": "benchmarks/electromagnetics/cases/validate_electromagnetics_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/electromagnetics/references/suite_summary.json",
+          "id": "C012",
+          "solver": "Python validator/generator",
+          "analysis": "Validate Electromagnetics Dataset",
+          "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "materials",
+      "title": "Materials",
+      "manifest": "benchmarks/materials/manifest.json",
+      "cases": [
+        {
+          "slug": "creep",
+          "title": "Smoke Creep",
+          "entrypoint": "benchmarks/materials/cases/smoke_creep.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/materials/references/historical_results.json",
+          "id": "C001",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Creep",
+          "reference": "benchmarks/materials/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "materials/creep/creep_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fatigue",
+          "title": "Smoke Fatigue",
+          "entrypoint": "benchmarks/materials/cases/smoke_fatigue.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/materials/references/historical_results.json",
+          "id": "C002",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Fatigue",
+          "reference": "benchmarks/materials/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "materials/fatigue/fatigue_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fracture",
+          "title": "Smoke Fracture",
+          "entrypoint": "benchmarks/materials/cases/smoke_fracture.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/materials/references/historical_results.json",
+          "id": "C003",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Fracture",
+          "reference": "benchmarks/materials/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "materials/fracture/fracture_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "hyperelastic",
+          "title": "Smoke Hyperelastic",
+          "entrypoint": "benchmarks/materials/cases/smoke_hyperelastic.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/materials/references/historical_results.json",
+          "id": "C004",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Hyperelastic",
+          "reference": "benchmarks/materials/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "materials/hyperelastic/hyperelastic_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "orthotropic",
+          "title": "Smoke Orthotropic",
+          "entrypoint": "benchmarks/materials/cases/smoke_orthotropic.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/materials/references/historical_results.json",
+          "id": "C005",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Orthotropic",
+          "reference": "benchmarks/materials/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "materials/orthotropic/orthotropic_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "plasticity",
+          "title": "Smoke Plasticity",
+          "entrypoint": "benchmarks/materials/cases/smoke_plasticity.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/materials/references/historical_results.json",
+          "id": "C006",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Plasticity",
+          "reference": "benchmarks/materials/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "materials/plasticity/plasticity_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "single-crystal-elasticity",
+          "title": "Smoke Single Crystal Elasticity",
+          "entrypoint": "benchmarks/materials/cases/smoke_single_crystal_elasticity.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/materials/references/historical_results.json",
+          "id": "C007",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Single Crystal Elasticity",
+          "reference": "benchmarks/materials/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "materials/single_crystal_elasticity/single_crystal_elasticity_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "viscoelastic",
+          "title": "Smoke Viscoelastic",
+          "entrypoint": "benchmarks/materials/cases/smoke_viscoelastic.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/materials/references/historical_results.json",
+          "id": "C008",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Viscoelastic",
+          "reference": "benchmarks/materials/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "materials/viscoelastic/viscoelastic_results.json",
+          "result_format": "legacy"
+        }
+      ]
+    },
+    {
+      "domain": "mechanics",
+      "title": "Mechanics",
+      "manifest": "benchmarks/mechanics/manifest.json",
+      "cases": [
+        {
+          "slug": "connect",
+          "title": "Smoke Connect",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_connect.py",
+          "role": "benchmark",
+          "status": "NOT_RUN",
+          "evidence": null,
+          "id": "C001",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Connect",
+          "reference": null,
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "case-result.json",
+          "result_format": "v1"
+        },
+        {
+          "slug": "contact-friction",
+          "title": "Smoke Contact Friction",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_contact_friction.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C002",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Contact Friction",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "contact_friction_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "forced-vibration",
+          "title": "Smoke Forced Vibration",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_forced_vibration.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C003",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Forced Vibration",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "forced_vibration_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "impact",
+          "title": "Smoke Impact",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_impact.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C004",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Impact",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "impact_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "joint-drive",
+          "title": "Smoke Joint Drive",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_joint_drive.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C005",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Joint Drive",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "joint_drive_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "modal-cantilever",
+          "title": "Smoke Modal Cantilever",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_modal_cantilever.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C006",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Modal Cantilever",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "modal_cantilever_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "multibody-flexible",
+          "title": "Smoke Multibody Flexible",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_multibody_flexible.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C007",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Multibody Flexible",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "multibody_flexible_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "multibody-rigid",
+          "title": "Smoke Multibody Rigid",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_multibody_rigid.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C008",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Multibody Rigid",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "multibody_rigid_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "spring-damper",
+          "title": "Smoke Spring Damper",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_spring_damper.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C009",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Spring Damper",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "spring_damper_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "static-cantilever",
+          "title": "Smoke Static Cantilever",
+          "entrypoint": "benchmarks/mechanics/cases/smoke_static_cantilever.py",
+          "result_file": "static_cantilever_results.json",
+          "result_format": "legacy",
+          "timeout_seconds": 300,
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/mechanics/references/historical_results.json",
+          "id": "C010",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Static Cantilever",
+          "reference": "benchmarks/mechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "spaceclaim-multibody-geometry",
+          "title": "Spaceclaim Multibody Geometry",
+          "entrypoint": "benchmarks/mechanics/cases/spaceclaim_multibody_geometry.py",
+          "role": "benchmark",
+          "status": "NOT_RUN",
+          "evidence": null,
+          "id": "C011",
+          "solver": "SpaceClaim",
+          "analysis": "Spaceclaim Multibody Geometry",
+          "reference": null,
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "case-result.json",
+          "result_format": "v1"
+        },
+        {
+          "slug": "spaceclaim-single-link-geometry",
+          "title": "Spaceclaim Single Link Geometry",
+          "entrypoint": "benchmarks/mechanics/cases/spaceclaim_single_link_geometry.py",
+          "role": "benchmark",
+          "status": "NOT_RUN",
+          "evidence": null,
+          "id": "C012",
+          "solver": "SpaceClaim",
+          "analysis": "Spaceclaim Single Link Geometry",
+          "reference": null,
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "case-result.json",
+          "result_format": "v1"
+        }
+      ]
+    },
+    {
+      "domain": "multiphysics",
+      "title": "Multiphysics",
+      "manifest": "benchmarks/multiphysics/manifest.json",
+      "cases": [
+        {
+          "slug": "cht-fluent",
+          "title": "Smoke Cht Fluent",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_cht_fluent.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C001",
+          "solver": "Fluent/Mechanical",
+          "analysis": "Cht Fluent",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "cht_fluent.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "cht-system-coupling",
+          "title": "Smoke Cht System Coupling",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_cht_system_coupling.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C002",
+          "solver": "Fluent/Mechanical/System Coupling",
+          "analysis": "Cht System Coupling",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "cht_system_coupling.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fsi-one-way",
+          "title": "Smoke Fsi One Way",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_fsi_one_way.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C003",
+          "solver": "Fluent/Mechanical/System Coupling",
+          "analysis": "Fsi One Way",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fsi_one_way.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fsi-turek-hron",
+          "title": "Smoke Fsi Turek Hron",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_fsi_turek_hron.py",
+          "role": "benchmark",
+          "status": "FAIL",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C004",
+          "solver": "Fluent/Mechanical/System Coupling",
+          "analysis": "Fsi Turek Hron",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fsi_turek_hron.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "fsi-two-way",
+          "title": "Smoke Fsi Two Way",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_fsi_two_way.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C005",
+          "solver": "Fluent/Mechanical/System Coupling",
+          "analysis": "Fsi Two Way",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "fsi_two_way.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "validate-multiphysics-dataset",
+          "title": "Smoke Multiphysics Dataset",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_multiphysics_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C006",
+          "solver": "Python validator/generator",
+          "analysis": "Multiphysics Dataset",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "multiphysics_dataset.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "system-coupling-connect",
+          "title": "Smoke System Coupling Connect",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_system_coupling_connect.py",
+          "result_file": "system_coupling_connect.json",
+          "result_format": "legacy",
+          "timeout_seconds": 300,
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C007",
+          "solver": "Fluent/Mechanical/System Coupling",
+          "analysis": "System Coupling Connect",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "thermal-fluid-structural",
+          "title": "Smoke Thermal Fluid Structural",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_thermal_fluid_structural.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C008",
+          "solver": "Fluent/Mechanical",
+          "analysis": "Thermal Fluid Structural",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermal_fluid_structural.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "thermo-fsi",
+          "title": "Smoke Thermo Fsi",
+          "entrypoint": "benchmarks/multiphysics/cases/smoke_thermo_fsi.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C009",
+          "solver": "Fluent/Mechanical/System Coupling",
+          "analysis": "Thermo Fsi",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermo_fsi.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "multiphysics-dataset",
+          "title": "Validate Multiphysics Dataset",
+          "entrypoint": "benchmarks/multiphysics/cases/validate_multiphysics_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/multiphysics/references/historical_results.json",
+          "id": "C010",
+          "solver": "Python validator/generator",
+          "analysis": "Validate Multiphysics Dataset",
+          "reference": "benchmarks/multiphysics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "phase_reactive",
+      "title": "Phase Reactive",
+      "manifest": "benchmarks/phase_reactive/manifest.json",
+      "cases": [
+        {
+          "slug": "fluent-melting",
+          "title": "Smoke Fluent Melting",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_fluent_melting.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C001",
+          "solver": "Fluent",
+          "analysis": "Fluent Melting",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_b.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "phase-reactive-capabilities",
+          "title": "Probe Phase Reactive Capabilities",
+          "entrypoint": "benchmarks/phase_reactive/cases/probe_phase_reactive_capabilities.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C002",
+          "solver": "Fluent/MAPDL",
+          "analysis": "Probe Phase Reactive Capabilities",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "combustion-radiation",
+          "title": "Smoke Combustion Radiation",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_combustion_radiation.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C003",
+          "solver": "Fluent",
+          "analysis": "Combustion Radiation",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_i.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "diffusion-flame",
+          "title": "Smoke Diffusion Flame",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_diffusion_flame.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C004",
+          "solver": "Fluent",
+          "analysis": "Diffusion Flame",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_h.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "finite-rate-reactor",
+          "title": "Smoke Finite Rate Reactor",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_finite_rate_reactor.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C005",
+          "solver": "Fluent",
+          "analysis": "Finite Rate Reactor",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_f.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "moving-heat-source",
+          "title": "Smoke Moving Heat Source",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_moving_heat_source.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C006",
+          "solver": "Reduced-order Python",
+          "analysis": "Moving Heat Source",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_d.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "natural-convection-melting",
+          "title": "Smoke Natural Convection Melting",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_natural_convection_melting.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C007",
+          "solver": "Fluent",
+          "analysis": "Natural Convection Melting",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_c.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "phase-change-dataset",
+          "title": "Smoke Phase Change Dataset",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_phase_change_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C008",
+          "solver": "Python validator/generator",
+          "analysis": "Phase Change Dataset",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_k.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "premixed-combustion",
+          "title": "Smoke Premixed Combustion",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_premixed_combustion.py",
+          "role": "benchmark",
+          "status": "FAIL",
+          "evidence": "benchmarks/phase_reactive/references/targeted_diagnostics.json",
+          "id": "C009",
+          "solver": "Fluent",
+          "analysis": "Premixed Combustion",
+          "reference": "benchmarks/phase_reactive/references/targeted_diagnostics.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_g.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "reaction-diffusion",
+          "title": "Smoke Reaction Diffusion",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_reaction_diffusion.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C010",
+          "solver": "Reduced-order Python",
+          "analysis": "Reaction Diffusion",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_e.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "reactive-cht",
+          "title": "Smoke Reactive Cht",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_reactive_cht.py",
+          "role": "benchmark",
+          "status": "FAIL",
+          "evidence": "benchmarks/phase_reactive/references/targeted_diagnostics.json",
+          "id": "C011",
+          "solver": "Fluent",
+          "analysis": "Reactive Cht",
+          "reference": "benchmarks/phase_reactive/references/targeted_diagnostics.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_j.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "reactive-dataset",
+          "title": "Smoke Reactive Dataset",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_reactive_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C012",
+          "solver": "Python validator/generator",
+          "analysis": "Reactive Dataset",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_l.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "stefan-phase-change",
+          "title": "Smoke Stefan Phase Change",
+          "entrypoint": "benchmarks/phase_reactive/cases/smoke_stefan_phase_change.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C013",
+          "solver": "Reduced-order Python",
+          "analysis": "Stefan Phase Change",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "phase_reactive/case_a.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "phase-reactive-dataset",
+          "title": "Validate Phase Reactive Dataset",
+          "entrypoint": "benchmarks/phase_reactive/cases/validate_phase_reactive_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/phase_reactive/references/suite_summary.json",
+          "id": "C014",
+          "solver": "Python validator/generator",
+          "analysis": "Validate Phase Reactive Dataset",
+          "reference": "benchmarks/phase_reactive/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "porous_geomechanics",
+      "title": "Porous Geomechanics",
+      "manifest": "benchmarks/porous_geomechanics/manifest.json",
+      "cases": [
+        {
+          "slug": "porous-geomechanics-capabilities",
+          "title": "Probe Porous Geomechanics Capabilities",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/probe_porous_geomechanics_capabilities.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C001",
+          "solver": "Fluent/MAPDL",
+          "analysis": "Probe Porous Geomechanics Capabilities",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "anisotropic-porous",
+          "title": "Smoke Anisotropic Porous",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_anisotropic_porous.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C002",
+          "solver": "Fluent",
+          "analysis": "Anisotropic Porous",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/anisotropic_porous/anisotropic_porous_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "darcy-flow",
+          "title": "Smoke Darcy Flow",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_darcy_flow.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C003",
+          "solver": "Fluent",
+          "analysis": "Darcy Flow",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/darcy_flow/darcy_flow_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "forchheimer-flow",
+          "title": "Smoke Forchheimer Flow",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_forchheimer_flow.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C004",
+          "solver": "Fluent",
+          "analysis": "Forchheimer Flow",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/forchheimer_flow/forchheimer_flow_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "geomechanics-material",
+          "title": "Smoke Geomechanics Material",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_geomechanics_material.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C005",
+          "solver": "MAPDL",
+          "analysis": "Geomechanics Material",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/geomechanics_material/geomechanics_material_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "geostatic-consolidation",
+          "title": "Smoke Geostatic Consolidation",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_geostatic_consolidation.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C006",
+          "solver": "MAPDL",
+          "analysis": "Geostatic Consolidation",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/geostatic_consolidation/geostatic_consolidation_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "validate-porous-dataset",
+          "title": "Smoke Porous Dataset",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_porous_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C007",
+          "solver": "Python validator/generator",
+          "analysis": "Porous Dataset",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/porous_dataset/porous_dataset_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "porous-heat-transfer",
+          "title": "Smoke Porous Heat Transfer",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_porous_heat_transfer.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C008",
+          "solver": "Fluent",
+          "analysis": "Porous Heat Transfer",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/porous_heat_transfer/porous_heat_transfer_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "porous-species",
+          "title": "Smoke Porous Species",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_porous_species.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C009",
+          "solver": "Fluent",
+          "analysis": "Porous Species",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/porous_species/porous_species_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "terzaghi-consolidation",
+          "title": "Smoke Terzaghi Consolidation",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_terzaghi_consolidation.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C010",
+          "solver": "MAPDL",
+          "analysis": "Terzaghi Consolidation",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/terzaghi_consolidation/terzaghi_consolidation_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "thermo-poroelastic",
+          "title": "Smoke Thermo Poroelastic",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/smoke_thermo_poroelastic.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "id": "C011",
+          "solver": "MAPDL",
+          "analysis": "Thermo Poroelastic",
+          "reference": "benchmarks/porous_geomechanics/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "porous_geomechanics/thermo_poroelastic/thermo_poroelastic_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "porous-dataset",
+          "title": "Validate Porous Dataset",
+          "entrypoint": "benchmarks/porous_geomechanics/cases/validate_porous_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/porous_geomechanics/references/historical_results.json",
+          "id": "C012",
+          "solver": "Python validator/generator",
+          "analysis": "Validate Porous Dataset",
+          "reference": "benchmarks/porous_geomechanics/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "sph",
+      "title": "Sph",
+      "manifest": "benchmarks/sph/manifest.json",
+      "cases": [
+        {
+          "slug": "prepare-sph-dataset",
+          "title": "Prepare Sph Dataset",
+          "entrypoint": "benchmarks/sph/cases/prepare_sph_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C001",
+          "solver": "Python validator/generator",
+          "analysis": "Prepare Sph Dataset",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "sph-capabilities",
+          "title": "Probe Sph Capabilities",
+          "entrypoint": "benchmarks/sph/cases/probe_sph_capabilities.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C002",
+          "solver": "Rocky",
+          "analysis": "Probe Sph Capabilities",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        },
+        {
+          "slug": "sph-dam-break",
+          "title": "Smoke Sph Dam Break",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_dam_break.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C003",
+          "solver": "Rocky",
+          "analysis": "Sph Dam Break",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_b_dam_break/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "validate-sph-dataset",
+          "title": "Smoke Sph Dataset",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_dataset.py",
+          "role": "dataset",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C004",
+          "solver": "Python validator/generator",
+          "analysis": "Sph Dataset",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_l_dataset/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-flexible-structure",
+          "title": "Smoke Sph Flexible Structure",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_flexible_structure.py",
+          "role": "benchmark",
+          "status": "BLOCKED",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C005",
+          "solver": "Rocky",
+          "analysis": "Sph Flexible Structure",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_i_flexible_structure/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-hydrostatic",
+          "title": "Smoke Sph Hydrostatic",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_hydrostatic.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C006",
+          "solver": "Rocky",
+          "analysis": "Sph Hydrostatic",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_a_hydrostatic/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-jet-impact",
+          "title": "Smoke Sph Jet Impact",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_jet_impact.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C007",
+          "solver": "Rocky",
+          "analysis": "Sph Jet Impact",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_d_jet_impact/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-moving-boundary",
+          "title": "Smoke Sph Moving Boundary",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_moving_boundary.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C008",
+          "solver": "Rocky",
+          "analysis": "Sph Moving Boundary",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_e_moving_boundary/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-non-newtonian",
+          "title": "Smoke Sph Non Newtonian",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_non_newtonian.py",
+          "role": "benchmark",
+          "status": "BLOCKED",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C009",
+          "solver": "Rocky",
+          "analysis": "Sph Non Newtonian",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_f_non_newtonian/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-resolution",
+          "title": "Smoke Sph Resolution",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_resolution.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C010",
+          "solver": "Rocky",
+          "analysis": "Sph Resolution",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_j_resolution/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-rigid-body",
+          "title": "Smoke Sph Rigid Body",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_rigid_body.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C011",
+          "solver": "Rocky",
+          "analysis": "Sph Rigid Body",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_h_rigid_body/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-sloshing",
+          "title": "Smoke Sph Sloshing",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_sloshing.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C012",
+          "solver": "Rocky",
+          "analysis": "Sph Sloshing",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_c_sloshing/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-thermal",
+          "title": "Smoke Sph Thermal",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_thermal.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C013",
+          "solver": "Rocky",
+          "analysis": "Sph Thermal",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_g_thermal/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-vof-comparison",
+          "title": "Smoke Sph Vof Comparison",
+          "entrypoint": "benchmarks/sph/cases/smoke_sph_vof_comparison.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C014",
+          "solver": "Rocky",
+          "analysis": "Sph Vof Comparison",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "sph_free_surface/case_k_vof_comparison/result.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "sph-dataset",
+          "title": "Validate Sph Dataset",
+          "entrypoint": "benchmarks/sph/cases/validate_sph_dataset.py",
+          "role": "utility",
+          "status": "PASS",
+          "evidence": "benchmarks/sph/references/suite_summary.json",
+          "id": "C015",
+          "solver": "Python validator/generator",
+          "analysis": "Validate Sph Dataset",
+          "reference": "benchmarks/sph/references/suite_summary.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "thermal",
+      "title": "Thermal",
+      "manifest": "benchmarks/thermal/manifest.json",
+      "cases": [
+        {
+          "slug": "thermal-conduction",
+          "title": "Smoke Thermal Conduction",
+          "entrypoint": "benchmarks/thermal/cases/smoke_thermal_conduction.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/thermal/references/historical_results.json",
+          "id": "C001",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Thermal Conduction",
+          "reference": "benchmarks/thermal/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermal_conduction_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "thermal-contact",
+          "title": "Smoke Thermal Contact",
+          "entrypoint": "benchmarks/thermal/cases/smoke_thermal_contact.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/thermal/references/historical_results.json",
+          "id": "C002",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Thermal Contact",
+          "reference": "benchmarks/thermal/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermal_contact_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "thermal-convection",
+          "title": "Smoke Thermal Convection",
+          "entrypoint": "benchmarks/thermal/cases/smoke_thermal_convection.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/thermal/references/historical_results.json",
+          "id": "C003",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Thermal Convection",
+          "reference": "benchmarks/thermal/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermal_convection_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "thermal-heat-generation",
+          "title": "Smoke Thermal Heat Generation",
+          "entrypoint": "benchmarks/thermal/cases/smoke_thermal_heat_generation.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/thermal/references/historical_results.json",
+          "id": "C004",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Thermal Heat Generation",
+          "reference": "benchmarks/thermal/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermal_heat_generation_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "thermal-radiation",
+          "title": "Smoke Thermal Radiation",
+          "entrypoint": "benchmarks/thermal/cases/smoke_thermal_radiation.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/thermal/references/historical_results.json",
+          "id": "C005",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Thermal Radiation",
+          "reference": "benchmarks/thermal/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermal_radiation_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "thermal-structural",
+          "title": "Smoke Thermal Structural",
+          "entrypoint": "benchmarks/thermal/cases/smoke_thermal_structural.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/thermal/references/historical_results.json",
+          "id": "C006",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Thermal Structural",
+          "reference": "benchmarks/thermal/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermal_structural_results.json",
+          "result_format": "legacy"
+        },
+        {
+          "slug": "thermal-transient",
+          "title": "Smoke Thermal Transient",
+          "entrypoint": "benchmarks/thermal/cases/smoke_thermal_transient.py",
+          "role": "benchmark",
+          "status": "PASS",
+          "evidence": "benchmarks/thermal/references/historical_results.json",
+          "id": "C007",
+          "solver": "Mechanical/MAPDL",
+          "analysis": "Thermal Transient",
+          "reference": "benchmarks/thermal/references/historical_results.json",
+          "expected_artifacts": [
+            "run.json",
+            "stdout.log",
+            "stderr.log"
+          ],
+          "result_file": "thermal_transient_results.json",
+          "result_format": "legacy"
+        }
+      ]
+    }
+  ]
+}

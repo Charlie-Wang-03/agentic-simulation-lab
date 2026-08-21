@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "records": {
+    "thermal-conduction": {
+      "sha256": "7645ea146de91c6518155398d9e5b4d5645333df27e1ddf0b8906f31bd8de1b4",
+      "historical_name": "thermal_conduction_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "A",
+        "solver": {
+          "product": "Ansys MAPDL",
+          "version": "2026 R1 / 261"
+        },
+        "checks": {
+          "solver_output_exists": true,
+          "temperature_is_linear": true,
+          "heat_flow_error_below_1pct": true,
+          "boundary_extrema_match": true
+        }
+      }
+    },
+    "thermal-contact": {
+      "sha256": "6a510bd6e8b04cde9dc4492ea49da99539b6e1f959e1dcaf6f356a32a02aa1fe",
+      "historical_name": "thermal_contact_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "E",
+        "solver": {
+          "product": "Ansys MAPDL",
+          "version": "2026 R1 / 261"
+        },
+        "checks": {
+          "contact_elements_created": true,
+          "finite_heat_flow_error_below_2pct": true,
+          "contact_jump_error_below_2pct": true,
+          "ideal_reference_error_below_1pct": true,
+          "finite_contact_reduces_heat_flow": true,
+          "finite_contact_creates_jump": true
+        }
+      }
+    },
+    "thermal-convection": {
+      "sha256": "0499616b44aea7980c1c4328583bd980fa9be673724672a5f650bd35eff5732b",
+      "historical_name": "thermal_convection_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "C",
+        "solver": {
+          "product": "Ansys MAPDL",
+          "version": "2026 R1 / 261"
+        },
+        "checks": {
+          "heat_flow_error_below_1pct": true,
+          "surface_temperature_error_below_0_1c": true,
+          "convection_energy_balance_below_1pct": true
+        }
+      }
+    },
+    "thermal-heat-generation": {
+      "sha256": "c3c7c4786ad4e1e84fa88786652609d3ecebd148cc5f72ea64f1e14363e85b1c",
+      "historical_name": "thermal_heat_generation_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "B",
+        "solver": {
+          "product": "Ansys MAPDL",
+          "version": "2026 R1 / 261"
+        },
+        "checks": {
+          "center_is_hottest": true,
+          "center_temperature_error_below_2pct": true,
+          "energy_balance_below_1pct": true,
+          "profile_error_below_0_2c": true
+        }
+      }
+    },
+    "thermal-radiation": {
+      "sha256": "4b0da96109f35ce5a019bf0f83219263d8119c59d581282cca5f24c4b43b8eb7",
+      "historical_name": "thermal_radiation_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "F",
+        "solver": {
+          "product": "Ansys MAPDL",
+          "version": "2026 R1 / 261"
+        },
+        "checks": {
+          "surface_temperature_error_below_0_2c": true,
+          "energy_balance_below_1pct": true,
+          "radiation_is_nonzero": true,
+          "convection_is_nonzero": true
+        }
+      }
+    },
+    "thermal-structural": {
+      "sha256": "a10e9252a2a122122c8c59293f2bb2e08aa7b4a2d1bc453825fa7634d1f8280c",
+      "historical_name": "thermal_structural_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "G",
+        "solver": {
+          "product": "Ansys MAPDL",
+          "version": "2026 R1 / 261"
+        },
+        "checks": {
+          "thermal_field_is_uniform": true,
+          "ldread_mapped_all_nodes": true,
+          "thermal_solution_matches_applied_temperature": true,
+          "free_expansion_error_below_2pct": true,
+          "positive_expansion": true
+        }
+      }
+    },
+    "thermal-transient": {
+      "sha256": "7179ad8e270f4ae5a869b6835b19fd5a4ae7550aedcc346f31b74e50a5ee7dc1",
+      "historical_name": "thermal_transient_results.json",
+      "observed": {
+        "status": "PASS",
+        "case": "D",
+        "solver": {
+          "product": "Ansys MAPDL",
+          "version": "2026 R1 / 261"
+        },
+        "checks": {
+          "biot_below_0_1": true,
+          "history_has_241_points": true,
+          "temperature_monotonic": true,
+          "lumped_max_error_below_0_2c": true,
+          "approaches_ambient": true
+        }
+      }
+    }
+  }
+}

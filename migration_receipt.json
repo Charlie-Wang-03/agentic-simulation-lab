@@ -1,0 +1,675 @@
+{
+  "public_name": "agentic-simulation-lab",
+  "moves": [
+    {
+      "from": "acoustics_common.py",
+      "to": "benchmarks/acoustics/common/acoustics_common.py"
+    },
+    {
+      "from": "acoustics_field_export.py",
+      "to": "benchmarks/acoustics/common/acoustics_field_export.py"
+    },
+    {
+      "from": "aedt_smoke_common.py",
+      "to": "benchmarks/electromagnetics/common/aedt_smoke_common.py"
+    },
+    {
+      "from": "dynamics_smoke_common.py",
+      "to": "benchmarks/mechanics/common/dynamics_smoke_common.py"
+    },
+    {
+      "from": "fluent_field_export.py",
+      "to": "benchmarks/cfd/common/fluent_field_export.py"
+    },
+    {
+      "from": "fluent_mesh.py",
+      "to": "benchmarks/cfd/common/fluent_mesh.py"
+    },
+    {
+      "from": "fluent_smoke_common.py",
+      "to": "benchmarks/cfd/common/fluent_smoke_common.py"
+    },
+    {
+      "from": "free_surface_sph_common.py",
+      "to": "benchmarks/sph/common/free_surface_sph_common.py"
+    },
+    {
+      "from": "generate_electrostatic_dataset.py",
+      "to": "benchmarks/electromagnetics/cases/generate_electrostatic_dataset.py"
+    },
+    {
+      "from": "multiphysics_common.py",
+      "to": "benchmarks/multiphysics/common/multiphysics_common.py"
+    },
+    {
+      "from": "multiphysics_field_export.py",
+      "to": "benchmarks/multiphysics/common/multiphysics_field_export.py"
+    },
+    {
+      "from": "phase_reactive_common.py",
+      "to": "benchmarks/phase_reactive/common/phase_reactive_common.py"
+    },
+    {
+      "from": "phase_reactive_field_export.py",
+      "to": "benchmarks/phase_reactive/common/phase_reactive_field_export.py"
+    },
+    {
+      "from": "porous_field_export.py",
+      "to": "benchmarks/porous_geomechanics/common/porous_field_export.py"
+    },
+    {
+      "from": "porous_geomechanics_common.py",
+      "to": "benchmarks/porous_geomechanics/common/porous_geomechanics_common.py"
+    },
+    {
+      "from": "prepare_sph_dataset.py",
+      "to": "benchmarks/sph/cases/prepare_sph_dataset.py"
+    },
+    {
+      "from": "probe_phase_reactive_capabilities.py",
+      "to": "benchmarks/phase_reactive/cases/probe_phase_reactive_capabilities.py"
+    },
+    {
+      "from": "probe_porous_geomechanics_capabilities.py",
+      "to": "benchmarks/porous_geomechanics/cases/probe_porous_geomechanics_capabilities.py"
+    },
+    {
+      "from": "probe_sph_capabilities.py",
+      "to": "benchmarks/sph/cases/probe_sph_capabilities.py"
+    },
+    {
+      "from": "rocky_field_export.py",
+      "to": "benchmarks/dem/common/rocky_field_export.py"
+    },
+    {
+      "from": "rocky_smoke_common.py",
+      "to": "benchmarks/dem/common/rocky_smoke_common.py"
+    },
+    {
+      "from": "run_acoustics_suite.py",
+      "to": "benchmarks/acoustics/legacy_suite.py"
+    },
+    {
+      "from": "run_electromagnetics_suite.py",
+      "to": "benchmarks/electromagnetics/legacy_suite.py"
+    },
+    {
+      "from": "run_fluent_advanced_suite.py",
+      "to": "benchmarks/cfd/legacy_suite.py"
+    },
+    {
+      "from": "run_fluent_final_suite.py",
+      "to": "benchmarks/cfd/legacy_suite.py"
+    },
+    {
+      "from": "run_fluent_smoke_suite.py",
+      "to": "benchmarks/cfd/legacy_suite.py"
+    },
+    {
+      "from": "run_material_solid_suite.py",
+      "to": "benchmarks/materials/legacy_suite.py"
+    },
+    {
+      "from": "run_multiphysics_suite.py",
+      "to": "benchmarks/multiphysics/legacy_suite.py"
+    },
+    {
+      "from": "run_phase_reactive_suite.py",
+      "to": "benchmarks/phase_reactive/legacy_suite.py"
+    },
+    {
+      "from": "run_porous_geomechanics_suite.py",
+      "to": "benchmarks/porous_geomechanics/legacy_suite.py"
+    },
+    {
+      "from": "run_rocky_dem_suite.py",
+      "to": "benchmarks/dem/legacy_suite.py"
+    },
+    {
+      "from": "run_sph_free_surface_suite.py",
+      "to": "benchmarks/sph/legacy_suite.py"
+    },
+    {
+      "from": "run_thermal_smoke_suite.py",
+      "to": "benchmarks/thermal/legacy_suite.py"
+    },
+    {
+      "from": "smoke_acoustic_cavity_modal.py",
+      "to": "benchmarks/acoustics/cases/smoke_acoustic_cavity_modal.py"
+    },
+    {
+      "from": "smoke_acoustic_dataset.py",
+      "to": "benchmarks/acoustics/cases/smoke_acoustic_dataset.py"
+    },
+    {
+      "from": "smoke_acoustic_impedance.py",
+      "to": "benchmarks/acoustics/cases/smoke_acoustic_impedance.py"
+    },
+    {
+      "from": "smoke_acoustic_pml.py",
+      "to": "benchmarks/acoustics/cases/smoke_acoustic_pml.py"
+    },
+    {
+      "from": "smoke_acoustic_radiation.py",
+      "to": "benchmarks/acoustics/cases/smoke_acoustic_radiation.py"
+    },
+    {
+      "from": "smoke_acoustic_structural_coupling.py",
+      "to": "benchmarks/acoustics/cases/smoke_acoustic_structural_coupling.py"
+    },
+    {
+      "from": "smoke_acoustic_transient.py",
+      "to": "benchmarks/acoustics/cases/smoke_acoustic_transient.py"
+    },
+    {
+      "from": "smoke_acoustic_tube.py",
+      "to": "benchmarks/acoustics/cases/smoke_acoustic_tube.py"
+    },
+    {
+      "from": "smoke_aedt_connect.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_aedt_connect.py"
+    },
+    {
+      "from": "smoke_angle_of_repose.py",
+      "to": "benchmarks/dem/cases/smoke_angle_of_repose.py"
+    },
+    {
+      "from": "smoke_anisotropic_porous.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_anisotropic_porous.py"
+    },
+    {
+      "from": "smoke_cfd_dem_one_way.py",
+      "to": "benchmarks/dem/cases/smoke_cfd_dem_one_way.py"
+    },
+    {
+      "from": "smoke_cfd_dem_two_way.py",
+      "to": "benchmarks/dem/cases/smoke_cfd_dem_two_way.py"
+    },
+    {
+      "from": "smoke_cht_fluent.py",
+      "to": "benchmarks/multiphysics/cases/smoke_cht_fluent.py"
+    },
+    {
+      "from": "smoke_cht_system_coupling.py",
+      "to": "benchmarks/multiphysics/cases/smoke_cht_system_coupling.py"
+    },
+    {
+      "from": "smoke_combustion_radiation.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_combustion_radiation.py"
+    },
+    {
+      "from": "smoke_connect.py",
+      "to": "benchmarks/mechanics/cases/smoke_connect.py"
+    },
+    {
+      "from": "smoke_contact_friction.py",
+      "to": "benchmarks/mechanics/cases/smoke_contact_friction.py"
+    },
+    {
+      "from": "smoke_creep.py",
+      "to": "benchmarks/materials/cases/smoke_creep.py"
+    },
+    {
+      "from": "smoke_darcy_flow.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_darcy_flow.py"
+    },
+    {
+      "from": "smoke_dc_conduction.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_dc_conduction.py"
+    },
+    {
+      "from": "smoke_diffusion_flame.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_diffusion_flame.py"
+    },
+    {
+      "from": "smoke_eddy_current.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_eddy_current.py"
+    },
+    {
+      "from": "smoke_electrostatic.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_electrostatic.py"
+    },
+    {
+      "from": "smoke_electrothermal_coupling.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_electrothermal_coupling.py"
+    },
+    {
+      "from": "smoke_fatigue.py",
+      "to": "benchmarks/materials/cases/smoke_fatigue.py"
+    },
+    {
+      "from": "smoke_finite_rate_reactor.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_finite_rate_reactor.py"
+    },
+    {
+      "from": "smoke_fluent_acoustics.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_acoustics.py"
+    },
+    {
+      "from": "smoke_fluent_airfoil.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_airfoil.py"
+    },
+    {
+      "from": "smoke_fluent_backward_step.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_backward_step.py"
+    },
+    {
+      "from": "smoke_fluent_cavity.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_cavity.py"
+    },
+    {
+      "from": "smoke_fluent_compressible_nozzle.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_compressible_nozzle.py"
+    },
+    {
+      "from": "smoke_fluent_connect.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_connect.py"
+    },
+    {
+      "from": "smoke_fluent_cylinder.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_cylinder.py"
+    },
+    {
+      "from": "smoke_fluent_cylinder_unsteady.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_cylinder_unsteady.py"
+    },
+    {
+      "from": "smoke_fluent_laminar_channel.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_laminar_channel.py"
+    },
+    {
+      "from": "smoke_fluent_les_des.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_les_des.py"
+    },
+    {
+      "from": "smoke_fluent_melting.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_fluent_melting.py"
+    },
+    {
+      "from": "smoke_fluent_mesh_sensitivity.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_mesh_sensitivity.py"
+    },
+    {
+      "from": "smoke_fluent_natural_convection.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_natural_convection.py"
+    },
+    {
+      "from": "smoke_fluent_optimization_parallel.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_optimization_parallel.py"
+    },
+    {
+      "from": "smoke_fluent_parametric_dataset.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_parametric_dataset.py"
+    },
+    {
+      "from": "smoke_fluent_rans_models.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_rans_models.py"
+    },
+    {
+      "from": "smoke_fluent_sliding_mesh.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_sliding_mesh.py"
+    },
+    {
+      "from": "smoke_fluent_species.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_species.py"
+    },
+    {
+      "from": "smoke_fluent_turbulent_pipe.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_turbulent_pipe.py"
+    },
+    {
+      "from": "smoke_fluent_vof.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_vof.py"
+    },
+    {
+      "from": "smoke_fluent_wind_tunnel.py",
+      "to": "benchmarks/cfd/cases/smoke_fluent_wind_tunnel.py"
+    },
+    {
+      "from": "smoke_force_mechanical_coupling.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_force_mechanical_coupling.py"
+    },
+    {
+      "from": "smoke_forced_vibration.py",
+      "to": "benchmarks/mechanics/cases/smoke_forced_vibration.py"
+    },
+    {
+      "from": "smoke_forchheimer_flow.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_forchheimer_flow.py"
+    },
+    {
+      "from": "smoke_fracture.py",
+      "to": "benchmarks/materials/cases/smoke_fracture.py"
+    },
+    {
+      "from": "smoke_fsi_one_way.py",
+      "to": "benchmarks/multiphysics/cases/smoke_fsi_one_way.py"
+    },
+    {
+      "from": "smoke_fsi_turek_hron.py",
+      "to": "benchmarks/multiphysics/cases/smoke_fsi_turek_hron.py"
+    },
+    {
+      "from": "smoke_fsi_two_way.py",
+      "to": "benchmarks/multiphysics/cases/smoke_fsi_two_way.py"
+    },
+    {
+      "from": "smoke_geomechanics_material.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_geomechanics_material.py"
+    },
+    {
+      "from": "smoke_geostatic_consolidation.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_geostatic_consolidation.py"
+    },
+    {
+      "from": "smoke_helmholtz_resonator.py",
+      "to": "benchmarks/acoustics/cases/smoke_helmholtz_resonator.py"
+    },
+    {
+      "from": "smoke_hfss_connect.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_hfss_connect.py"
+    },
+    {
+      "from": "smoke_hfss_waveguide.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_hfss_waveguide.py"
+    },
+    {
+      "from": "smoke_hopper_discharge.py",
+      "to": "benchmarks/dem/cases/smoke_hopper_discharge.py"
+    },
+    {
+      "from": "smoke_hyperelastic.py",
+      "to": "benchmarks/materials/cases/smoke_hyperelastic.py"
+    },
+    {
+      "from": "smoke_impact.py",
+      "to": "benchmarks/mechanics/cases/smoke_impact.py"
+    },
+    {
+      "from": "smoke_joint_drive.py",
+      "to": "benchmarks/mechanics/cases/smoke_joint_drive.py"
+    },
+    {
+      "from": "smoke_magnetostatic.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_magnetostatic.py"
+    },
+    {
+      "from": "smoke_modal_cantilever.py",
+      "to": "benchmarks/mechanics/cases/smoke_modal_cantilever.py"
+    },
+    {
+      "from": "smoke_moving_heat_source.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_moving_heat_source.py"
+    },
+    {
+      "from": "smoke_multibody_flexible.py",
+      "to": "benchmarks/mechanics/cases/smoke_multibody_flexible.py"
+    },
+    {
+      "from": "smoke_multibody_rigid.py",
+      "to": "benchmarks/mechanics/cases/smoke_multibody_rigid.py"
+    },
+    {
+      "from": "smoke_multiphysics_dataset.py",
+      "to": "benchmarks/multiphysics/cases/smoke_multiphysics_dataset.py"
+    },
+    {
+      "from": "smoke_natural_convection_melting.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_natural_convection_melting.py"
+    },
+    {
+      "from": "smoke_nonspherical_particles.py",
+      "to": "benchmarks/dem/cases/smoke_nonspherical_particles.py"
+    },
+    {
+      "from": "smoke_orthotropic.py",
+      "to": "benchmarks/materials/cases/smoke_orthotropic.py"
+    },
+    {
+      "from": "smoke_particle_collision.py",
+      "to": "benchmarks/dem/cases/smoke_particle_collision.py"
+    },
+    {
+      "from": "smoke_particle_freefall.py",
+      "to": "benchmarks/dem/cases/smoke_particle_freefall.py"
+    },
+    {
+      "from": "smoke_particle_friction.py",
+      "to": "benchmarks/dem/cases/smoke_particle_friction.py"
+    },
+    {
+      "from": "smoke_particle_thermal.py",
+      "to": "benchmarks/dem/cases/smoke_particle_thermal.py"
+    },
+    {
+      "from": "smoke_phase_change_dataset.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_phase_change_dataset.py"
+    },
+    {
+      "from": "smoke_plasticity.py",
+      "to": "benchmarks/materials/cases/smoke_plasticity.py"
+    },
+    {
+      "from": "smoke_porous_dataset.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_porous_dataset.py"
+    },
+    {
+      "from": "smoke_porous_heat_transfer.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_porous_heat_transfer.py"
+    },
+    {
+      "from": "smoke_porous_species.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_porous_species.py"
+    },
+    {
+      "from": "smoke_premixed_combustion.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_premixed_combustion.py"
+    },
+    {
+      "from": "smoke_reaction_diffusion.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_reaction_diffusion.py"
+    },
+    {
+      "from": "smoke_reactive_cht.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_reactive_cht.py"
+    },
+    {
+      "from": "smoke_reactive_dataset.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_reactive_dataset.py"
+    },
+    {
+      "from": "smoke_rocky_dataset.py",
+      "to": "benchmarks/dem/cases/smoke_rocky_dataset.py"
+    },
+    {
+      "from": "smoke_rotating_drum.py",
+      "to": "benchmarks/dem/cases/smoke_rotating_drum.py"
+    },
+    {
+      "from": "smoke_single_crystal_elasticity.py",
+      "to": "benchmarks/materials/cases/smoke_single_crystal_elasticity.py"
+    },
+    {
+      "from": "smoke_sph_dam_break.py",
+      "to": "benchmarks/sph/cases/smoke_sph_dam_break.py"
+    },
+    {
+      "from": "smoke_sph_dataset.py",
+      "to": "benchmarks/sph/cases/smoke_sph_dataset.py"
+    },
+    {
+      "from": "smoke_sph_flexible_structure.py",
+      "to": "benchmarks/sph/cases/smoke_sph_flexible_structure.py"
+    },
+    {
+      "from": "smoke_sph_hydrostatic.py",
+      "to": "benchmarks/sph/cases/smoke_sph_hydrostatic.py"
+    },
+    {
+      "from": "smoke_sph_jet_impact.py",
+      "to": "benchmarks/sph/cases/smoke_sph_jet_impact.py"
+    },
+    {
+      "from": "smoke_sph_moving_boundary.py",
+      "to": "benchmarks/sph/cases/smoke_sph_moving_boundary.py"
+    },
+    {
+      "from": "smoke_sph_non_newtonian.py",
+      "to": "benchmarks/sph/cases/smoke_sph_non_newtonian.py"
+    },
+    {
+      "from": "smoke_sph_resolution.py",
+      "to": "benchmarks/sph/cases/smoke_sph_resolution.py"
+    },
+    {
+      "from": "smoke_sph_rigid_body.py",
+      "to": "benchmarks/sph/cases/smoke_sph_rigid_body.py"
+    },
+    {
+      "from": "smoke_sph_sloshing.py",
+      "to": "benchmarks/sph/cases/smoke_sph_sloshing.py"
+    },
+    {
+      "from": "smoke_sph_thermal.py",
+      "to": "benchmarks/sph/cases/smoke_sph_thermal.py"
+    },
+    {
+      "from": "smoke_sph_vof_comparison.py",
+      "to": "benchmarks/sph/cases/smoke_sph_vof_comparison.py"
+    },
+    {
+      "from": "smoke_spring_damper.py",
+      "to": "benchmarks/mechanics/cases/smoke_spring_damper.py"
+    },
+    {
+      "from": "smoke_static_cantilever.py",
+      "to": "benchmarks/mechanics/cases/smoke_static_cantilever.py"
+    },
+    {
+      "from": "smoke_stefan_phase_change.py",
+      "to": "benchmarks/phase_reactive/cases/smoke_stefan_phase_change.py"
+    },
+    {
+      "from": "smoke_system_coupling_connect.py",
+      "to": "benchmarks/multiphysics/cases/smoke_system_coupling_connect.py"
+    },
+    {
+      "from": "smoke_terzaghi_consolidation.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_terzaghi_consolidation.py"
+    },
+    {
+      "from": "smoke_thermal_conduction.py",
+      "to": "benchmarks/thermal/cases/smoke_thermal_conduction.py"
+    },
+    {
+      "from": "smoke_thermal_contact.py",
+      "to": "benchmarks/thermal/cases/smoke_thermal_contact.py"
+    },
+    {
+      "from": "smoke_thermal_convection.py",
+      "to": "benchmarks/thermal/cases/smoke_thermal_convection.py"
+    },
+    {
+      "from": "smoke_thermal_fluid_structural.py",
+      "to": "benchmarks/multiphysics/cases/smoke_thermal_fluid_structural.py"
+    },
+    {
+      "from": "smoke_thermal_heat_generation.py",
+      "to": "benchmarks/thermal/cases/smoke_thermal_heat_generation.py"
+    },
+    {
+      "from": "smoke_thermal_radiation.py",
+      "to": "benchmarks/thermal/cases/smoke_thermal_radiation.py"
+    },
+    {
+      "from": "smoke_thermal_structural.py",
+      "to": "benchmarks/thermal/cases/smoke_thermal_structural.py"
+    },
+    {
+      "from": "smoke_thermal_transient.py",
+      "to": "benchmarks/thermal/cases/smoke_thermal_transient.py"
+    },
+    {
+      "from": "smoke_thermo_fsi.py",
+      "to": "benchmarks/multiphysics/cases/smoke_thermo_fsi.py"
+    },
+    {
+      "from": "smoke_thermo_poroelastic.py",
+      "to": "benchmarks/porous_geomechanics/cases/smoke_thermo_poroelastic.py"
+    },
+    {
+      "from": "smoke_transient_magnetic.py",
+      "to": "benchmarks/electromagnetics/cases/smoke_transient_magnetic.py"
+    },
+    {
+      "from": "smoke_vibroacoustic_radiation.py",
+      "to": "benchmarks/acoustics/cases/smoke_vibroacoustic_radiation.py"
+    },
+    {
+      "from": "smoke_viscoelastic.py",
+      "to": "benchmarks/materials/cases/smoke_viscoelastic.py"
+    },
+    {
+      "from": "solid_materials_common.py",
+      "to": "benchmarks/materials/common/solid_materials_common.py"
+    },
+    {
+      "from": "spaceclaim_multibody_geometry.py",
+      "to": "benchmarks/mechanics/cases/spaceclaim_multibody_geometry.py"
+    },
+    {
+      "from": "spaceclaim_single_link_geometry.py",
+      "to": "benchmarks/mechanics/cases/spaceclaim_single_link_geometry.py"
+    },
+    {
+      "from": "sph_field_export.py",
+      "to": "benchmarks/sph/common/sph_field_export.py"
+    },
+    {
+      "from": "thermal_smoke_common.py",
+      "to": "benchmarks/thermal/common/thermal_smoke_common.py"
+    },
+    {
+      "from": "validate_acoustics_dataset.py",
+      "to": "benchmarks/acoustics/cases/validate_acoustics_dataset.py"
+    },
+    {
+      "from": "validate_electromagnetics_dataset.py",
+      "to": "benchmarks/electromagnetics/cases/validate_electromagnetics_dataset.py"
+    },
+    {
+      "from": "validate_fluent_dataset.py",
+      "to": "benchmarks/cfd/cases/validate_fluent_dataset.py"
+    },
+    {
+      "from": "validate_multiphysics_dataset.py",
+      "to": "benchmarks/multiphysics/cases/validate_multiphysics_dataset.py"
+    },
+    {
+      "from": "validate_phase_reactive_dataset.py",
+      "to": "benchmarks/phase_reactive/cases/validate_phase_reactive_dataset.py"
+    },
+    {
+      "from": "validate_porous_dataset.py",
+      "to": "benchmarks/porous_geomechanics/cases/validate_porous_dataset.py"
+    },
+    {
+      "from": "validate_rocky_dataset.py",
+      "to": "benchmarks/dem/cases/validate_rocky_dataset.py"
+    },
+    {
+      "from": "validate_sph_dataset.py",
+      "to": "benchmarks/sph/cases/validate_sph_dataset.py"
+    }
+  ],
+  "artifact_moves": {
+    "outputs": {
+      "files": 6930,
+      "bytes": 981020535
+    },
+    "logs": {
+      "files": 250,
+      "bytes": 41839639
+    }
+  }
+}

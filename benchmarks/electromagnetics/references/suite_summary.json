@@ -1,0 +1,60 @@
+{
+  "status": "PARTIAL",
+  "timestamp_utc": "2026-08-16T01:32:28.653609+00:00",
+  "cases": {
+    "A": {
+      "status": "PASS",
+      "result": "outputs/electromagnetics/case_a_electrostatic/result.json"
+    },
+    "B": {
+      "status": "PASS",
+      "result": "outputs/electromagnetics/case_b_dc_conduction/result.json"
+    },
+    "C": {
+      "status": "PASS",
+      "result": "outputs/electromagnetics/case_c_magnetostatic/result.json"
+    },
+    "D": {
+      "status": "PASS",
+      "result": "outputs/electromagnetics/case_d_eddy_current/result.json"
+    },
+    "E": {
+      "status": "BLOCKED",
+      "result": "outputs/electromagnetics/case_e_transient/result.json",
+      "status_detail": "BLOCKED BY STUDENT LIMIT"
+    },
+    "F": {
+      "status": "PASS",
+      "result": "outputs/electromagnetics/case_f_hfss_waveguide/result.json"
+    },
+    "G": {
+      "status": "PASS",
+      "result": "outputs/electromagnetics/case_g_electrothermal/result.json"
+    },
+    "H": {
+      "status": "PASS",
+      "result": "outputs/electromagnetics/case_h_force_mechanical/result.json"
+    }
+  },
+  "dataset": {
+    "metadata": "outputs/electromagnetics/dataset_electrostatic_10/metadata.json",
+    "validation": "outputs/electromagnetics/dataset_electrostatic_10/validation.json",
+    "npz": "outputs/electromagnetics/dataset_electrostatic_10/electrostatic_voltage_sweep.npz"
+  },
+  "report": "ELECTROMAGNETICS_MULTIPHYSICS_REPORT.md",
+  "integrity_checks": {
+    "phase0_pass": true,
+    "maxwell_smoke_pass": true,
+    "hfss_smoke_pass": true,
+    "case_statuses_expected": true,
+    "dataset_generation_pass": true,
+    "dataset_validation_pass": true,
+    "all_json_numeric_values_finite": true,
+    "all_npz_arrays_finite": true,
+    "scripts_compile": true,
+    "no_residual_aedt_processes": true
+  },
+  "compile_errors": {},
+  "residual_processes": [],
+  "status_detail": "PASS WITH DOCUMENTED LIMITATION"
+}

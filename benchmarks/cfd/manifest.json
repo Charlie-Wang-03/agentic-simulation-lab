@@ -1,0 +1,409 @@
+{
+  "schema_version": 2,
+  "domain": "cfd",
+  "title": "Cfd",
+  "cases": [
+    {
+      "slug": "fluent-acoustics",
+      "title": "Smoke Fluent Acoustics",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_acoustics.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C001",
+      "solver": "Fluent",
+      "analysis": "Fluent Acoustics",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_acoustics.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-airfoil",
+      "title": "Smoke Fluent Airfoil",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_airfoil.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C002",
+      "solver": "Fluent",
+      "analysis": "Fluent Airfoil",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_airfoil.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-backward-step",
+      "title": "Smoke Fluent Backward Step",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_backward_step.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C003",
+      "solver": "Fluent",
+      "analysis": "Fluent Backward Step",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_backward_step.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-cavity",
+      "title": "Smoke Fluent Cavity",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_cavity.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C004",
+      "solver": "Fluent",
+      "analysis": "Fluent Cavity",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_cavity.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-compressible-nozzle",
+      "title": "Smoke Fluent Compressible Nozzle",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_compressible_nozzle.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C005",
+      "solver": "Fluent",
+      "analysis": "Fluent Compressible Nozzle",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_compressible_nozzle.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-connect",
+      "title": "Smoke Fluent Connect",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_connect.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/suite_summary.json",
+      "id": "C006",
+      "solver": "Fluent",
+      "analysis": "Fluent Connect",
+      "reference": "benchmarks/cfd/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_phase0_connect.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-cylinder",
+      "title": "Smoke Fluent Cylinder",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_cylinder.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C007",
+      "solver": "Fluent",
+      "analysis": "Fluent Cylinder",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_cylinder.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-cylinder-unsteady",
+      "title": "Smoke Fluent Cylinder Unsteady",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_cylinder_unsteady.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C008",
+      "solver": "Fluent",
+      "analysis": "Fluent Cylinder Unsteady",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_cylinder_unsteady.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-laminar-channel",
+      "title": "Smoke Fluent Laminar Channel",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_laminar_channel.py",
+      "result_file": "fluent_laminar_channel.json",
+      "result_format": "legacy",
+      "timeout_seconds": 600,
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C009",
+      "solver": "Fluent",
+      "analysis": "Fluent Laminar Channel",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    },
+    {
+      "slug": "fluent-les-des",
+      "title": "Smoke Fluent Les Des",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_les_des.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C010",
+      "solver": "Fluent",
+      "analysis": "Fluent Les Des",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_les_des.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-mesh-sensitivity",
+      "title": "Smoke Fluent Mesh Sensitivity",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_mesh_sensitivity.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C011",
+      "solver": "Fluent",
+      "analysis": "Fluent Mesh Sensitivity",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_mesh_sensitivity.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-natural-convection",
+      "title": "Smoke Fluent Natural Convection",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_natural_convection.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C012",
+      "solver": "Fluent",
+      "analysis": "Fluent Natural Convection",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_natural_convection.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-optimization-parallel",
+      "title": "Smoke Fluent Optimization Parallel",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_optimization_parallel.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C013",
+      "solver": "Fluent",
+      "analysis": "Fluent Optimization Parallel",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_optimization_parallel.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-parametric-dataset",
+      "title": "Smoke Fluent Parametric Dataset",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_parametric_dataset.py",
+      "role": "dataset",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C014",
+      "solver": "Python validator/generator",
+      "analysis": "Fluent Parametric Dataset",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "case-result.json",
+      "result_format": "v1"
+    },
+    {
+      "slug": "fluent-rans-models",
+      "title": "Smoke Fluent Rans Models",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_rans_models.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C015",
+      "solver": "Fluent",
+      "analysis": "Fluent Rans Models",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_rans_models.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-sliding-mesh",
+      "title": "Smoke Fluent Sliding Mesh",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_sliding_mesh.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C016",
+      "solver": "Fluent",
+      "analysis": "Fluent Sliding Mesh",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_sliding_mesh.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-species",
+      "title": "Smoke Fluent Species",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_species.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C017",
+      "solver": "Fluent",
+      "analysis": "Fluent Species",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_species.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-turbulent-pipe",
+      "title": "Smoke Fluent Turbulent Pipe",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_turbulent_pipe.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C018",
+      "solver": "Fluent",
+      "analysis": "Fluent Turbulent Pipe",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_turbulent_pipe.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-vof",
+      "title": "Smoke Fluent Vof",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_vof.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C019",
+      "solver": "Fluent",
+      "analysis": "Fluent Vof",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_vof.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-wind-tunnel",
+      "title": "Smoke Fluent Wind Tunnel",
+      "entrypoint": "benchmarks/cfd/cases/smoke_fluent_wind_tunnel.py",
+      "role": "benchmark",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/historical_results.json",
+      "id": "C020",
+      "solver": "Fluent",
+      "analysis": "Fluent Wind Tunnel",
+      "reference": "benchmarks/cfd/references/historical_results.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ],
+      "result_file": "fluent_wind_tunnel.json",
+      "result_format": "legacy"
+    },
+    {
+      "slug": "fluent-dataset",
+      "title": "Validate Fluent Dataset",
+      "entrypoint": "benchmarks/cfd/cases/validate_fluent_dataset.py",
+      "role": "utility",
+      "status": "PASS",
+      "evidence": "benchmarks/cfd/references/suite_summary.json",
+      "id": "C021",
+      "solver": "Python validator/generator",
+      "analysis": "Validate Fluent Dataset",
+      "reference": "benchmarks/cfd/references/suite_summary.json",
+      "expected_artifacts": [
+        "run.json",
+        "stdout.log",
+        "stderr.log"
+      ]
+    }
+  ],
+  "required_products": [
+    "Fluent"
+  ],
+  "runner": "benchmarks/cfd/run_suite.py"
+}

@@ -1,0 +1,48 @@
+name: static-ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m compileall -q src benchmarks tools tests
+      - run: >-
+          ruff check src tests tools
+          benchmarks/phase_reactive/cases/smoke_reactive_cht.py
+          benchmarks/phase_reactive/common/energy_accounting.py
+          benchmarks/electromagnetics/common/aedt_diagnostics.py
+          benchmarks/electromagnetics/common/aedt_smoke_common.py
+          benchmarks/electromagnetics/cases/smoke_aedt_connect.py
+          benchmarks/electromagnetics/cases/smoke_hfss_connect.py
+      - run: python tools/build_catalog.py --check
+      - run: python tools/build_project_metrics.py --check
+      - run: python tools/build_reference_summaries.py --check
+      - run: python tools/check_public_tree.py
+      - run: python tools/check_source_provenance.py
+      - run: python tools/check_links.py
+      - run: python tools/check_tutorial_pairs.py
+      - run: python tools/check_subprocess_policy.py
+      - run: python tools/check_dataset_portability.py
+      - run: python tools/static_selftest.py
+      - run: pytest
+      - run: agentic-sim list
+      - run: agentic-sim info mechanics static-cantilever
+      - run: agentic-sim doctor
+      - run: agentic-sim report
+      - run: agentic-sim audit

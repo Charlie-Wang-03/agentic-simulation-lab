@@ -1,0 +1,965 @@
+{
+  "timestamp_utc": "2026-08-20T15:50:26.288821+00:00",
+  "statuses": {
+    "phase0": "PASS",
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS",
+    "F": "PASS",
+    "G": "FAIL",
+    "H": "PASS",
+    "I": "PASS",
+    "J": "FAIL",
+    "K": "PASS",
+    "L": "PASS",
+    "validation": "PASS"
+  },
+  "pass": 12,
+  "fail": 2,
+  "blocked": 0,
+  "missing": 0,
+  "records": [
+    {
+      "label": "phase0",
+      "script": "probe_phase_reactive_capabilities.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "Phase 0",
+        "title": "Phase-change/reactive-flow capability probe",
+        "timestamp_utc": "2026-08-16T12:05:07.554444+00:00",
+        "solver": "Ansys 2026 R1 / 261",
+        "status": "PASS",
+        "mapdl_mechanical": {
+          "executed": true,
+          "exit_code": 0,
+          "enthalpy_table_accepted": true,
+          "temperature_dependent_k_cp_density": true,
+          "transient_phase_change_thermal": true,
+          "input": "outputs/phase_reactive/phase0_mapdl_enthalpy.inp",
+          "solver_output": "outputs/phase_reactive/phase0_mapdl_enthalpy_solver.out"
+        },
+        "fluent": {
+          "solidification_melting": {
+            "scriptable": true,
+            "evidence": "case B native model run"
+          },
+          "enthalpy_porosity": {
+            "scriptable": true,
+            "evidence": "case B"
+          },
+          "species_transport": {
+            "scriptable": true,
+            "evidence": "case F"
+          },
+          "volumetric_reactions": {
+            "scriptable": true,
+            "evidence": "case F"
+          },
+          "finite_rate_chemistry": {
+            "scriptable": true,
+            "evidence": "case F native reaction-rate field"
+          },
+          "premixed_combustion": {
+            "scriptable": true,
+            "physical_validation": "FAIL",
+            "evidence": "case G premixed inlet + native finite-rate methane-air; specialized flame-speed model not required"
+          },
+          "nonpremixed_combustion": {
+            "scriptable": true,
+            "physical_validation": "PASS",
+            "evidence": "case H split fuel/oxidizer inlets + native finite-rate chemistry"
+          },
+          "radiation": {
+            "scriptable": true,
+            "evidence": "case I P-1 fields"
+          },
+          "fluid_solid_reactive_cht": {
+            "scriptable": true,
+            "physical_validation": "FAIL",
+            "evidence": "case J"
+          },
+          "temperature_dependent_properties": {
+            "scriptable": true,
+            "evidence": "material property objects exposed; MAPDL temperature tables executed"
+          }
+        },
+        "student_license": {
+          "edition_observed": "Ansys Student 2026 R1",
+          "official_structural_limit": "128K nodes/elements",
+          "official_fluid_limit": "1 million cells/nodes",
+          "official_hpc_limit": "up to 4 CPU cores; Fluent GPU allowance stated separately by Ansys",
+          "combustion_or_reaction_feature_denial_observed": false,
+          "largest_phase_reactive_fluent_mesh_exercised_cells": 900,
+          "qualification": "The official numerical ceilings were not intentionally exhausted; all native chemistry, melting, P-1, and CHT launches in this suite were below them and received no license denial.",
+          "source": "https://www.ansys.com/en-gb/home/academic/students/ansys-student"
+        },
+        "checks": {
+          "mapdl_enthalpy_probe": true,
+          "fluent_native_melting": true,
+          "fluent_species_and_reactions": true,
+          "fluent_radiation": true,
+          "no_feature_license_denial": true
+        }
+      },
+      "log": "logs/phase_reactive/phase0_probe_phase_reactive_capabilities.log"
+    },
+    {
+      "label": "A",
+      "script": "smoke_stefan_phase_change.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "A",
+        "title": "One-dimensional latent-heat Stefan benchmark",
+        "timestamp_utc": "2026-08-16T11:01:41.827345+00:00",
+        "solver": "SciPy analytical reference",
+        "status": "PASS",
+        "model": {
+          "case": "A",
+          "model": "one-phase Stefan analytical solution",
+          "units": {
+            "x": "m",
+            "time": "s",
+            "temperature": "K",
+            "liquid_fraction": "1",
+            "interface_position": "m",
+            "total_enthalpy_per_area": "J/m2"
+          },
+          "material": {
+            "density_kg_m3": 780.0,
+            "specific_heat_J_kgK": 2200.0,
+            "conductivity_W_mK": 0.2,
+            "melting_temperature_K": 300.0,
+            "latent_heat_J_kg": 180000.0
+          }
+        },
+        "results": {
+          "Ste": 0.4888888888888889,
+          "lambda": 0.4602533581797527,
+          "interface_position_m": [
+            0.002434215048252634,
+            0.00544307031974582,
+            0.009427674342969934,
+            0.01333274491746494,
+            0.01885534868593987
+          ],
+          "max_energy_relative_error": 7.64218509041518e-05
+        },
+        "checks": {
+          "stefan_root_residual_lt_1e-10": true,
+          "interface_monotonic": true,
+          "interface_sqrt_time": true,
+          "liquid_fraction_bounded": true,
+          "max_energy_error_lt_0p5pct": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_a_stefan_phase_change.npz"
+        ]
+      },
+      "log": "logs/phase_reactive/a_smoke_stefan_phase_change.log"
+    },
+    {
+      "label": "B",
+      "script": "smoke_fluent_melting.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "B",
+        "title": "Fluent Solidification & Melting PCM slab",
+        "timestamp_utc": "2026-08-16T11:03:31.228611+00:00",
+        "solver": "Ansys Fluent Student 2026 R1",
+        "status": "PASS",
+        "model": {
+          "energy": true,
+          "solidification_melting": true,
+          "formulation": "enthalpy-porosity",
+          "mushy_zone_parameter": "Fluent default",
+          "material": {
+            "rho_kg_m3": 780.0,
+            "cp_J_kgK": 2200.0,
+            "k_W_mK": 0.2,
+            "mu_Pa_s": 0.05,
+            "latent_heat_J_kg": 180000.0,
+            "solidus_K": 300.0,
+            "liquidus_K": 301.0
+          }
+        },
+        "mesh": {
+          "nodes": 891,
+          "cells": 800,
+          "faces": 1690,
+          "boundary_zones": 4,
+          "fluid_zones": 1
+        },
+        "time": {
+          "dt_s": 30.0,
+          "steps": 120,
+          "snapshots_s": [
+            30.0,
+            300.0,
+            900.0,
+            1800.0,
+            3600.0
+          ]
+        },
+        "results": {
+          "average_liquid_fraction": [
+            0.018518518518518517,
+            0.05218258643905724,
+            0.11240912710869427,
+            0.1583006698107744,
+            0.22320112106849604
+          ],
+          "stored_enthalpy_increase_J_per_m_depth": [
+            1889.1082006044458,
+            7623.26064048528,
+            17203.51379987077,
+            24317.59560980988,
+            34287.62728304755
+          ],
+          "sampled_hot_wall_heat_flux_W_m2": [
+            7465.967094454545,
+            2105.9937566363633,
+            890.2431748181817,
+            625.7367014545455,
+            437.88573940000003
+          ],
+          "sampled_input_energy_30_to_3600s_J_per_m_depth": 38305.369354254544,
+          "stored_enthalpy_gain_30_to_3600s_J_per_m_depth": 32398.519082443105,
+          "sparse_energy_balance_relative_error": 0.15420423745778009,
+          "energy_balance_qualification": "five saved wall-flux samples; trapezoidal integration over 30-3600 s"
+        },
+        "checks": {
+          "native_model_enabled": true,
+          "multiple_snapshots": true,
+          "liquid_fraction_bounded": true,
+          "melting_progresses": true,
+          "melt_fraction_nearly_monotonic": true,
+          "stored_energy_positive": true,
+          "sparse_wall_flux_energy_balance_lt_20pct": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_b_pcm.msh",
+          "outputs/phase_reactive/case_b.cas.h5"
+        ]
+      },
+      "log": "logs/phase_reactive/b_smoke_fluent_melting.log"
+    },
+    {
+      "label": "C",
+      "script": "smoke_natural_convection_melting.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "C",
+        "title": "Natural-convection-enhanced PCM melting",
+        "timestamp_utc": "2026-08-16T11:18:01.400251+00:00",
+        "solver": "Ansys Fluent Student 2026 R1",
+        "status": "PASS",
+        "model": {
+          "solidification_melting": true,
+          "enthalpy_porosity": true,
+          "gravity_m_s2": [
+            0,
+            -9.81
+          ],
+          "density": "Boussinesq",
+          "beta_1_K": 0.002
+        },
+        "mesh": {
+          "nodes": 961,
+          "cells": 900,
+          "faces": 1860,
+          "boundary_zones": 4,
+          "fluid_zones": 1
+        },
+        "time": {
+          "dt_s": 1.0,
+          "steps": 100,
+          "final_time_s": 100.0
+        },
+        "reference": {
+          "name": "conduction",
+          "gravity": false,
+          "average_liquid_fraction": 0.08516489474110303,
+          "maximum_velocity_m_s": 0.0,
+          "front_mean_m": 0.002666666666999999,
+          "front_std_m": 1.3010426069826053e-18,
+          "liquid_fraction_range": [
+            0.0,
+            1.0
+          ],
+          "raw": "outputs/phase_reactive/case_c_conduction_final.csv"
+        },
+        "results": {
+          "name": "buoyant",
+          "gravity": true,
+          "average_liquid_fraction": 0.09025758270672944,
+          "maximum_velocity_m_s": 0.0004004629065,
+          "front_mean_m": 0.002709677419580645,
+          "front_std_m": 0.0006321263852870458,
+          "liquid_fraction_range": [
+            0.0,
+            1.0
+          ],
+          "raw": "outputs/phase_reactive/case_c_buoyant_final.csv"
+        },
+        "checks": {
+          "both_native_runs_completed": true,
+          "fraction_bounded": true,
+          "buoyant_flow_nonzero": true,
+          "buoyant_velocity_stable": true,
+          "reference_flow_negligible": true,
+          "front_shape_changed": true,
+          "overall_melting_changed": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_c_pcm_cavity.msh",
+          "outputs/phase_reactive/case_c_conduction_final.csv",
+          "outputs/phase_reactive/case_c_buoyant_final.csv"
+        ]
+      },
+      "log": "logs/phase_reactive/c_smoke_natural_convection_melting.log"
+    },
+    {
+      "label": "D",
+      "script": "smoke_moving_heat_source.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "D",
+        "title": "Moving Gaussian heat-source melt-pool trend",
+        "timestamp_utc": "2026-08-16T11:01:24.938682+00:00",
+        "solver": "reduced-order Rosenthal-like benchmark",
+        "status": "PASS",
+        "model_scope": "independent trend benchmark; not reported as Fluent",
+        "results": [
+          {
+            "power_W": 1800.0,
+            "scan_speed_m_s": 0.2,
+            "melt_pool_length_m": 0.003000000000000001,
+            "melt_pool_width_m": 0.0058000000000000005
+          },
+          {
+            "power_W": 2400.0,
+            "scan_speed_m_s": 0.2,
+            "melt_pool_length_m": 0.004125,
+            "melt_pool_width_m": 0.008
+          },
+          {
+            "power_W": 2400.0,
+            "scan_speed_m_s": 0.4,
+            "melt_pool_length_m": 0.004,
+            "melt_pool_width_m": 0.008
+          }
+        ],
+        "checks": {
+          "liquid_fraction_bounded": true,
+          "higher_power_larger_pool": true,
+          "higher_speed_smaller_pool": true,
+          "temperature_finite": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_d_00.npz",
+          "outputs/phase_reactive/case_d_01.npz",
+          "outputs/phase_reactive/case_d_02.npz"
+        ]
+      },
+      "log": "logs/phase_reactive/d_smoke_moving_heat_source.log"
+    },
+    {
+      "label": "E",
+      "script": "smoke_reaction_diffusion.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "E",
+        "title": "First-order reaction-diffusion/plug-flow benchmark",
+        "timestamp_utc": "2026-08-16T11:01:26.890956+00:00",
+        "solver": "implicit upwind finite volume",
+        "status": "PASS",
+        "model": {
+          "case": "E",
+          "reaction": "A -> B",
+          "rate_law": "r=k*C_A",
+          "species_names": [
+            "A",
+            "B"
+          ],
+          "rate_constant_1_s": 0.7,
+          "units": {
+            "x": "m",
+            "mass_fraction": "1",
+            "reaction_rate": "1/s"
+          }
+        },
+        "results": {
+          "outlet_conversion": 0.9688744939882133,
+          "max_abs_error_vs_analytical": 0.003195632410709748
+        },
+        "checks": {
+          "max_abs_analytical_error_lt_0p005": true,
+          "species_bounded": true,
+          "species_sum_error_lt_1e-12": true,
+          "conversion_physical": true,
+          "reaction_rate_finite": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_e_reaction_diffusion.npz"
+        ]
+      },
+      "log": "logs/phase_reactive/e_smoke_reaction_diffusion.log"
+    },
+    {
+      "label": "F",
+      "script": "smoke_finite_rate_reactor.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "F",
+        "title": "Finite-rate methane-air channel reactor",
+        "timestamp_utc": "2026-08-16T11:31:17.033312+00:00",
+        "solver": "Ansys Fluent Student 2026 R1",
+        "status": "PASS",
+        "model": {
+          "species_transport": true,
+          "volumetric_reactions": true,
+          "chemistry": "finite-rate",
+          "mechanism": "Fluent methane-air one-step",
+          "time_integration": {
+            "scheme": "first-order implicit",
+            "dt_s": 0.001,
+            "steps": 500,
+            "final_time_s": 0.5
+          },
+          "species_names": [
+            "ch4",
+            "o2",
+            "co2",
+            "h2o",
+            "n2"
+          ],
+          "inlet": {
+            "Y_CH4": 0.055,
+            "Y_O2": 0.22,
+            "temperature_K": 1000.0,
+            "velocity_m_s": 0.1
+          }
+        },
+        "mesh": {
+          "nodes": 105,
+          "cells": 80,
+          "faces": 184,
+          "boundary_zones": 4,
+          "fluid_zones": 1
+        },
+        "results": {
+          "outlet_mass_fractions": {
+            "ch4": 0.04797186756,
+            "o2": 0.19196392069999998,
+            "co2": 0.019279169633999997,
+            "h2o": 0.01578373966,
+            "n2": 0.72500130244
+          },
+          "fuel_conversion": 0.12778422618181817,
+          "maximum_temperature_K": 1028.923377,
+          "outlet_temperature_K": 1015.7791346,
+          "reaction_rate_field": "vol-kinetic-rate-reaction-1",
+          "peak_reaction_rate": 0.0009106261526,
+          "heat_release_field": null,
+          "peak_heat_release": null,
+          "max_species_sum_error": 9.000000744663339e-11,
+          "carbon_balance_relative_error": 4.734658423823231e-06,
+          "mass_flow_rate_kg_s_per_m": 0.0001347178728179357,
+          "inlet_total_enthalpy_J_kg": 580945.9135081742,
+          "outlet_total_enthalpy_J_kg": 266892.9289080662,
+          "total_enthalpy_flux_drop_W_per_m": 42.30855003745048,
+          "wall_heat_out_W_per_m": 43.00611239512182,
+          "global_total_enthalpy_balance_relative_error": 0.016220074748036557
+        },
+        "checks": {
+          "native_finite_rate_model": true,
+          "reaction_rate_field_available": true,
+          "temperature_rises_gt_10K": true,
+          "fuel_conversion_gt_5pct": true,
+          "species_bounded": true,
+          "species_sum_error_lt_1e-4": true,
+          "carbon_balance_lt_5pct": true,
+          "global_total_enthalpy_balance_lt_5pct": true,
+          "reaction_rate_nonzero": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_f_reactor.msh",
+          "outputs/phase_reactive/case_f_final.csv",
+          "outputs/phase_reactive/case_f.cas.h5"
+        ]
+      },
+      "log": "logs/phase_reactive/f_smoke_finite_rate_reactor.log"
+    },
+    {
+      "label": "G",
+      "script": "smoke_premixed_combustion.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "G",
+        "title": "Premixed methane-air autoignition and finite-rate flame zone",
+        "timestamp_utc": "2026-08-16T11:45:03.702855+00:00",
+        "solver": "Ansys Fluent Student 2026 R1",
+        "status": "FAIL",
+        "model": {
+          "species_transport": true,
+          "chemistry": "finite-rate",
+          "mechanism": "Fluent methane-air one-step",
+          "configuration": "premixed autoigniting adiabatic channel",
+          "inlet": {
+            "Y_CH4": 0.055,
+            "Y_O2": 0.22,
+            "temperature_K": 1200.0,
+            "velocity_m_s": 0.1
+          },
+          "time_integration": {
+            "dt_s": 0.001,
+            "steps": 500,
+            "final_time_s": 0.5
+          }
+        },
+        "mesh": {
+          "nodes": 155,
+          "cells": 120,
+          "faces": 274,
+          "boundary_zones": 4,
+          "fluid_zones": 1
+        },
+        "results": {
+          "outlet_mass_fractions": {
+            "ch4": 0.0,
+            "o2": 0.00030624821725999993,
+            "co2": 0.15108064456,
+            "h2o": 0.1236888099,
+            "n2": 0.72492429728
+          },
+          "fuel_conversion": 1.0,
+          "maximum_temperature_K": 3048.267572,
+          "outlet_temperature_K": 3048.2658906,
+          "reaction_rate_field": "vol-kinetic-rate-reaction-1",
+          "peak_reaction_rate": 0.07217499898,
+          "reaction_peak_location_m": [
+            0.0,
+            0.002
+          ],
+          "carbon_balance_relative_error": 0.0013402188680335639,
+          "max_species_sum_error": 1.4135470571829956e-10
+        },
+        "checks": {
+          "native_finite_rate_combustion": true,
+          "substantial_fuel_conversion_gt_20pct": true,
+          "exothermic_temperature_rise_gt_100K": true,
+          "temperature_below_3000K_sanity_bound": false,
+          "reaction_zone_is_internal": false,
+          "species_bounded": true,
+          "species_sum_error_lt_1e-4": true,
+          "carbon_balance_lt_5pct": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_g_premixed.msh",
+          "outputs/phase_reactive/case_g_final.csv",
+          "outputs/phase_reactive/case_g.cas.h5"
+        ]
+      },
+      "log": "logs/phase_reactive/g_smoke_premixed_combustion.log"
+    },
+    {
+      "label": "H",
+      "script": "smoke_diffusion_flame.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "H",
+        "title": "Finite-rate methane/air diffusion flame and mixing layer",
+        "timestamp_utc": "2026-08-16T11:40:17.481272+00:00",
+        "solver": "Ansys Fluent Student 2026 R1",
+        "status": "PASS",
+        "model": {
+          "species_transport": true,
+          "chemistry": "finite-rate",
+          "mechanism": "Fluent methane-air one-step",
+          "inlets": {
+            "inlet-upper": {
+              "ch4": 0.2,
+              "o2": 0.0,
+              "co2": 0.0,
+              "h2o": 0.0
+            },
+            "inlet-lower": {
+              "ch4": 0.0,
+              "o2": 0.23,
+              "co2": 0.0,
+              "h2o": 0.0
+            }
+          },
+          "temperature_K": 1000.0,
+          "velocity_m_s": 0.1,
+          "time_integration": {
+            "dt_s": 0.001,
+            "steps": 400,
+            "final_time_s": 0.4
+          }
+        },
+        "mesh": {
+          "nodes": 279,
+          "cells": 240,
+          "faces": 518,
+          "boundary_zones": 4,
+          "fluid_zones": 1
+        },
+        "results": {
+          "maximum_temperature_K": 1030.808233,
+          "reaction_rate_field": "vol-kinetic-rate-reaction-1",
+          "peak_reaction_rate": 0.0005753274051,
+          "reaction_peak_location_m": [
+            0.006666666667,
+            -0.0015
+          ],
+          "peak_Y_CH4": 0.0374357473,
+          "peak_Y_O2": 0.1791814675,
+          "reaction_hot_region_overlap": 0.7786561264822134,
+          "max_species_sum_error": 9.619993690535011e-11
+        },
+        "checks": {
+          "native_species_transport": true,
+          "native_finite_rate_reaction": true,
+          "fuel_and_oxidizer_mix_at_reaction_peak": true,
+          "temperature_rises_gt_10K": true,
+          "reaction_hot_region_overlap_gt_50pct": true,
+          "species_bounded": true,
+          "species_sum_error_lt_1e-4": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_h_diffusion_flame.msh",
+          "outputs/phase_reactive/case_h_final.csv",
+          "outputs/phase_reactive/case_h.cas.h5"
+        ]
+      },
+      "log": "logs/phase_reactive/h_smoke_diffusion_flame.log"
+    },
+    {
+      "label": "I",
+      "script": "smoke_combustion_radiation.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "I",
+        "title": "P-1 radiation coupling in finite-rate methane combustion",
+        "timestamp_utc": "2026-08-16T11:54:00.780917+00:00",
+        "solver": "Ansys Fluent Student 2026 R1",
+        "status": "PASS",
+        "model": {
+          "radiation": "P-1",
+          "absorption_coefficient_1_m": 20.0,
+          "comparison": "100 equal transient steps from identical case-G state with 1200 K walls",
+          "combustion_mechanism": "Fluent methane-air one-step finite-rate"
+        },
+        "source_case_g_status": "FAIL",
+        "results": {
+          "no_radiation": {
+            "maximum_temperature_K": 2045.004147,
+            "mean_temperature_K": 1235.0074151633987,
+            "minimum_temperature_K": 1198.43772,
+            "radiation_fields": [],
+            "radiation_field_abs_max": {},
+            "raw": "outputs/phase_reactive/case_i_no_radiation.csv"
+          },
+          "p1": {
+            "maximum_temperature_K": 1576.590594,
+            "mean_temperature_K": 1211.8414062745098,
+            "minimum_temperature_K": 1200.0,
+            "radiation_fields": [
+              "incident-radiation",
+              "radiation-temperature",
+              "volumetric-absorbed-radiation",
+              "volumetric-emitted-radiation"
+            ],
+            "radiation_field_abs_max": {
+              "incident-radiation": 485576.0561,
+              "radiation-temperature": 1209.61285,
+              "volumetric-absorbed-radiation": 9711521.122,
+              "volumetric-emitted-radiation": 37466263.93
+            },
+            "mass_flow_imbalance_relative": 0.013513161340750944,
+            "wall_heat_out_W_per_m": 271.6420510006798,
+            "total_enthalpy_flux_difference_W_per_m": 203.96053625075257,
+            "global_energy_balance_relative_error": 0.24915698619046975,
+            "energy_balance_qualification": "instantaneous coarse-transient balance; includes formation enthalpy and isothermal-wall total heat flux",
+            "raw": "outputs/phase_reactive/case_i_p1.csv"
+          },
+          "delta_max_temperature_K": -468.4135530000001,
+          "delta_mean_temperature_K": -23.166008888888882
+        },
+        "checks": {
+          "same_reacting_initial_state": true,
+          "p1_model_enabled": true,
+          "radiation_field_nonzero": true,
+          "temperature_field_changes": true,
+          "temperatures_finite_and_positive": true,
+          "p1_mass_imbalance_lt_2pct": true,
+          "p1_coarse_global_energy_balance_lt_30pct": true
+        },
+        "files": [
+          "outputs/phase_reactive/case_i_no_radiation.csv",
+          "outputs/phase_reactive/case_i_p1.csv",
+          "outputs/phase_reactive/case_i_p1.cas.h5"
+        ],
+        "qualification": "Radiation coupling is assessed independently; the inherited case-G premixed flame plausibility failure is not erased."
+      },
+      "log": "logs/phase_reactive/i_smoke_combustion_radiation.log"
+    },
+    {
+      "label": "J",
+      "script": "smoke_reactive_cht.py",
+      "action": "release_retest",
+      "exit_code": 1,
+      "result": {
+        "case": "J",
+        "title": "Finite-rate reacting flow with conjugate solid heat transfer",
+        "timestamp_utc": "2026-08-20T15:36:35.716022+00:00",
+        "solver": "Ansys Fluent Student 2026 R1",
+        "status": "FAIL",
+        "model": {
+          "chemistry": "Fluent methane-air one-step finite-rate",
+          "energy": true,
+          "conjugate_domains": [
+            "reacting-fluid",
+            "solid-wall"
+          ],
+          "solid_conductivity_W_mK": 5.0,
+          "outer_wall_temperature_K": 900.0,
+          "time_integration": {
+            "dt_s": 0.005,
+            "steps": 600,
+            "final_time_s": 3.0
+          }
+        },
+        "diagnostic": {
+          "targeted_retest": 1,
+          "rationale": "replace incomplete LHV accounting with mass-weighted total-enthalpy flux, external wall heat flux, carbon flux, and measured transient enthalpy accumulation"
+        },
+        "mesh": {
+          "nodes": 147,
+          "cells": 120,
+          "faces": 266,
+          "boundary_zones": 6,
+          "fluid_zones": 2,
+          "fluid_cells": 80,
+          "solid_cells": 40
+        },
+        "interfaces": [
+          "reacting-fluid-solid-wall-interface",
+          "reacting-fluid-solid-wall-interface-shadow"
+        ],
+        "results": {
+          "outlet_mass_fractions": {
+            "ch4": 0.05356920656990849,
+            "o2": 0.214292390673357,
+            "co2": 0.003925016157092923,
+            "h2o": 0.00321338698923583,
+            "n2": 0.7249999996104057
+          },
+          "outlet_temperature_K": 915.0072084000001,
+          "maximum_fluid_temperature_K": 1001.220612,
+          "solid_temperature_range_K": [
+            900.0,
+            902.6886885
+          ],
+          "peak_reaction_rate": 0.0005509342738,
+          "outer_wall_heat_W_per_m": 26.5469548229,
+          "mass_flow_in_kg_s_per_m": 0.0001347178728035387,
+          "mass_flow_out_kg_s_per_m": 0.0001347178754009,
+          "mass_flow_balance_relative_error": 1.928000523541403e-08,
+          "inlet_total_enthalpy_J_kg": 549937.2506496907,
+          "outlet_total_enthalpy_J_kg": 404037.6560185514,
+          "total_enthalpy_flux_drop_W_per_m": 19.65528198217391,
+          "integrated_outer_wall_heat_W_per_m": 27.66941152545065,
+          "stored_enthalpy_before_final_step_J_per_m": 42787.501267164145,
+          "stored_enthalpy_after_final_step_J_per_m": 42787.48574088186,
+          "transient_enthalpy_accumulation_W_per_m": -3.105256457638461,
+          "global_energy_residual_W_per_m": -4.908873085638277,
+          "global_total_enthalpy_balance_relative_error": 0.1595101883255324,
+          "energy_balance_qualification": "instantaneous total-enthalpy flux equals external wall heat loss plus final-step transient enthalpy accumulation",
+          "carbon_balance_relative_error": 2.1196956507290732e-08,
+          "max_species_sum_error": 9.200007422549561e-11
+        },
+        "checks": {
+          "native_finite_rate_reaction_nonzero": true,
+          "solid_temperature_responds": true,
+          "outer_wall_heat_transfer_positive": true,
+          "interface_created": true,
+          "species_sum_error_lt_1e-4": true,
+          "carbon_balance_lt_5pct": true,
+          "mass_flow_balance_lt_1pct": true,
+          "global_total_enthalpy_balance_lt_10pct": false
+        },
+        "files": [
+          "artifacts\\runs\\phase_reactive\\reactive-cht\\20260820T153635Z\\outputs\\phase_reactive\\case_j_reactive_cht.msh",
+          "artifacts\\runs\\phase_reactive\\reactive-cht\\20260820T153635Z\\outputs\\phase_reactive\\case_j_fluid.csv",
+          "artifacts\\runs\\phase_reactive\\reactive-cht\\20260820T153635Z\\outputs\\phase_reactive\\case_j_solid.csv",
+          "artifacts\\runs\\phase_reactive\\reactive-cht\\20260820T153635Z\\outputs\\phase_reactive\\case_j.cas.h5"
+        ]
+      },
+      "log": "artifacts/logs/phase_reactive/reactive-cht/20260820T153635Z/stdout.log"
+    },
+    {
+      "label": "K",
+      "script": "smoke_phase_change_dataset.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "K",
+        "title": "Phase-change neural-operator dataset",
+        "timestamp_utc": "2026-08-16T12:08:24.654325+00:00",
+        "solver": "analytical Stefan parameter sweep",
+        "status": "PASS",
+        "dataset": {
+          "dataset": "phase-change Stefan parameter sweep",
+          "case_count": 12,
+          "solver": "analytical one-phase Stefan",
+          "inputs": [
+            "latent_heat_J_kg",
+            "conductivity_W_mK",
+            "melting_temperature_K",
+            "wall_temperature_K"
+          ],
+          "fields": {
+            "temperature": "field[case,time,node]",
+            "liquid_fraction": "field[case,time,node]",
+            "energy_balance_relative_error": "global[case,time]"
+          },
+          "units": {
+            "coordinates": "m",
+            "time": "s",
+            "temperature": "K",
+            "liquid_fraction": "1",
+            "interface_position": "m"
+          },
+          "solver_version": "SciPy analytical reference",
+          "model_settings": {
+            "density_kg_m3": 780.0,
+            "cp_J_kgK": 2200.0
+          }
+        },
+        "checks": {
+          "case_count_12": true,
+          "field_shape": true,
+          "bounded": true,
+          "fronts_monotonic": true,
+          "energy_balance_error_lt_15pct": true
+        },
+        "files": [
+          "outputs/phase_reactive/datasets/phase_change/phase_change_dataset.npz"
+        ]
+      },
+      "log": "logs/phase_reactive/k_smoke_phase_change_dataset.log"
+    },
+    {
+      "label": "L",
+      "script": "smoke_reactive_dataset.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "case": "L",
+        "title": "Reactive-flow neural-operator dataset",
+        "timestamp_utc": "2026-08-16T12:08:26.585032+00:00",
+        "solver": "analytical first-order reacting transport",
+        "status": "PASS",
+        "dataset": {
+          "dataset": "reactive-flow lumped methane parameter sweep",
+          "case_count": 12,
+          "solver": "analytical first-order plug-flow transport",
+          "species_names": [
+            "fuel_ch4_lumped",
+            "products_co2_h2o_lumped",
+            "inert_n2"
+          ],
+          "chemical_mechanism": {
+            "reaction": "CH4_lumped -> CO2+H2O_lumped",
+            "rate_law": "r=k*Y_fuel",
+            "scope": "mass-conserving reduced chemistry, not Fluent"
+          },
+          "inputs": [
+            "inlet_velocity_m_s",
+            "inlet_temperature_K",
+            "fuel_mass_fraction",
+            "rate_constant_1_s"
+          ],
+          "fields": "field[case,node]",
+          "units": {
+            "coordinates": "m",
+            "velocity": "m/s",
+            "pressure": "Pa",
+            "temperature": "K",
+            "mass_fraction": "1",
+            "reaction_rate": "1/s",
+            "heat_release_rate": "W/kg"
+          },
+          "solver_version": "NumPy analytical reference",
+          "model_settings": {
+            "heat_of_reaction_J_kg_fuel": 50000000.0,
+            "effective_cp_J_kgK": 4166.666666666667
+          }
+        },
+        "checks": {
+          "case_count_12": true,
+          "field_shape": true,
+          "species_bounded": true,
+          "species_sum_error_lt_1e-12": true,
+          "reaction_finite": true,
+          "heat_release_temperature_identity": true
+        },
+        "files": [
+          "outputs/phase_reactive/datasets/reactive_flow/reactive_flow_dataset.npz"
+        ]
+      },
+      "log": "logs/phase_reactive/l_smoke_reactive_dataset.log"
+    },
+    {
+      "label": "validation",
+      "script": "validate_phase_reactive_dataset.py",
+      "action": "reused",
+      "exit_code": null,
+      "result": {
+        "phase_change": {
+          "status": "PASS",
+          "checks": {
+            "finite": true,
+            "fraction_bounded": true,
+            "time_ordering": true,
+            "melt_fraction_trend": true,
+            "energy_balance_finite_lt_15pct": true,
+            "metadata_complete": true,
+            "case_count_12": true
+          },
+          "errors": []
+        },
+        "reactive_flow": {
+          "status": "PASS",
+          "checks": {
+            "finite": true,
+            "species_bounded": true,
+            "species_sum_error_lt_1e-10": true,
+            "reaction_rate_nonnegative": true,
+            "heat_release_temperature_identity_error_lt_1e-8K": true,
+            "metadata_complete": true,
+            "case_count_12": true
+          },
+          "errors": []
+        },
+        "status": "PASS"
+      },
+      "log": "logs/phase_reactive/validation_validate_phase_reactive_dataset.log"
+    }
+  ],
+  "report": "PHASE_CHANGE_REACTIVE_FLOW_REPORT.md"
+}

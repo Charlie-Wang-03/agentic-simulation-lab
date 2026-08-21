@@ -1,0 +1,82 @@
+{
+  "status": "PARTIAL",
+  "mode": "validate-existing",
+  "cases": [
+    {
+      "case": "A",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_a_freefall/result.json"
+    },
+    {
+      "case": "B",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_b_collision/result.json"
+    },
+    {
+      "case": "C",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_c_friction/result.json"
+    },
+    {
+      "case": "D",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_d_angle_of_repose/result.json"
+    },
+    {
+      "case": "E",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_e_hopper/result.json"
+    },
+    {
+      "case": "F",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_f_rotating_drum/result.json"
+    },
+    {
+      "case": "G",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_g_nonspherical/result.json"
+    },
+    {
+      "case": "H",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_h_thermal/result.json"
+    },
+    {
+      "case": "I",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/case_i_one_way/result.json"
+    },
+    {
+      "case": "J",
+      "status": "BLOCKED",
+      "result_file": "outputs/rocky_dem/case_j_two_way/result.json",
+      "status_detail": "BLOCKED BY CURRENT API"
+    },
+    {
+      "case": "K",
+      "status": "PASS",
+      "result_file": "outputs/rocky_dem/dataset/dataset_index.json"
+    }
+  ],
+  "blocked_cases": [
+    {
+      "case": "J",
+      "status": "BLOCKED",
+      "result_file": "outputs/rocky_dem/case_j_two_way/result.json",
+      "status_detail": "BLOCKED BY CURRENT API"
+    }
+  ],
+  "unexpected_failures": [],
+  "dataset_validator": {
+    "script": "validate_rocky_dataset.py",
+    "return_code": 0,
+    "elapsed_s": 0.06253289990127087,
+    "stdout_tail": "{\n  \"status\": \"PASS\",\n  \"case_count\": 10,\n  \"case_results\": [\n    {\n      \"case_id\": \"freefall_01\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_02\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_03\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_04\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_05\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_06\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_07\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_08\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_09\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    },\n    {\n      \"case_id\": \"freefall_10\",\n      \"status\": \"PASS\",\n      \"row_count\": 5,\n      \"time_count\": 5,\n      \"particle_counts_by_time\": {\n        \"0.01\": 1,\n        \"0.02\": 1,\n        \"0.03\": 1,\n        \"0.04\": 1,\n        \"0.05\": 1\n      },\n      \"dynamic_particle_count_allowed\": true,\n      \"errors\": []\n    }\n  ],\n  \"checks\": {\n    \"time_ordering\": true,\n    \"particle_ids\": true,\n    \"finite_positions_velocities\": true,\n    \"positive_size_mass\": true,\n    \"dynamic_particle_count_supported\": true,\n    \"eulerian_lagrangian_separation\": {\n      \"fluid\": \"Eulerian mesh fields (not applicable to these DEM-only cases)\",\n      \"particles\": \"ragged Lagrangian table; no projection to a CFD mesh\"\n    }\n  },\n  \"errors\": []\n}\n",
+    "stderr_tail": ""
+  },
+  "launch_records": [],
+  "pass_count": 10,
+  "case_count": 11,
+  "status_detail": "PASS WITH EXPLICIT BLOCK"
+}

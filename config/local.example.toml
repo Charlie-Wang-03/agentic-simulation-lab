@@ -1,0 +1,6 @@
+# Copy to local.toml; the copy is ignored. Never commit license-server details.
+[project]
+artifact_root = "artifacts"
+
+[solvers]
+# installation_root = "/path/to/local/installation"

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "source": "manifest aggregation backed by case reference checksums",
+  "counts": {
+    "PASS": 7
+  },
+  "cases": [
+    {
+      "id": "C001",
+      "slug": "thermal-conduction",
+      "status": "PASS",
+      "reference": "benchmarks/thermal/references/historical_results.json"
+    },
+    {
+      "id": "C002",
+      "slug": "thermal-contact",
+      "status": "PASS",
+      "reference": "benchmarks/thermal/references/historical_results.json"
+    },
+    {
+      "id": "C003",
+      "slug": "thermal-convection",
+      "status": "PASS",
+      "reference": "benchmarks/thermal/references/historical_results.json"
+    },
+    {
+      "id": "C004",
+      "slug": "thermal-heat-generation",
+      "status": "PASS",
+      "reference": "benchmarks/thermal/references/historical_results.json"
+    },
+    {
+      "id": "C005",
+      "slug": "thermal-radiation",
+      "status": "PASS",
+      "reference": "benchmarks/thermal/references/historical_results.json"
+    },
+    {
+      "id": "C006",
+      "slug": "thermal-structural",
+      "status": "PASS",
+      "reference": "benchmarks/thermal/references/historical_results.json"
+    },
+    {
+      "id": "C007",
+      "slug": "thermal-transient",
+      "status": "PASS",
+      "reference": "benchmarks/thermal/references/historical_results.json"
+    }
+  ]
+}
