@@ -7,15 +7,12 @@ import traceback
 
 from aedt_smoke_common import (
     OUTPUT_ROOT,
-    aedt_pid_set,
     aedt_processes,
     base_smoke_result,
-    cleanup_new_aedt_processes,
     cleanup_owned_process,
     ensure_dirs,
     prepare_pyaedt_student_runtime,
     student_launch_kwargs,
-    wait_for_process_exit,
     write_json,
 )
 
@@ -27,7 +24,6 @@ def main() -> int:
     ensure_dirs()
     result = base_smoke_result("Maxwell 3D connection smoke", "official-pyaedt")
     result_path = OUTPUT_ROOT / "smoke" / "maxwell_connect_official.json"
-    baseline_pids = aedt_pid_set()
     app = None
     owned_pid = None
     try:
@@ -65,13 +61,7 @@ def main() -> int:
                 result["release_return"] = app.release_desktop(close_projects=True, close_desktop=True)
             except Exception as exc:  # noqa: BLE001
                 result["release_error"] = f"{type(exc).__name__}: {exc}"
-        exited = wait_for_process_exit(owned_pid)
-        result["cleanup"] = (
-            cleanup_owned_process(owned_pid)
-            if not exited
-            else {"pid": owned_pid, "forced": False, "remaining": []}
-        )
-        result["constructor_failure_cleanup"] = cleanup_new_aedt_processes(baseline_pids)
+        result["cleanup"] = cleanup_owned_process(owned_pid)
         result["processes_after_close"] = aedt_processes()
         if result["cleanup"]["remaining"]:
             result["status"] = "FAIL"

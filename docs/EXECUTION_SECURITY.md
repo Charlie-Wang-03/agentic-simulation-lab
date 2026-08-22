@@ -6,6 +6,8 @@ Public Python code uses argument lists, never `shell=True` or `os.system`. Synch
 
 `python tools/check_subprocess_policy.py` enforces the static baseline in CI. Long-running `Popen` use must have an explicit deadline, timeout-aware wait, ownership tracking, and cleanup of only the process started by the case.
 
+Process ownership must come from an explicit launcher or solver API process identifier. A process that merely appeared after a baseline snapshot is not owned. If a constructor fails before returning a reliable PID, destructive cleanup is not attempted and the result records `NOT_CONFIRMED` cleanup evidence.
+
 ## Executable trust
 
 Solver executables may be selected only through documented official installation discovery, trusted project-local configuration, or an explicit user-provided path. Before launch, adapters must validate that the candidate:

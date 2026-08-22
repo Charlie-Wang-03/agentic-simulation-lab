@@ -250,33 +250,42 @@ def aedt_processes() -> list[dict[str, Any]]:
     return rows
 
 
-def aedt_pid_set() -> set[int]:
-    return {int(row["pid"]) for row in aedt_processes()}
-
-
-def wait_for_process_exit(pid: int | None, timeout: float = 20.0) -> bool:
-    if not pid:
-        return True
-    try:
-        import psutil
-        process = psutil.Process(pid)
-        process.wait(timeout=timeout)
-        return True
-    except (psutil.NoSuchProcess, psutil.TimeoutExpired):
-        return not psutil.pid_exists(pid)
-
-
 def cleanup_owned_process(pid: int | None) -> dict[str, Any]:
-    """Terminate only the AEDT process launched by this smoke test and its children."""
-    result: dict[str, Any] = {"pid": pid, "forced": False, "remaining": []}
+    """Terminate an explicitly tracked AEDT PID and its confirmed descendants only."""
+    result: dict[str, Any] = {
+        "pid": pid,
+        "ownership": "API_AEDT_PROCESS_ID" if pid else "NOT_CONFIRMED",
+        "status": "NOT_CONFIRMED" if not pid else "PENDING",
+        "attempted": False,
+        "forced": False,
+        "remaining": [],
+    }
     if not pid:
+        result["reason"] = "No process identifier was returned by the current AEDT session constructor."
         return result
     try:
         import psutil
         parent = psutil.Process(pid)
-    except (ImportError, psutil.NoSuchProcess):
+    except ImportError:
+        result["status"] = "BLOCKED"
+        result["reason"] = "psutil is unavailable; destructive cleanup was not attempted."
         return result
-    processes = parent.children(recursive=True) + [parent]
+    except psutil.NoSuchProcess:
+        result["status"] = "NOT_RUNNING"
+        return result
+    except psutil.AccessDenied:
+        result["status"] = "BLOCKED"
+        result["reason"] = "Access denied while confirming the explicitly tracked AEDT process."
+        return result
+    try:
+        descendants = parent.children(recursive=True)
+    except (psutil.AccessDenied, psutil.NoSuchProcess):
+        result["status"] = "BLOCKED"
+        result["reason"] = "Unable to confirm descendants; destructive cleanup was not attempted."
+        return result
+    processes = descendants + [parent]
+    result["attempted"] = True
+    result["confirmed_descendants"] = [process.pid for process in processes[:-1]]
     for process in processes:
         try:
             process.terminate()
@@ -292,12 +301,8 @@ def cleanup_owned_process(pid: int | None) -> dict[str, Any]:
                 pass
         _, alive = psutil.wait_procs(alive, timeout=5)
     result["remaining"] = [process.pid for process in alive]
+    result["status"] = "CLEANED" if not alive else "PARTIAL"
     return result
-
-
-def cleanup_new_aedt_processes(before: set[int]) -> list[dict[str, Any]]:
-    """Clean AEDT processes created after a recorded baseline."""
-    return [cleanup_owned_process(pid) for pid in sorted(aedt_pid_set() - before)]
 
 
 def collect_phase0() -> dict[str, Any]:

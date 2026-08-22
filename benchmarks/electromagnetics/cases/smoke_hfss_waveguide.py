@@ -8,9 +8,8 @@ import traceback
 
 from aedt_smoke_common import (
     OUTPUT_ROOT,
-    aedt_pid_set,
     aedt_processes,
-    cleanup_new_aedt_processes,
+    cleanup_owned_process,
     ensure_dirs,
     prepare_pyaedt_student_runtime,
     student_launch_kwargs,
@@ -24,8 +23,8 @@ def main() -> int:
     case_dir = OUTPUT_ROOT / "case_f_hfss_waveguide"
     case_dir.mkdir(parents=True, exist_ok=True)
     result = {"case": "F", "name": "HFSS rectangular waveguide TE10", "timestamp_utc": utc_now(), "status": "FAIL"}
-    baseline = aedt_pid_set()
     app = None
+    owned_pid = None
     try:
         runtime = prepare_pyaedt_student_runtime()
         result["runtime"] = runtime
@@ -37,6 +36,7 @@ def main() -> int:
             solution_type="Modal",
             **student_launch_kwargs(runtime),
         )
+        owned_pid = getattr(app.desktop_class, "aedt_process_id", None)
         app.modeler.model_units = "mm"
         a_mm, b_mm, length_mm = 22.86, 10.16, 50.0
         waveguide = app.modeler.create_box(
@@ -144,7 +144,7 @@ def main() -> int:
                 result["release_return"] = app.release_desktop(close_projects=True, close_desktop=True)
             except Exception as exc:
                 result["release_error"] = f"{type(exc).__name__}: {exc}"
-        result["cleanup"] = cleanup_new_aedt_processes(baseline)
+        result["cleanup"] = cleanup_owned_process(owned_pid)
         result["processes_after_close"] = aedt_processes()
         write_json(case_dir / "result.json", result)
         print(json.dumps(result, indent=2, ensure_ascii=False))

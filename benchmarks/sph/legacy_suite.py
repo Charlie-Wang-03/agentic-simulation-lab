@@ -4,13 +4,12 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 import subprocess
 import sys
 import time
+from pathlib import Path
 
 from free_surface_sph_common import LOG_ROOT, OUTPUT_ROOT, ROCKY_EXE, ROOT
-
 
 SUMMARY = OUTPUT_ROOT / "suite_summary.json"
 ANSYS_PYTHON = Path(sys.executable)
@@ -45,7 +44,20 @@ def run_rocky(case: str, script: str, result_path: Path, timeout_s: int) -> dict
     command = [str(ROCKY_EXE), "--headless", "--redirect-error", str(error_log), "--script", str(ROOT / script)]
     started = time.perf_counter()
     process = subprocess.Popen(command, cwd=ROCKY_EXE.parent, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
-    launcher_return_code = process.wait(timeout=30)
+    try:
+        launcher_return_code = process.wait(timeout=30)
+    except subprocess.TimeoutExpired:
+        process.kill()
+        launcher_return_code = process.wait(timeout=10)
+        return {
+            "case": case,
+            "script": script,
+            "launcher_return_code": launcher_return_code,
+            "result_updated": False,
+            "timed_out": True,
+            "elapsed_s": time.perf_counter() - started,
+            "rocky_error_log": str(error_log),
+        }
     deadline = time.monotonic() + timeout_s
     updated = False
     while time.monotonic() < deadline:
