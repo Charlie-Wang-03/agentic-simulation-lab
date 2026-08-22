@@ -1,4 +1,4 @@
-# 教程一：发现案例与诊断环境
+# 快速开始：浏览案例并检查环境
 
 1. 用 `python -m pip install -e ".[dev]"` 以可编辑方式安装项目。
 2. 运行 `agentic-sim list`；可用 `--domain cfd` 限定领域。

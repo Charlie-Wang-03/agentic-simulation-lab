@@ -1,4 +1,4 @@
-# 教程二：运行 Mechanical 基准
+# 运行一个 Mechanical benchmark
 
 先确认 Mechanical 可选依赖、本地安装与许可证，再查看和试运行案例：
 

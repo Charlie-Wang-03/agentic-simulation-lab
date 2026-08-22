@@ -1,0 +1,84 @@
+{
+  "case": "thermal-conduction",
+  "data": {
+    "x_temperature": [
+      [
+        0.0,
+        120.0
+      ],
+      [
+        0.01,
+        109.99999999975
+      ],
+      [
+        0.02,
+        99.999999999557
+      ],
+      [
+        0.03,
+        89.999999999439
+      ],
+      [
+        0.04,
+        79.999999999384
+      ],
+      [
+        0.05,
+        69.999999999387
+      ],
+      [
+        0.06,
+        59.99999999943899
+      ],
+      [
+        0.07,
+        49.999999999534
+      ],
+      [
+        0.08,
+        39.999999999664
+      ],
+      [
+        0.09,
+        29.999999999822
+      ],
+      [
+        0.1,
+        20.0
+      ]
+    ]
+  },
+  "domain": "thermal",
+  "geometry": {
+    "height_m": 0.02,
+    "length_m": 0.1,
+    "width_m": 0.02
+  },
+  "provenance": {
+    "qualification": "Numeric samples imported from the exact qualified benchmark output; no values were fabricated.",
+    "reference": "benchmarks/thermal/references/historical_results.json",
+    "solver_rerun_required_for_this_import": false,
+    "source_files": [
+      {
+        "path": "artifacts/legacy/outputs/thermal_conduction_raw.csv",
+        "sha256": "d990842b59d5efcfa84811c51213adbde7315852de8eba521960157ddbe0e494"
+      },
+      {
+        "path": "artifacts/legacy/outputs/thermal_conduction_results.json",
+        "sha256": "7645ea146de91c6518155398d9e5b4d5645333df27e1ddf0b8906f31bd8de1b4"
+      }
+    ]
+  },
+  "representation": "solver-nodal temperature field extruded across the solved rectangular section",
+  "schema_version": 1,
+  "solver": "MAPDL 261 / SOLID70",
+  "status": "PASS",
+  "units": {
+    "temperature": "degC",
+    "x": "m"
+  },
+  "validation": {
+    "heat_flow_relative": 2.5333513065106675e-11,
+    "max_temperature_absolute_c": 6.159979193398613e-10
+  }
+}

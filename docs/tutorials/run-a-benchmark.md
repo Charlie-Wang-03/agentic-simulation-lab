@@ -1,4 +1,4 @@
-# Tutorial 2: run a Mechanical benchmark
+# Run a Mechanical benchmark
 
 Confirm the Mechanical optional dependency, installation, and license, then inspect and dry-run the case:
 

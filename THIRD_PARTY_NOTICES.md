@@ -1,6 +1,6 @@
 # Third-party dependency notices
 
-Checked: 2026-08-21
+Checked: 2026-08-22
 
 No third-party source code, official Ansys examples, Ansys binaries, Ansys documentation copies, or third-party datasets are vendored in the candidate public tree. The dependencies below are declarations only: installers resolve them separately from their package indexes, and each remains governed by its own license and packaged notices.
 
@@ -12,8 +12,10 @@ No third-party source code, official Ansys examples, Ansys binaries, Ansys docum
 | `pyaedt` | AEDT interoperability | MIT | Yes (`aedt`) | Yes, for solver execution |
 | `ansys-rocky-core` | Rocky interoperability | MIT | Yes (`rocky`) | Yes, for solver execution |
 | `ansys-systemcoupling-core` | System Coupling interoperability | MIT | Yes (`system-coupling`) | Yes, including participant-product licenses for coupled execution |
-| `numpy` | Dataset arrays and development tests | BSD-3-Clause main project; distributions carry their own complete component notices | Yes (`data`, `dev`) | No |
+| `numpy` | Dataset arrays, simulation-result plotting, and development tests | BSD-3-Clause main project; distributions carry their own complete component notices | Yes (`data`, `visuals`, `dev`) | No |
 | `pandas` | Tabular dataset workflows | BSD-3-Clause main project; distributions carry their own complete component notices | Yes (`data`) | No |
+| `matplotlib` | Deterministic paper-style simulation-result figures | PSF-based Matplotlib license; distributions carry their own complete component notices | Yes (`visuals`, `dev`) | No |
+| `pillow` | PNG writing and provenance-metadata checks | HPND | Yes (`visuals`, `dev`) | No |
 | `pytest` | Tests | MIT | Development only | No |
 | `ruff` | Linting | MIT, with bundled-component notices in its distribution | Development only | No |
 | `build` | PEP 517 package builds | MIT | Development only | No |
@@ -34,6 +36,8 @@ Primary project sources used for this audit:
 - <https://github.com/ansys/pysystem-coupling>
 - <https://github.com/numpy/numpy>
 - <https://github.com/pandas-dev/pandas>
+- <https://github.com/matplotlib/matplotlib>
+- <https://github.com/python-pillow/Pillow>
 - <https://github.com/pytest-dev/pytest>
 - <https://github.com/astral-sh/ruff>
 - <https://github.com/pypa/build>, <https://github.com/pypa/setuptools>, and <https://github.com/pypa/wheel>

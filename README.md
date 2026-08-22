@@ -1,127 +1,138 @@
+**English** | [简体中文](README.zh-CN.md)
+
 # Agentic Simulation Lab
 
-Agent-first automation, reproducible simulation, and physics-validation workflows for Ansys® simulation software. The project organizes referential Mechanical, MAPDL, Fluent, AEDT, System Coupling, Rocky, and SPH interoperability behind one solver-independent catalog and CLI.
+![Agentic Simulation Lab: reproducible Ansys workflows judged by physics, with 134 cases across 11 domains](docs/assets/hero.svg)
 
-> This is an independent community project. It is not affiliated with, endorsed by, certified by, or supported by Ansys, Inc. It uses no Ansys logos or trade dress. Ansys software and an appropriate license must be obtained separately. Original repository-owned content is licensed under the Apache License 2.0; that repository license does not license Ansys software, documentation, examples, trademarks, or proprietary formats.
+**Turn GUI-heavy engineering simulation into Agent-orchestrated, reproducible workflows with explicit physics validation and durable evidence.**
 
-In this repository, *benchmark* means validation against an analytical solution, conservation law, dimensional relation, reload invariant, or documented physical trend. It does not mean competitive product analysis.
+[Quick Start](#quick-start) · [Simulation Gallery](docs/BENCHMARKS.md) · [Documentation](docs/README.md) · [Learning Path](docs/LEARNING_PATH.md)
 
-## Why agent-driven simulation?
+Agentic Simulation Lab makes this chain executable and auditable:
 
-Engineering automation is often trapped between GUI-only project state and one-off scripts. This lab makes the operating contract readable: a human or coding agent can discover a benchmark, understand its prerequisites, execute it through a stable CLI, and judge it with declared physics checks. The agent orchestrates the work; it never replaces the solver or physical validation.
+> **Human physical intent → Coding Agent → reproducible script / CLI → Ansys solver → physics validation → structured result**
 
-```mermaid
-flowchart TD
-    H["Human intent"] --> A["Coding agent"]
-    A --> C["Python package and CLI"]
-    C --> S["Ansys solver"]
-    S --> V["Physics validation"]
-    V --> R["Results and evidence"]
-```
+The Agent discovers and coordinates the work. Ansys software still performs the numerical simulation. Declared physical checks—not a successful process exit—determine whether evidence is `PASS`, `FAIL`, `BLOCKED`, `PARTIAL`, or `NOT_RUN`.
 
-Core principles are Local First and API-first operation, lazy optional integrations, project-relative and auditable state, physical evidence over exit codes, and honest preservation of failures and external blocks. The core runtime needs no online AI API, includes no telemetry, and never uploads models or results.
+## Real multi-domain simulation results
 
-## Who is this for?
+This repository contains real multi-domain simulation results. The PNG figures below are deterministic post-processing of qualified, solver-derived numeric evidence—not AI-generated contours or proprietary GUI screenshots.
 
-- Students can follow a staged path from environment diagnosis to mechanics, thermal, CFD, and advanced physics without installing every product at once.
-- Simulation practitioners can turn repeatable Mechanical, Fluent, AEDT, Rocky, and coupled workflows into reviewable automation.
-- Scientific-ML researchers can generate structured, provenance-rich datasets from validated benchmarks without conflating simulation with model training.
+| | |
+|---|---|
+| [![Mechanical cantilever displacement and stress fields](docs/assets/simulations/mechanics/static-cantilever.png)](docs/assets/simulations/mechanics/static-cantilever.png) | [![Fluent unsteady cylinder velocity and pressure wake](docs/assets/simulations/cfd/fluent-cylinder-unsteady.png)](docs/assets/simulations/cfd/fluent-cylinder-unsteady.png) |
+| **Mechanics:** solved nodal displacement and stress | **CFD:** transient velocity and pressure fields |
+| [![Conjugate heat-transfer temperature and velocity fields](docs/assets/simulations/multiphysics/cht-fluent.png)](docs/assets/simulations/multiphysics/cht-fluent.png) | [![Acoustic cavity pressure mode on orthogonal slices](docs/assets/simulations/acoustics/acoustic-cavity-modal.png)](docs/assets/simulations/acoustics/acoustic-cavity-modal.png) |
+| **Multiphysics:** fluid–solid conjugate heat transfer | **Acoustics:** solver eigenmode pressure slices |
+| [![Coaxial magnetostatic flux-density field](docs/assets/simulations/electromagnetics/magnetostatic.png)](docs/assets/simulations/electromagnetics/magnetostatic.png) | [![DEM angle-of-repose particle configuration](docs/assets/simulations/dem/angle-of-repose.png)](docs/assets/simulations/dem/angle-of-repose.png) |
+| **Electromagnetics:** reconstructed axisymmetric field | **DEM:** final solved particle configuration |
+| [![SPH dam-break particle evolution](docs/assets/simulations/sph/sph-dam-break.png)](docs/assets/simulations/sph/sph-dam-break.png) | [![Phase-change liquid-fraction evolution](docs/assets/simulations/phase_reactive/fluent-melting.png)](docs/assets/simulations/phase_reactive/fluent-melting.png) |
+| **SPH:** Lagrangian free-surface snapshots | **Phase change:** liquid-fraction evolution |
 
-## What is here
+Browse all 11 representative figures in the [simulation-result provenance inventory](docs/SIMULATION_RESULTS.md) or continue to the [complete benchmark gallery](docs/BENCHMARKS.md). Explanatory SVGs remain as a separate orientation layer and are labeled as schematics or domain maps.
 
-- 11 physics domains with machine-readable manifests and historical evidence
-- solver-backed scripts, physical acceptance checks, datasets, and reports
-- a lazy Python package that does not import or launch proprietary solvers on import
-- a CLI for discovery, diagnostics, dry runs, validation, audits, and reports
-- explicit `PASS`, `FAIL`, `BLOCKED`, `PARTIAL`, and `NOT_RUN` semantics
+## See the lab before reading the architecture
 
-Current counts and solver-label coverage are generated directly from the manifests in [PROJECT_METRICS.md](docs/PROJECT_METRICS.md).
+![Six representative simulation cases spanning mechanics, CFD, multiphysics, acoustics, DEM, and SPH](docs/assets/showcase-board.svg)
 
-Historical results describe specific local runs and remain separate from current `doctor` diagnostics; they are not guarantees for other versions, licenses, hardware, or meshes. Large generated artifacts are intentionally excluded from the public tree.
+These are historical repository results and validation schematics, not guarantees for another version, license, mesh, or machine. The schematics are not fabricated solver contours.
 
-## Quick start
+| Physics story | Solver / product | Validation basis | Historical evidence |
+|---|---|---|---|
+| [Static cantilever](benchmarks/mechanics/cases/smoke_static_cantilever.py) | Mechanical / MAPDL | Euler–Bernoulli tip deflection | **PASS** — 0.100143 mm vs 0.100000 mm; 0.143% error |
+| [Laminar channel](benchmarks/cfd/cases/smoke_fluent_laminar_channel.py) | Fluent | Poiseuille profile, pressure drop, mass conservation | **PASS** — profile L2 error 0.210%; pressure-drop error 0.150% |
+| [Conjugate heat transfer](benchmarks/multiphysics/cases/smoke_cht_fluent.py) | Fluent | Global energy closure and temperature bounds | **PASS** — 0.900% energy imbalance |
+| [Acoustic tube](benchmarks/acoustics/cases/smoke_acoustic_tube.py) | MAPDL / Mechanical | Quarter-wave resonance | **PASS** — 86.0 Hz vs 85.81 Hz; 0.221% error |
+| [Particle free fall](benchmarks/dem/cases/smoke_particle_freefall.py) | Rocky | Constant-gravity kinematics | **PASS** — maximum position error 1.34 µm |
+| [SPH dam break](benchmarks/sph/cases/smoke_sph_dam_break.py) | Rocky | Front advance, mass conservation, time history, projection checks | **PASS** — all declared historical checks passed |
+
+Browse the [complete visual catalog](docs/BENCHMARKS.md) for all **134 cases across 11 physics domains**, including the deliberately visible failures, external blocks, and cases without attributable run evidence.
+
+## What problem does it solve?
+
+Traditional simulation work often leaves important state inside GUI clicks, local project files, and one-off scripts. That makes a workflow hard to reproduce, review, delegate to a coding Agent, or reuse for dataset generation. This project gives each case a stable manifest, CLI entry point, solver-local implementation, declared validation logic, structured result contract, and compact evidence record.
+
+It is a laboratory for learning and building trustworthy automation—not a replacement for Ansys products, licenses, qualified engineering review, or numerical judgment.
+
+## How it works
+
+![Workflow from human intent through a Coding Agent, script and CLI, Ansys solver, physics validation, and structured result](docs/assets/workflow.svg)
+
+1. `list` and `info` read solver-independent manifests without importing a proprietary integration.
+2. `doctor` diagnoses the current machine without launching a solver by default.
+3. `run ... --dry-run` resolves the exact command, prerequisites, paths, timeout, and expected result.
+4. An explicitly authorized run calls the local solver through a supported API or script interface.
+5. The case extracts numerical evidence and applies predeclared analytical, conservation, canonical, dimensional, or physical-trend checks.
+6. `run.json` records process and physics status separately; the manifest's result file remains authoritative.
+
+Read the [architecture](docs/ARCHITECTURE.md), [validation policy](docs/VALIDATION.md), and [Agent operating workflow](agent/WORKFLOW.md) when you need the full contract.
+
+## Quick Start
+
+The core catalog, CLI, dry-runs, tests, and audits do not require Ansys software.
 
 ```bash
 python -m pip install -e ".[dev]"
 agentic-sim list
-agentic-sim list --domain mechanics --status PASS
 agentic-sim doctor
 agentic-sim info cfd fluent-laminar-channel
 agentic-sim run cfd --case fluent-laminar-channel --dry-run
-agentic-sim report --json
 agentic-sim validate
-pytest
 ```
 
-For a reproducible project-local environment, prefer `python tools/bootstrap.py --extras dev`. See the bilingual [project installation](docs/tutorials/install-project.md), [Windows installation](docs/tutorials/install-windows.md), and [macOS installation](docs/tutorials/install-macos.md) tutorials.
+For a reproducible project-local environment, use `python tools/bootstrap.py --extras dev`. Install only the solver extra you need, such as `.[mechanical]`, `.[fluent]`, `.[aedt]`, or `.[rocky]`.
 
-Install only the optional integration you need, such as `.[fluent]`, `.[mechanical]`, or `.[aedt]`. Solver execution additionally requires a compatible local Ansys installation and license; `doctor` never launches one unless a future adapter explicitly documents that behavior.
+Removing `--dry-run` is a separate decision: it requires explicit authorization, a compatible official local product, and an available license. Start with the bilingual [Quick Start](docs/tutorials/quickstart.md), then follow [Run a benchmark](docs/tutorials/run-a-benchmark.md).
 
-## Platform and prerequisites
+## Explore the lab
 
-| Platform | Core package and static workflows | Local Student solver execution |
+| If you are… | Start here | What you will find |
 |---|---|---|
-| Windows 10/11 64-bit | Supported; Windows 11/Python 3.12 locally tested | Supported when a compatible official product and license are separately available |
-| macOS | Supported for install, imports, CLI, catalog, dry-runs, tests, and audits | Not claimed; current Ansys Student desktop guidance is Windows-only |
-| Linux | Core/static workflow is CI-configured | No Student desktop claim |
+| an engineering or science student | [Flagship learning path](docs/LEARNING_PATH.md) | Eight staged cases from beam bending to CFD, CHT, acoustics, particles, and datasets |
+| a Mechanical / Fluent / AEDT / Rocky user | [Simulation catalog](docs/BENCHMARKS.md) and [solver matrix](docs/SOLVER_MATRIX.md) | Reproducible case scripts, product requirements, validation basis, and honest historical status |
+| a Scientific-AI researcher | [Dataset guide](docs/DATASETS.md) and [dataset tutorial](docs/tutorials/generate-a-dataset.md) | Parameter sweeps, portable Dataset Contract v1 metadata, safe NPZ loading, checksums, and separate physics provenance |
+| a contributor or tool builder | [Development guide](docs/DEVELOPMENT.md) and [contributing](CONTRIBUTING.md) | Manifest schema, result contracts, lazy integrations, static validation, and publication boundaries |
 
-Python 3.10 or newer is required; the static CI matrix explicitly covers Python 3.10 and 3.12. Git is needed only to clone or contribute. Ansys products are optional for core use and must be obtained separately. See [tested environments](docs/TESTED_ENVIRONMENTS.md), [Student installation](docs/tutorials/install-ansys-student.md), and [AEDT Student installation](docs/tutorials/install-aedt-student.md).
+The [documentation home](docs/README.md) separates newcomer tutorials from concepts, reference, compliance, reports, and maintainer-only release evidence. It also defines the project's maintainable bilingual policy.
 
-## Layout
+## Technical principles
 
-| Path | Purpose |
-|---|---|
-| `benchmarks/` | domain manifests, cases, common helpers, and small references |
-| `src/agentic_simulation_lab/` | solver-independent core, CLI, and lazy adapters |
-| `artifacts/` | ignored run products and migrated legacy outputs |
-| `docs/` | architecture, tutorials, validation policy, and reports |
-| `agent/` | agent operating contract and reusable skills |
-| `tools/` | catalog and publication audits |
+- **Local First** — no telemetry, automatic upload, or online AI API in the core runtime; solver work runs locally after dependencies are installed.
+- **API / Script First** — supported CLIs, Python APIs, and solver scripting interfaces are the default, not fragile GUI automation.
+- **Agent / Model Agnostic** — any coding Agent that follows the repository contract can inspect and orchestrate the same workflow.
+- **Physics First** — an exit code cannot establish correctness; declared physical evidence must support `PASS`.
+- **Reproducible and auditable** — project-relative manifests, routed artifacts, bounded subprocesses, explicit provenance, and stable result contracts.
+- **Honest evidence semantics** — known `FAIL`, `BLOCKED`, and `NOT_RUN` cases remain visible because negative evidence is part of scientific credibility.
 
-Start with [the architecture](docs/ARCHITECTURE.md), [validation policy](docs/VALIDATION.md), and [known limitations](docs/known-limitations.md). Chinese readers can use [README.zh-CN.md](README.zh-CN.md).
+Current generated counts are in [project metrics](docs/PROJECT_METRICS.md). Known failures and product/API limitations—including the AEDT electrostatic regression, Turek–Hron FSI, reactive-flow energy accounting, Rocky two-way coupling, and selected SPH modes—are documented in [known limitations](docs/known-limitations.md).
 
-## Physics and solver coverage
+## Platform and solver requirements
 
-The 11 domains are mechanics, thermal, CFD, multiphysics, materials, electromagnetics, acoustics, porous media/geomechanics, DEM, SPH, and phase-change/reactive flow. [SOLVER_MATRIX.md](docs/SOLVER_MATRIX.md) distinguishes available adapters from runtime product and license requirements; [PHYSICS_DOMAINS.md](docs/PHYSICS_DOMAINS.md) explains domain scope.
+Python 3.10 or newer is required. The solver-free core and static workflows support Windows, macOS, and CI-configured Linux; local Ansys Student desktop execution is currently documented for compatible Windows installations. Product availability, license terms, model limits, integration versions, and supported transports vary.
 
-## Unified CLI and agent workflow
-
-`doctor`, `list`, `info`, `run`, `validate`, `audit`, `report`, and `paths` are solver-independent commands. Their default output is concise for humans; `--json` provides stable structured output for agents and automation. Discovery and reporting work even when no PyAnsys integration is installed. A typical workflow is:
-
-```text
-understand physics → inspect manifest → diagnose → dry-run → execute
-→ extract → validate → classify → preserve evidence
-```
-
-Read [AGENTS.md](AGENTS.md) and the vendor-neutral [agent workflow](agent/WORKFLOW.md) before delegating execution to a coding agent.
-The [execution-security policy](docs/EXECUTION_SECURITY.md) defines subprocess, executable-trust, network, and environment boundaries.
-
-## Validation and datasets
-
-A zero exit code is never sufficient for PASS. Cases use analytical solutions, conservation, canonical comparisons, dimensional checks, or expected physical trends. Dataset workflows follow `validated benchmark → parameter sweep → solver/model → Dataset Contract v1 → safe reload validation`; large arrays remain under ignored artifacts. Scientific-AI users can inspect or validate a generated `dataset.json` with `agentic-sim dataset info|validate`, then load NPZ samples through `agentic_simulation_lab.datasets.open_dataset`. See [DATASETS.md](docs/DATASETS.md) and the bilingual [dataset tutorial](docs/tutorials/generate-a-dataset.md).
-
-## Suggested learning path
-
-Start with the curated [eight-case flagship learning path](docs/LEARNING_PATH.md): static cantilever → steady/transient thermal → laminar channel → CHT → acoustic tube → particle free fall, with a separate Fluent parametric dataset track. Each stop states the physics, automation lesson, validation basis, product/license requirement, rough cost, historical status, and exact dry-run/run commands. The [quickstart](docs/tutorials/quickstart.md) remains the short installation and CLI introduction.
-
-## Project status
-
-`benchmarks/catalog.json` is generated from domain manifests. Run `python tools/build_catalog.py` after manifest changes, then `python tools/build_catalog.py --check`. Case G premixed combustion remains a frozen validated failure. Case J preserves the historical 15.951% final-step `FAIL`; a fresh predeclared 10-step accounting window also failed at 15.842% against the unchanged 10% limit. The AEDT electrostatic catalog entry likewise preserves its historical `FAIL`, while fresh supported-path diagnosis stopped `BLOCKED` at version compatibility before session startup. Fresh diagnosis does not overwrite historical benchmark evidence, and neither failure is cosmetically upgraded.
-
-The catalog also retains the historical Turek–Hron FSI failure and four product/API blocks. Details are in [known limitations](docs/known-limitations.md) and the [project showcase](docs/PROJECT_SHOWCASE.md).
+See [tested environments](docs/TESTED_ENVIRONMENTS.md), [solver support matrix](docs/SOLVER_MATRIX.md), [Student product limits](docs/STUDENT_PRODUCT_LIMITS.md), and the platform installation tutorials under [`docs/tutorials/`](docs/tutorials/).
 
 ## Contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md), use project-relative paths, keep solver imports lazy, and attach physical evidence to status changes. General help follows [SUPPORT.md](SUPPORT.md); security reports follow [SECURITY.md](SECURITY.md). Do not publish proprietary solver files, license data, private paths, tokens, or personal information.
+Contributions are welcome when they preserve project-relative paths, lazy solver imports, physical acceptance criteria, evidence status, and public-tree privacy. Read [CONTRIBUTING.md](CONTRIBUTING.md), use [SUPPORT.md](SUPPORT.md) for help, and report security issues through [SECURITY.md](SECURITY.md).
 
-## Licensing and Ansys terms
+After manifest or gallery changes, regenerate and check the public navigation:
 
-Original repository-owned code, documentation, and fixtures are available under the [Apache License 2.0](LICENSE). Apache-2.0 does not license Ansys software or redistribute vendor content. Users remain responsible for their separately obtained Ansys license and current clickwrap. Student licenses are limited to educational use and exclude commercial use and competitive analysis. Read [Ansys usage and compliance](docs/ANSYS_USAGE_AND_COMPLIANCE.md), [Student product limits](docs/STUDENT_PRODUCT_LIMITS.md), the [official-source audit](docs/release/OFFICIAL_SOURCE_AUDIT.md), and the recorded [license decision](docs/release/LICENSE_DECISION.md).
+```bash
+python tools/build_catalog.py
+python tools/build_project_metrics.py
+python tools/build_gallery.py
+python tools/build_gallery.py --check
+python tools/build_simulation_visuals.py --check
+python tools/check_links.py
+```
 
-Publication steps are documented in the bilingual [publishing tutorial](docs/tutorials/publishing.md) and truthful [release checklist](docs/release/RELEASE_CHECKLIST.md). The independent public repository was created from an audited clean export. The v0.1.0 tag and GitHub Release are separately gated finalization actions; PyPI and Zenodo are not part of this release.
+## License, compliance, and disclaimer
 
-## Disclaimer
+This is an independent community project. It is not affiliated with, endorsed by, certified by, or supported by Ansys, Inc. Ansys software and an appropriate license must be obtained separately and used under their applicable terms. The repository does not distribute Ansys software, proprietary solver databases, vendor documentation, logos, or trade dress.
 
-Ansys software and licenses must be obtained separately and used under their applicable terms. Engineering results require independent review by qualified practitioners. See [DISCLAIMER.md](DISCLAIMER.md).
+Original repository-owned code, documentation, and fixtures are licensed under the [Apache License 2.0](LICENSE). That license does not license Ansys software, documentation, examples, trademarks, or proprietary formats. Student licenses are limited to educational use and exclude commercial use and competitive analysis. Engineering results require independent review by qualified practitioners.
+
+Read [Ansys usage and compliance](docs/ANSYS_USAGE_AND_COMPLIANCE.md), the full [disclaimer](DISCLAIMER.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
 
 Ansys, Mechanical, Fluent, AEDT, Maxwell, HFSS, Rocky, System Coupling, SpaceClaim, and PyAnsys are trademarks or registered trademarks of Ansys, Inc. or its subsidiaries in the United States or other countries. All trademarks remain the property of their respective owners.

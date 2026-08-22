@@ -32,6 +32,8 @@ jobs:
           benchmarks/electromagnetics/cases/smoke_hfss_connect.py
       - run: python tools/build_catalog.py --check
       - run: python tools/build_project_metrics.py --check
+      - run: python tools/build_gallery.py --check
+      - run: python tools/build_simulation_visuals.py --check
       - run: python tools/build_reference_summaries.py --check
       - run: python tools/check_public_tree.py
       - run: python tools/check_source_provenance.py

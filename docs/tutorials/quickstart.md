@@ -1,4 +1,4 @@
-# Tutorial 1: discover and diagnose
+# Quick Start: discover and diagnose
 
 1. Install the editable project with `python -m pip install -e ".[dev]"`.
 2. Run `agentic-sim list` and narrow with `--domain cfd`.

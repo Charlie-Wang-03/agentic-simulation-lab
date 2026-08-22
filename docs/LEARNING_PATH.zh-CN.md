@@ -2,6 +2,8 @@
 
 这条路径从完整目录中精选 8 个案例。每一级都先运行 `info` 和 `--dry-run`；只有声明的产品与有效许可证均可用时才执行。成本是相对教学估计，不是性能保证。列出的状态都是历史目录证据，不代表当前机器必然得到相同结果。
 
+如果某一级已有代表性结果 PNG，请按“benchmark 源码 → 求解结果图 → 精简数值证据 → 引用的验证结果”顺序检查。11 个领域的完整清单见[真实仿真结果与来源](SIMULATION_RESULTS.zh-CN.md)。
+
 Level 0 是无求解器的环境与目录入门：
 
 ```bash
@@ -15,6 +17,7 @@ agentic-sim list --role dataset
 - 物理：线弹性梁弯曲与 Euler–Bernoulli 端部挠度。
 - 自动化：建模、约束、求解、提取位移并与解析参考对比。
 - 验证：历史端部位移相对误差；目录状态为 `PASS`。
+- 结果证据：[位移 / 应力求解结果图](assets/simulations/mechanics/static-cantilever.png) → [精简节点证据](assets/simulations/mechanics/static-cantilever.evidence.json) → [历史验证记录](../benchmarks/mechanics/references/historical_results.json)。
 - 要求：领域清单声明 Mechanical 与 MAPDL；真实运行需要兼容产品和许可证。
 - 成本：低；推荐作为第一个求解器案例，规模通常适合 Student 版本。
 
@@ -28,6 +31,7 @@ agentic-sim run mechanics --case static-cantilever
 - 物理：稳态一维导热与温度梯度。
 - 自动化：热材料/边界设置与温度提取。
 - 验证：与导热解析解比较；目录状态为 `PASS`。
+- 结果证据：[温度场与轴向剖面](assets/simulations/thermal/thermal-conduction.png) → [精简节点证据](assets/simulations/thermal/thermal-conduction.evidence.json) → [历史验证记录](../benchmarks/thermal/references/historical_results.json)。
 - 要求：thermal 清单声明 Mechanical/MAPDL。
 - 成本：低；紧凑的 Student 规模热学入门。
 
@@ -67,6 +71,7 @@ agentic-sim run cfd --case fluent-laminar-channel
 - 物理：流体区与固体区之间的共轭传热。
 - 自动化：多区域设置、界面处理、场提取与守恒核算。
 - 验证：全局能量闭合与温度边界；目录状态为 `PASS`。
+- 结果证据：[流固温度场 / 速度场](assets/simulations/multiphysics/cht-fluent.png) → [精简场证据](assets/simulations/multiphysics/cht-fluent.evidence.json) → [历史验证记录](../benchmarks/multiphysics/references/historical_results.json)。
 - 要求：领域清单声明 Fluent、Mechanical 与 System Coupling；执行前检查具体案例和本地许可证。
 - 成本：中等；比单物理案例具有更强的守恒要求。
 

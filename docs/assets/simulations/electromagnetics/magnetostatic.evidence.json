@@ -1,0 +1,70 @@
+{
+  "case": "magnetostatic",
+  "data": {
+    "radius_B": [
+      [
+        0.006,
+        0.002975951231218011
+      ],
+      [
+        0.008,
+        0.0025735593091891404
+      ],
+      [
+        0.01,
+        0.00219459089184776
+      ],
+      [
+        0.012,
+        0.0018342306433840002
+      ],
+      [
+        0.014,
+        0.0014692069703460306
+      ],
+      [
+        0.016,
+        0.0011863918346388808
+      ],
+      [
+        0.018000000000000002,
+        0.0011048815865180612
+      ]
+    ]
+  },
+  "domain": "electromagnetics",
+  "geometry": {
+    "depth_mm": 100.0,
+    "inner_radius_mm": 5.0,
+    "return_inner_radius_mm": 19.0,
+    "return_outer_radius_mm": 20.0
+  },
+  "provenance": {
+    "qualification": "Numeric samples imported from the exact qualified benchmark output; no values were fabricated.",
+    "reference": "benchmarks/electromagnetics/references/suite_summary.json",
+    "solver_rerun_required_for_this_import": false,
+    "source_files": [
+      {
+        "path": "artifacts/legacy/outputs/electromagnetics/case_c_magnetostatic/field_Mag_B.fld",
+        "sha256": "1759bb53bead58b764255693bbdc1290613c0c954d9f527e3c4d8dfd36eb0619"
+      },
+      {
+        "path": "artifacts/legacy/outputs/electromagnetics/case_c_magnetostatic/result.json",
+        "sha256": "14b78008c72ec27e7093cbaecaf6b5765f78e51012e4f29f3be18ece6ab00380"
+      }
+    ]
+  },
+  "representation": "axisymmetric reconstruction of exported radial Mag_B grid samples",
+  "schema_version": 1,
+  "solver": "Maxwell 2D 261 magnetostatic",
+  "status": "PASS",
+  "units": {
+    "magnetic_flux_density": "T",
+    "radius": "m"
+  },
+  "validation": {
+    "B_mean": 0.05991573856134207,
+    "H_mean": 0.05991566313546741,
+    "inductance": 0.19690341138359624
+  }
+}

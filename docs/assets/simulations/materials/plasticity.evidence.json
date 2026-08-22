@@ -1,0 +1,131 @@
+{
+  "case": "plasticity",
+  "data": {
+    "response": [
+      {
+        "elastic_strain": 0.0,
+        "equivalent_plastic_strain": 0.0,
+        "plastic_strain": 0.0,
+        "stress_pa": 0.0,
+        "theory_total_strain": 0.0,
+        "total_strain": 0.0
+      },
+      {
+        "elastic_strain": 0.00025,
+        "equivalent_plastic_strain": 0.0,
+        "plastic_strain": 0.0,
+        "stress_pa": 50000000.0,
+        "theory_total_strain": 0.00025,
+        "total_strain": 0.00025
+      },
+      {
+        "elastic_strain": 0.0005,
+        "equivalent_plastic_strain": 0.0,
+        "plastic_strain": 0.0,
+        "stress_pa": 100000000.0,
+        "theory_total_strain": 0.0005,
+        "total_strain": 0.0005
+      },
+      {
+        "elastic_strain": 0.00075,
+        "equivalent_plastic_strain": 0.0,
+        "plastic_strain": 0.0,
+        "stress_pa": 150000000.0,
+        "theory_total_strain": 0.00075,
+        "total_strain": 0.0007499999999999999
+      },
+      {
+        "elastic_strain": 0.001,
+        "equivalent_plastic_strain": 0.0,
+        "plastic_strain": 0.0,
+        "stress_pa": 200000000.0,
+        "theory_total_strain": 0.001,
+        "total_strain": 0.001
+      },
+      {
+        "elastic_strain": 0.00125,
+        "equivalent_plastic_strain": 4.7329037623036e-17,
+        "plastic_strain": 4.7329037623036e-17,
+        "stress_pa": 250000000.0,
+        "theory_total_strain": 0.00125,
+        "total_strain": 0.00125
+      },
+      {
+        "elastic_strain": 0.001375,
+        "equivalent_plastic_strain": 0.012500000186265,
+        "plastic_strain": 0.012500000186265,
+        "stress_pa": 275000000.0,
+        "theory_total_strain": 0.01375,
+        "total_strain": 0.013875
+      },
+      {
+        "elastic_strain": 0.0015,
+        "equivalent_plastic_strain": 0.025000000372529,
+        "plastic_strain": 0.025000000372529,
+        "stress_pa": 300000000.0,
+        "theory_total_strain": 0.026250000000000002,
+        "total_strain": 0.0265
+      },
+      {
+        "elastic_strain": 0.001125,
+        "equivalent_plastic_strain": 0.025000000372529,
+        "plastic_strain": 0.025000000372529,
+        "stress_pa": 225000000.0,
+        "theory_total_strain": 0.025875000000000002,
+        "total_strain": 0.026124999999999995
+      },
+      {
+        "elastic_strain": 0.00075,
+        "equivalent_plastic_strain": 0.025000000372529,
+        "plastic_strain": 0.025000000372529,
+        "stress_pa": 150000000.0,
+        "theory_total_strain": 0.025500000000000002,
+        "total_strain": 0.02575
+      },
+      {
+        "elastic_strain": 0.000375,
+        "equivalent_plastic_strain": 0.025000000372529,
+        "plastic_strain": 0.025000000372529,
+        "stress_pa": 75000000.0,
+        "theory_total_strain": 0.025125,
+        "total_strain": 0.025374999999999998
+      },
+      {
+        "elastic_strain": -1.00080197493015e-18,
+        "equivalent_plastic_strain": 0.025000000372529,
+        "plastic_strain": 0.025000000372529,
+        "stress_pa": -2.0016039498603e-07,
+        "theory_total_strain": 0.02475,
+        "total_strain": 0.024999999999999998
+      }
+    ]
+  },
+  "domain": "materials",
+  "provenance": {
+    "qualification": "Numeric samples imported from the exact qualified benchmark output; no values were fabricated.",
+    "reference": "benchmarks/materials/references/historical_results.json",
+    "solver_rerun_required_for_this_import": false,
+    "source_files": [
+      {
+        "path": "artifacts/legacy/outputs/materials/plasticity/plasticity_curve.csv",
+        "sha256": "0feb5f5b4033d794a01c1d31e01688b4ed59904ac84f0e70b7bb3f3244324bb6"
+      },
+      {
+        "path": "artifacts/legacy/outputs/materials/plasticity/plasticity_results.json",
+        "sha256": "3c6b4343a3fbac57fa6ff3ace07a5f7fe584cd0d90f4896f4398e6758575477e"
+      }
+    ]
+  },
+  "representation": "solver-derived bilinear plasticity load-unload response",
+  "schema_version": 1,
+  "solver": "MAPDL 261 / SOLID185 BISO",
+  "status": "PASS",
+  "units": {
+    "strain": "1",
+    "stress": "Pa"
+  },
+  "validation": {
+    "maximum_curve_relative_error": 0.01010101010100997,
+    "residual_relative_error": 0.01010101010100997
+  }
+}

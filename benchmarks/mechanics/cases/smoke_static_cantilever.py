@@ -13,7 +13,6 @@ from pathlib import Path
 
 from ansys.mechanical.core import launch_mechanical
 
-
 PROJECT_DIR = Path(__file__).resolve().parent
 OUTPUT_DIR = Path(__import__("os").environ.get("AGENTIC_SIM_OUTPUT_DIR", PROJECT_DIR / "outputs"))
 MESH_STATS_CSV = OUTPUT_DIR / "static_cantilever_mesh_stats.csv"
@@ -21,6 +20,8 @@ RESULT_JSON = OUTPUT_DIR / "static_cantilever_results.json"
 PREPROCESS_INPUT = OUTPUT_DIR / "static_cantilever_preprocess.inp"
 PREPROCESS_OUTPUT = OUTPUT_DIR / "static_cantilever_preprocess.out"
 CDB_FILE = OUTPUT_DIR / "static_cantilever_model.cdb"
+DEFORMATION_EXPORT = OUTPUT_DIR / "static_cantilever_deformation.txt"
+STRESS_EXPORT = OUTPUT_DIR / "static_cantilever_equivalent_stress.txt"
 
 AWP_ROOT261 = r"C:\Program Files\ANSYS Inc\ANSYS Student\v261"
 EXEC_FILE = AWP_ROOT261 + r"\aisol\bin\winx64\AnsysWBU.exe"
@@ -136,6 +137,8 @@ def main() -> int:
         PREPROCESS_INPUT,
         PREPROCESS_OUTPUT,
         CDB_FILE,
+        DEFORMATION_EXPORT,
+        STRESS_EXPORT,
     ):
         generated_file.unlink(missing_ok=True)
 
@@ -207,6 +210,8 @@ equivalent_stress = analysis.Solution.AddEquivalentStress()
 equivalent_stress.Name = "Maximum Equivalent Stress"
 analysis.Solve(True)
 analysis.Solution.EvaluateAllResults()
+total_deformation.ExportToTextFile({str(DEFORMATION_EXPORT)!r})
+equivalent_stress.ExportToTextFile({str(STRESS_EXPORT)!r})
 payload = {{
     "import_ok": bool(import_ok),
     "solution_status": str(analysis.Solution.Status),
@@ -214,6 +219,8 @@ payload = {{
     "maximum_equivalent_stress_pa": equivalent_stress.Maximum.ConvertUnit("Pa").Value,
     "fixed_named_selection": fixed_candidates[0].Name,
     "loaded_named_selection": loaded_candidates[0].Name,
+    "deformation_exported": System.IO.File.Exists({str(DEFORMATION_EXPORT)!r}),
+    "stress_exported": System.IO.File.Exists({str(STRESS_EXPORT)!r}),
 }}
 json.dumps(payload)
 '''
@@ -242,6 +249,10 @@ json.dumps(payload)
             "stress_is_positive_and_finite": (
                 float(solver["maximum_equivalent_stress_pa"]) > 0.0
                 and math.isfinite(float(solver["maximum_equivalent_stress_pa"]))
+            ),
+            "result_fields_exported": (
+                bool(solver["deformation_exported"])
+                and bool(solver["stress_exported"])
             ),
             "deflection_relative_error_within_limit": (
                 relative_error <= MAX_ACCEPTABLE_RELATIVE_ERROR
@@ -298,6 +309,8 @@ json.dumps(payload)
                 "mesh_stats_csv": str(MESH_STATS_CSV),
                 "mapdl_preprocess_input": str(PREPROCESS_INPUT),
                 "mapdl_preprocess_output": str(PREPROCESS_OUTPUT),
+                "deformation_field": str(DEFORMATION_EXPORT),
+                "equivalent_stress_field": str(STRESS_EXPORT),
             },
         }
         RESULT_JSON.write_text(

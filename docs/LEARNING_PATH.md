@@ -2,6 +2,8 @@
 
 This path selects eight cases from the larger catalog. Start every level with `info` and `--dry-run`; execute only when the declared product and a valid license are available. Costs are relative educational estimates, not performance guarantees. Every listed status is historical catalog evidence, not a promise for the current machine.
 
+When a level has a representative result PNG, follow the evidence chain in order: benchmark code → solver-result figure → sanitized numeric evidence → referenced validation result. The full 11-domain inventory is in [Real simulation results and provenance](SIMULATION_RESULTS.md).
+
 Level 0 is solver-free orientation:
 
 ```bash
@@ -15,6 +17,7 @@ agentic-sim list --role dataset
 - Physics: linear-elastic beam bending and Euler–Bernoulli tip deflection.
 - Automation: build, constrain, solve, extract displacement, and compare with an analytical reference.
 - Validation: historical tip-displacement relative error; catalog status `PASS`.
+- Result evidence: [solved displacement/stress figure](assets/simulations/mechanics/static-cantilever.png) → [sanitized nodal evidence](assets/simulations/mechanics/static-cantilever.evidence.json) → [historical validation record](../benchmarks/mechanics/references/historical_results.json).
 - Requirement: domain manifest declares Mechanical and MAPDL; a compatible local product/license is needed to run.
 - Cost: low; the preferred first solver-backed case and generally Student-size accessible.
 
@@ -28,6 +31,7 @@ agentic-sim run mechanics --case static-cantilever
 - Physics: steady one-dimensional heat conduction and temperature gradient.
 - Automation: thermal material/boundary setup and temperature extraction.
 - Validation: comparison with the analytical conduction solution; catalog status `PASS`.
+- Result evidence: [temperature field and profile](assets/simulations/thermal/thermal-conduction.png) → [sanitized nodal evidence](assets/simulations/thermal/thermal-conduction.evidence.json) → [historical validation record](../benchmarks/thermal/references/historical_results.json).
 - Requirement: Mechanical/MAPDL as declared by the thermal manifest.
 - Cost: low; a compact Student-size thermal introduction.
 
@@ -67,6 +71,7 @@ agentic-sim run cfd --case fluent-laminar-channel
 - Physics: conjugate heat transfer across coupled fluid and solid regions.
 - Automation: multi-region setup, interface handling, field extraction, and conservation accounting.
 - Validation: global energy closure and temperature bounds; catalog status `PASS`.
+- Result evidence: [fluid–solid temperature/velocity fields](assets/simulations/multiphysics/cht-fluent.png) → [sanitized field evidence](assets/simulations/multiphysics/cht-fluent.evidence.json) → [historical validation record](../benchmarks/multiphysics/references/historical_results.json).
 - Requirement: the domain manifest declares Fluent, Mechanical, and System Coupling; inspect the case and local license before execution.
 - Cost: moderate; a stronger conservation workflow than the single-physics cases.
 
