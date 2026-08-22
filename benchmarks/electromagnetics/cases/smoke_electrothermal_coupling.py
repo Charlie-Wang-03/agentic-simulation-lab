@@ -5,7 +5,16 @@ from __future__ import annotations
 import json
 import traceback
 
-from aedt_smoke_common import OUTPUT_ROOT, aedt_pid_set, aedt_processes, cleanup_new_aedt_processes, ensure_dirs, prepare_pyaedt_student_runtime, student_launch_kwargs, utc_now, write_json
+from aedt_smoke_common import (
+    OUTPUT_ROOT,
+    aedt_processes,
+    cleanup_owned_process,
+    ensure_dirs,
+    prepare_pyaedt_student_runtime,
+    student_launch_kwargs,
+    utc_now,
+    write_json,
+)
 
 
 def _scalar_values(path):
@@ -26,8 +35,8 @@ def main() -> int:
     case_dir = OUTPUT_ROOT / "case_g_electrothermal"
     case_dir.mkdir(parents=True, exist_ok=True)
     result = {"case": "G", "name": "Maxwell-to-Icepak electrothermal coupling", "timestamp_utc": utc_now(), "status": "FAIL"}
-    baseline = aedt_pid_set()
     maxwell = icepak = None
+    owned_pid = None
     try:
         runtime = prepare_pyaedt_student_runtime()
         result["runtime"] = runtime
@@ -35,6 +44,7 @@ def main() -> int:
         from ansys.aedt.core.generic.constants import SolutionsMaxwell3D
 
         maxwell = Maxwell3d(project="CaseG_Electrothermal", design="BusbarDC", solution_type=SolutionsMaxwell3D.DCConduction, **student_launch_kwargs(runtime))
+        owned_pid = getattr(maxwell.desktop_class, "aedt_process_id", None)
         maxwell.modeler.model_units = "mm"
         busbar = maxwell.modeler.create_box([0, 0, 0], [50, 10, 10], name="Busbar", material="copper")
         source = maxwell.assign_voltage([busbar.bottom_face_x.id], amplitude=1000, name="OneVolt")
@@ -107,7 +117,7 @@ def main() -> int:
                 result["release_return"] = maxwell.release_desktop(close_projects=True, close_desktop=True)
             except Exception as exc:
                 result["release_error"] = f"{type(exc).__name__}: {exc}"
-        result["cleanup"] = cleanup_new_aedt_processes(baseline)
+        result["cleanup"] = cleanup_owned_process(owned_pid)
         result["processes_after_close"] = aedt_processes()
         write_json(case_dir / "result.json", result)
         print(json.dumps(result, indent=2, ensure_ascii=False))

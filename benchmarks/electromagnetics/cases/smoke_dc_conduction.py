@@ -7,7 +7,16 @@ import re
 import traceback
 from pathlib import Path
 
-from aedt_smoke_common import OUTPUT_ROOT, aedt_pid_set, aedt_processes, cleanup_new_aedt_processes, ensure_dirs, prepare_pyaedt_student_runtime, student_launch_kwargs, utc_now, write_json
+from aedt_smoke_common import (
+    OUTPUT_ROOT,
+    aedt_processes,
+    cleanup_owned_process,
+    ensure_dirs,
+    prepare_pyaedt_student_runtime,
+    student_launch_kwargs,
+    utc_now,
+    write_json,
+)
 
 
 def _matrix_value(path: Path, row_name: str) -> tuple[float | None, str | None, str]:
@@ -34,8 +43,8 @@ def main() -> int:
     case_dir = OUTPUT_ROOT / "case_b_dc_conduction"
     case_dir.mkdir(parents=True, exist_ok=True)
     result = {"case": "B", "name": "Uniform DC conductor", "timestamp_utc": utc_now(), "status": "FAIL"}
-    baseline = aedt_pid_set()
     app = None
+    owned_pid = None
     try:
         runtime = prepare_pyaedt_student_runtime()
         result["runtime"] = runtime
@@ -43,6 +52,7 @@ def main() -> int:
         from ansys.aedt.core.modules.boundary.maxwell_boundary import MatrixElectric
 
         app = Maxwell2d(project="CaseB_DCConduction", design="UniformResistor2D", solution_type="DCConduction", **student_launch_kwargs(runtime))
+        owned_pid = getattr(app.desktop_class, "aedt_process_id", None)
         app.modeler.model_units = "mm"
         sigma, length_mm, width_mm, depth_mm, voltage = 5.8e7, 100.0, 10.0, 10.0, 1.0
         copper = app.materials.add_material("BenchmarkCopper")
@@ -113,7 +123,7 @@ def main() -> int:
                 result["release_return"] = app.release_desktop(close_projects=True, close_desktop=True)
             except Exception as exc:
                 result["release_error"] = f"{type(exc).__name__}: {exc}"
-        result["cleanup"] = cleanup_new_aedt_processes(baseline)
+        result["cleanup"] = cleanup_owned_process(owned_pid)
         result["processes_after_close"] = aedt_processes()
         write_json(case_dir / "result.json", result)
         print(json.dumps(result, indent=2, ensure_ascii=False))

@@ -10,8 +10,16 @@ import subprocess
 import traceback
 from pathlib import Path
 
-from aedt_smoke_common import OUTPUT_ROOT, aedt_pid_set, aedt_processes, cleanup_new_aedt_processes, ensure_dirs, prepare_pyaedt_student_runtime, student_launch_kwargs, utc_now, write_json
-
+from aedt_smoke_common import (
+    OUTPUT_ROOT,
+    aedt_processes,
+    cleanup_owned_process,
+    ensure_dirs,
+    prepare_pyaedt_student_runtime,
+    student_launch_kwargs,
+    utc_now,
+    write_json,
+)
 
 AWP_ROOT261 = r"C:\Program Files\ANSYS Inc\ANSYS Student\v261"
 MECH_EXE = AWP_ROOT261 + r"\aisol\bin\winx64\AnsysWBU.exe"
@@ -27,8 +35,8 @@ def main() -> int:
     case_dir = OUTPUT_ROOT / "case_h_force_mechanical"
     case_dir.mkdir(parents=True, exist_ok=True)
     result = {"case": "H", "name": "Maxwell force to Mechanical structural", "timestamp_utc": utc_now(), "status": "FAIL"}
-    baseline = aedt_pid_set()
     maxwell = mechanical = None
+    owned_pid = None
     try:
         runtime = prepare_pyaedt_student_runtime()
         result["runtime"] = runtime
@@ -36,6 +44,7 @@ def main() -> int:
         from ansys.aedt.core.generic.constants import SolutionsMaxwell2D
 
         maxwell = Maxwell2d(project="CaseH_ForceTransfer", design="ForceSource", solution_type=SolutionsMaxwell2D.MagnetostaticXY, **student_launch_kwargs(runtime))
+        owned_pid = getattr(maxwell.desktop_class, "aedt_process_id", None)
         maxwell.modeler.model_units = "mm"
         inner = maxwell.modeler.create_circle([2, 0, 0], 5, name="LoadedConductor", material="copper")
         shield = maxwell.modeler.create_circle([0, 0, 0], 20, name="ReturnConductor", material="copper")
@@ -186,7 +195,7 @@ json.dumps({{"import_ok": bool(import_ok), "status": str(analysis.Solution.Statu
                 result["release_return"] = maxwell.release_desktop(close_projects=True, close_desktop=True)
             except Exception as exc:
                 result["release_error"] = f"{type(exc).__name__}: {exc}"
-        result["cleanup"] = cleanup_new_aedt_processes(baseline)
+        result["cleanup"] = cleanup_owned_process(owned_pid)
         result["processes_after_close"] = aedt_processes()
         write_json(case_dir / "result.json", result)
         print(json.dumps(result, indent=2, ensure_ascii=False))

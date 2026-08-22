@@ -7,8 +7,14 @@ import math
 import traceback
 
 from aedt_smoke_common import (
-    OUTPUT_ROOT, aedt_pid_set, aedt_processes, cleanup_new_aedt_processes,
-    ensure_dirs, prepare_pyaedt_student_runtime, student_launch_kwargs, utc_now, write_json,
+    OUTPUT_ROOT,
+    aedt_processes,
+    cleanup_owned_process,
+    ensure_dirs,
+    prepare_pyaedt_student_runtime,
+    student_launch_kwargs,
+    utc_now,
+    write_json,
 )
 
 
@@ -45,8 +51,8 @@ def main() -> int:
     case_dir = OUTPUT_ROOT / "case_e_transient"
     case_dir.mkdir(parents=True, exist_ok=True)
     result = {"case": "E", "name": "Transient eccentric current-return force", "timestamp_utc": utc_now(), "status": "FAIL"}
-    baseline = aedt_pid_set()
     app = None
+    owned_pid = None
     try:
         runtime = prepare_pyaedt_student_runtime()
         result["runtime"] = runtime
@@ -54,6 +60,7 @@ def main() -> int:
         from ansys.aedt.core.generic.constants import SolutionsMaxwell2D
 
         app = Maxwell2d(project="CaseE_Transient", design="TransientForce", solution_type=SolutionsMaxwell2D.TransientXY, **student_launch_kwargs(runtime))
+        owned_pid = getattr(app.desktop_class, "aedt_process_id", None)
         app.modeler.model_units = "mm"
         inner_r, eccentricity, shield_in, shield_out, depth, peak_current = 5.0, 2.0, 19.0, 20.0, 100.0, 100.0
         inner = app.modeler.create_circle([eccentricity, 0, 0], inner_r, name="MovingConductor", material="copper")
@@ -139,7 +146,7 @@ def main() -> int:
                 result["release_return"] = app.release_desktop(close_projects=True, close_desktop=True)
             except Exception as exc:
                 result["release_error"] = f"{type(exc).__name__}: {exc}"
-        result["cleanup"] = cleanup_new_aedt_processes(baseline)
+        result["cleanup"] = cleanup_owned_process(owned_pid)
         result["processes_after_close"] = aedt_processes()
         write_json(case_dir / "result.json", result)
         print(json.dumps(result, indent=2, ensure_ascii=False))

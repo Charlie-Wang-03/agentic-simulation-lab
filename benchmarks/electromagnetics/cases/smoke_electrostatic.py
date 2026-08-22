@@ -10,9 +10,8 @@ from pathlib import Path
 from aedt_diagnostics import finalize_ladder, sanitize_evidence, static_ladder
 from aedt_smoke_common import (
     OUTPUT_ROOT,
-    aedt_pid_set,
     aedt_processes,
-    cleanup_new_aedt_processes,
+    cleanup_owned_process,
     collect_phase0,
     ensure_dirs,
     prepare_pyaedt_student_runtime,
@@ -59,8 +58,8 @@ def main() -> int:
     case_dir = OUTPUT_ROOT / "case_a_electrostatic"
     case_dir.mkdir(parents=True, exist_ok=True)
     result = {"case": "A", "name": "Parallel-plate electrostatic", "timestamp_utc": utc_now(), "status": "FAIL"}
-    baseline = aedt_pid_set()
     app = None
+    owned_pid = None
     try:
         runtime = prepare_pyaedt_student_runtime()
         result["runtime"] = runtime
@@ -87,6 +86,7 @@ def main() -> int:
             solution_type="Electrostatic",
             **student_launch_kwargs(runtime),
         )
+        owned_pid = getattr(app.desktop_class, "aedt_process_id", None)
         ladder["phases"]["session_startup"] = {"status": "PASS", "constructor": "Maxwell2d"}
         ladder["phases"]["project_design_creation"] = {"status": "PASS"}
         app.modeler.model_units = "mm"
@@ -187,13 +187,21 @@ def main() -> int:
                 result["release_return"] = app.release_desktop(close_projects=True, close_desktop=True)
             except Exception as exc:  # noqa: BLE001 - cleanup failures must become durable evidence
                 result["release_error"] = f"{type(exc).__name__}: {exc}"
-        result["cleanup"] = cleanup_new_aedt_processes(baseline)
+        result["cleanup"] = cleanup_owned_process(owned_pid)
         result["processes_after_close"] = aedt_processes()
         ladder = result.get("diagnosis_ladder")
         if ladder:
-            remaining = [pid for item in result["cleanup"] for pid in item["remaining"]]
+            remaining = result["cleanup"]["remaining"]
+            cleanup_status = result["cleanup"]["status"]
             ladder["phases"]["release_cleanup"] = {
-                "status": "PASS" if not remaining else "FAIL",
+                "status": (
+                    "FAIL"
+                    if remaining
+                    else "PASS"
+                    if cleanup_status in {"CLEANED", "NOT_RUNNING"}
+                    else "BLOCKED"
+                ),
+                "cleanup_status": cleanup_status,
                 "remaining_owned_process_count": len(remaining),
             }
             result["diagnosis_ladder"] = finalize_ladder(ladder["phases"])

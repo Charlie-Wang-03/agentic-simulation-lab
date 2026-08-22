@@ -7,8 +7,16 @@ import math
 import traceback
 
 import numpy as np
-
-from aedt_smoke_common import OUTPUT_ROOT, aedt_pid_set, aedt_processes, cleanup_new_aedt_processes, ensure_dirs, prepare_pyaedt_student_runtime, student_launch_kwargs, utc_now, write_json
+from aedt_smoke_common import (
+    OUTPUT_ROOT,
+    aedt_processes,
+    cleanup_owned_process,
+    ensure_dirs,
+    prepare_pyaedt_student_runtime,
+    student_launch_kwargs,
+    utc_now,
+    write_json,
+)
 
 
 def _read_scalar_field(path):
@@ -44,14 +52,15 @@ def main() -> int:
     out = OUTPUT_ROOT / "dataset_electrostatic_10"
     out.mkdir(parents=True, exist_ok=True)
     result = {"name": "Electrostatic voltage sweep dataset", "timestamp_utc": utc_now(), "status": "FAIL"}
-    baseline = aedt_pid_set()
     app = None
+    owned_pid = None
     try:
         runtime = prepare_pyaedt_student_runtime()
         result["runtime"] = runtime
         from ansys.aedt.core import Maxwell2d
 
         app = Maxwell2d(project="Dataset_Electrostatic", design="VoltageSweep", solution_type="Electrostatic", **student_launch_kwargs(runtime))
+        owned_pid = getattr(app.desktop_class, "aedt_process_id", None)
         app.modeler.model_units = "mm"
         lower = app.modeler.create_rectangle([-50, -6, 0], [100, 1], name="LowerPlate", material="copper")
         upper = app.modeler.create_rectangle([-50, 5, 0], [100, 1], name="UpperPlate", material="copper")
@@ -105,7 +114,7 @@ def main() -> int:
                 result["release_return"] = app.release_desktop(close_projects=True, close_desktop=True)
             except Exception as exc:
                 result["release_error"] = f"{type(exc).__name__}: {exc}"
-        result["cleanup"] = cleanup_new_aedt_processes(baseline)
+        result["cleanup"] = cleanup_owned_process(owned_pid)
         result["processes_after_close"] = aedt_processes()
         write_json(out / "metadata.json", result)
         print(json.dumps(result, indent=2, ensure_ascii=False))
