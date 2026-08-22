@@ -131,8 +131,8 @@ python tools/check_links.py
 
 本项目是独立社区项目，与 Ansys, Inc. 不存在隶属、背书、认证或官方支持关系。Ansys 软件和适用许可证必须另行取得，并按相应条款使用。仓库不分发 Ansys 软件、专有求解器数据库、厂商文档、标志或商业外观。
 
-仓库原创代码、文档和 fixtures 采用 [Apache License 2.0](LICENSE)。该许可证不许可 Ansys 软件、文档、示例、商标或专有格式。Student 许可证限教育用途，不适用于商业用途或竞争分析。工程结果必须由具备相应资质的专业人员独立复核。
+[Apache License 2.0](LICENSE) 仅适用于项目贡献者持有的权利；它不授予 Ansys 软件、文档、商标、官方/厂商资产或其他第三方材料的权利。solver-derived 数值和项目渲染图仅作为验证证据发布，不声称 Ansys 已将其按 Apache-2.0 许可。Ansys 的许可证类型不能相互替代；用户必须为预期用途合法取得相应软件与许可证。工程结果必须由具备相应资质的专业人员独立复核。
 
 请阅读 [Ansys 使用与合规](docs/ANSYS_USAGE_AND_COMPLIANCE.md)、完整[免责声明](DISCLAIMER.md)与[第三方声明](THIRD_PARTY_NOTICES.md)。
 
-Ansys、Mechanical、Fluent、AEDT、Maxwell、HFSS、Rocky、System Coupling、SpaceClaim 与 PyAnsys 是 Ansys, Inc. 或其子公司在美国或其他国家/地区的商标或注册商标，相关权利归各自所有者所有。
+Ansys 及其产品名称是 Ansys, Inc. 或其子公司的标识，本项目仅用它们指明互操作目标；其他名称可能是各自权利人的标识。

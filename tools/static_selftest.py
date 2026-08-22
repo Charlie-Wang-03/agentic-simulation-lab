@@ -14,7 +14,7 @@ from build_catalog import build
 from build_project_metrics import render as render_metrics
 
 from agentic_simulation_lab.cli import main
-from agentic_simulation_lab.core.audit import audit, audit_source_provenance
+from agentic_simulation_lab.core.audit import audit, audit_publication_decisions, audit_source_provenance
 from agentic_simulation_lab.core.registry import cases, manifests
 from agentic_simulation_lab.core.status import VALID_STATUSES
 from agentic_simulation_lab.core.validation import validate_project
@@ -31,6 +31,19 @@ def run() -> None:
     assert not validate_project(ROOT)
     assert not audit(ROOT)
     assert not audit_source_provenance(ROOT)
+    expected_review_units = {
+        f"{manifest['domain'].replace('_', '-')}-solver-run-corpus"
+        for _, manifest in loaded
+    }
+    decision_gate = audit_publication_decisions(ROOT)
+    assert decision_gate["status"] == "PASS"
+    assert decision_gate["outcome"] == "PASS WITH ACCEPTED RESIDUAL LEGAL RISK"
+    assert {
+        item["review_unit"]
+        for item in decision_gate["items"]
+        if item["legal_evidence_status"] == "LEGAL_REVIEW_REQUIRED"
+    } == expected_review_units
+    assert len(decision_gate["warnings"]) == len(expected_review_units)
     assert build(ROOT) == json.loads((ROOT / "benchmarks" / "catalog.json").read_text(encoding="utf-8"))
     assert render_metrics(ROOT) == (ROOT / "docs" / "PROJECT_METRICS.md").read_text(encoding="utf-8")
     assert main(["run", "cfd", "--case", "fluent-laminar-channel", "--dry-run"]) == 0

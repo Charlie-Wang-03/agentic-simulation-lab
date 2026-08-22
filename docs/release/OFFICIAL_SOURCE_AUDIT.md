@@ -1,8 +1,8 @@
 # Official-source audit
 
-Checked: 2026-08-21
+Checked: 2026-08-22
 
-Status: **PASS for documented guidance and the approved Apache-2.0 boundary.**
+Status: **PASS WITH ACCEPTED RESIDUAL LEGAL RISK for the frozen historical publication candidate. The 11 corpora remain LEGAL_REVIEW_REQUIRED.**
 
 This is an engineering compliance review, not legal advice. Only Ansys and GitHub primary sources were used. The installed product clickwrap and the maintainer's legal review remain authoritative for actual use.
 
@@ -11,12 +11,12 @@ This is an engineering compliance review, not legal advice. Only Ansys and GitHu
 - Agentic Simulation Lab is an independent, script-driven validation project. It is not an Ansys product, is not endorsed or certified by Ansys, and does not use Ansys logos or trade dress.
 - Current trademark guidance tells third parties not to use Ansys marks in product names. The public identity, Python distribution/package, CLI, URLs, and documentation therefore use the neutral Agentic Simulation Lab identity. Ansys product names remain referential interoperability terms only.
 - Here, *benchmark* means a canonical physics validation case against an analytical, conservation, or documented numerical reference. It does **not** mean competitive product analysis or comparison.
-- Free Ansys Student downloads are limited by current academic terms to student instruction, student projects, and student demonstrations. Research, Associate, Teaching, and other academic categories have distinct permissions and conditions. Academic programs exclude commercial activity and competitive analysis. Users must follow the category actually granted to them.
-- The Apache-2.0 repository license and an Ansys product license are independent. Apache-2.0 covers only original repository content; it does not license Ansys software, documentation, examples, trademarks, or generated proprietary project files.
+- Free Ansys Student downloads have narrower student learning, instruction, project, and demonstration boundaries. Research, Associate, Teaching, and other Academic license types have distinct permissions and conditions. “Academic” or “non-commercial” alone does not establish permission. Actual rights depend on the granted License Type, applicable Agreement, Product Codes, order or clickwrap, and then-current terms; this repository cannot decide a user's authorization.
+- Apache-2.0 applies only to rights held by project contributors. It grants no rights in Ansys software, documentation, trademarks, official/vendor assets, proprietary project files, or other third-party materials. Solver-derived numerical evidence and project-rendered figures are published as validation evidence without claiming an Ansys Apache-2.0 license.
 - Current Ansys Student desktop guidance is Windows-focused. Core Python installation, manifests, catalog inspection, static validation, and dry-runs are designed for Windows and macOS. Local Student solver execution on macOS is not claimed.
 - PyAnsys clients can be cross-platform even when a local solver is unavailable. For example, current PyMAPDL documentation supports its Python package on Windows, macOS, and Linux but states that MAPDL itself is not macOS-compatible; a licensed remote or containerized solver is a separate arrangement.
 - GitHub identifies LICENSE as a distinct community-health item and states that an open-source license enables others to use, change, and distribute a project. The maintainer approved Apache-2.0 and the exact reviewed text is present at the repository root.
-- GitHub private vulnerability reporting is a repository setting that can only be enabled after publication by an owner or administrator. `SECURITY.md` therefore directs reporters to that channel without inventing an email address.
+- GitHub private vulnerability reporting is a repository setting controlled by an owner or administrator. Repository files cannot prove it is enabled, so `SECURITY.md` refers to the form only when visibly available and does not invent an email address.
 
 ## Repository-content review
 
@@ -28,6 +28,8 @@ The candidate public tree was reviewed for copied vendor examples, proprietary s
 - `THIRD_PARTY_NOTICES.md` must list only third-party material actually shipped; dependencies alone are not vendored content.
 - `docs/release/SOURCE_PROVENANCE.md` classifies shipped content and pins every allowed non-text fixture by SHA-256.
 - The automated public-tree, privacy, and source-provenance audits are the final machine-enforced evidence. A failure in any audit overrides this narrative result.
+
+The technical review establishes that the tracked simulation figures are deterministic renderings of sanitized solver-derived numbers and that raw proprietary project/database files are not tracked. Publication permission for the solver-derived evidence is not explicit, so all 11 corpora remain `LEGAL_REVIEW_REQUIRED`. Under the maintainer's reasonable-diligence policy, the frozen historical corpora are separately `APPROVED_WITH_RESIDUAL_RISK`; this neither declares legal clearance nor implies Ansys approval.
 
 ## Ansys primary sources
 
@@ -55,3 +57,4 @@ The candidate public tree was reviewed for copied vendor examples, proprietary s
 - Solver regression artifacts must remain ignored and must never contain license-server details.
 - The final release audit must verify the exact Apache-2.0 text, SPDX metadata, package inclusion, and separation from Ansys product licensing.
 - Truthful documented solver `FAIL`, `BLOCKED`, and `NOT_RUN` outcomes are release qualifications, not publication blockers; missing, inconsistent, misleading, or undisclosed evidence remains a blocking audit failure.
+- The release gate must preserve `LEGAL_REVIEW_REQUIRED` and report `PASS WITH ACCEPTED RESIDUAL LEGAL RISK`; any `BLOCKED`, missing, or `NOT_APPROVED` publication item remains a blocker.

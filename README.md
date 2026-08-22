@@ -131,8 +131,8 @@ python tools/check_links.py
 
 This is an independent community project. It is not affiliated with, endorsed by, certified by, or supported by Ansys, Inc. Ansys software and an appropriate license must be obtained separately and used under their applicable terms. The repository does not distribute Ansys software, proprietary solver databases, vendor documentation, logos, or trade dress.
 
-Original repository-owned code, documentation, and fixtures are licensed under the [Apache License 2.0](LICENSE). That license does not license Ansys software, documentation, examples, trademarks, or proprietary formats. Student licenses are limited to educational use and exclude commercial use and competitive analysis. Engineering results require independent review by qualified practitioners.
+The [Apache License 2.0](LICENSE) applies only to rights held by project contributors. It grants no rights in Ansys software, documentation, trademarks, official/vendor assets, or other third-party materials. Solver-derived numbers and project-rendered figures are published as validation evidence without claiming that Ansys licensed them under Apache-2.0. Ansys license types are not interchangeable; users must lawfully obtain the software and license appropriate to their intended use. Engineering results require independent review by qualified practitioners.
 
 Read [Ansys usage and compliance](docs/ANSYS_USAGE_AND_COMPLIANCE.md), the full [disclaimer](DISCLAIMER.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
 
-Ansys, Mechanical, Fluent, AEDT, Maxwell, HFSS, Rocky, System Coupling, SpaceClaim, and PyAnsys are trademarks or registered trademarks of Ansys, Inc. or its subsidiaries in the United States or other countries. All trademarks remain the property of their respective owners.
+Ansys and its product names are marks of Ansys, Inc. or its subsidiaries and are used only to identify interoperability targets. Other names may be marks of their respective owners.

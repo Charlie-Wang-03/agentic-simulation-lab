@@ -58,6 +58,29 @@ def test_local_config_is_excluded_but_example_is_exported(tmp_path):
     assert (root / "artifacts" / "export" / "config" / "local.example.toml").is_file()
 
 
+def test_private_maintainer_and_one_time_reports_are_excluded(tmp_path):
+    root, revision = _repository(
+        tmp_path,
+        {
+            "README.md": "safe\n",
+            "FINALIZATION_REPORT.md": "private finalization report\n",
+            "PROJECT_REFACTOR_REPORT.md": "private refactor report\n",
+            "docs/release/LICENSE_PROVENANCE_REVIEW.md": "private worksheet\n",
+            "migration_receipt.json": "{}\n",
+        },
+    )
+    destination = root / "artifacts" / "export"
+    result = export_revision(root, revision, destination, auditor=lambda _: [])
+
+    assert not (destination / "docs" / "release" / "LICENSE_PROVENANCE_REVIEW.md").exists()
+    assert result["excluded_tracked_files"] == [
+        "FINALIZATION_REPORT.md",
+        "PROJECT_REFACTOR_REPORT.md",
+        "docs/release/LICENSE_PROVENANCE_REVIEW.md",
+        "migration_receipt.json",
+    ]
+
+
 def test_prohibited_extension_is_rejected(tmp_path):
     root, revision = _repository(tmp_path, {"README.md": "safe\n", "benchmarks/model.cas": "binary-ish\n"})
     with pytest.raises(PublicExportError, match="prohibited"):

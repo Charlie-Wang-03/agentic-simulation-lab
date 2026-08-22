@@ -9,6 +9,8 @@ The project uses two deliberately separate visual layers:
 
 The PNGs are not GUI screenshots and do not reconstruct values that are absent from the evidence. Each evidence file records the solver, units, validation summary, source hashes, and whether importing that compact evidence required a solver rerun.
 
+That establishes technical provenance and creation integrity, not legal or contractual clearance. All 11 evidence sets remain `LEGAL_REVIEW_REQUIRED`. The maintainer separately approved this frozen historical evidence as `APPROVED_WITH_RESIDUAL_RISK` under the documented reasonable-diligence policy; the decision is not Ansys approval and does not apply to future research runs.
+
 ## Domain-level result inventory
 
 | Domain | Representative benchmark | Solver-derived evidence represented | Paper-style PNG | New solver rerun needed for this upgrade? |
