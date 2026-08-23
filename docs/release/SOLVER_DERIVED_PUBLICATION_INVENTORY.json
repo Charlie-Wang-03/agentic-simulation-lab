@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "scope": "Tracked public-candidate information derived from historical Ansys solver executions",
+  "review_unit_policy": "One domain solver-run corpus is the minimum upstream review unit. Its source_fingerprint binds the review to the sorted relative paths and SHA-256 hashes of canonical UTF-8/LF JSON content selected by source_paths. Any added, removed, renamed, or changed source requires re-review and a new fingerprint. Legal status and maintainer publication decision remain separate; split a unit when its facts differ.",
+  "review_units": {
+    "acoustics-solver-run-corpus": {
+      "domain": "acoustics",
+      "source_paths": ["benchmarks/acoustics/references/*.json"],
+      "source_fingerprint": "2cf1d822836d0afd9b09f2ef5bbbe4a7674ac7e6c90a9b271a7dbfa5bc34d7b7",
+      "generation_date": "unknown",
+      "solver_product": "Mechanical/MAPDL acoustics (project-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository case scripts and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "cfd-solver-run-corpus": {
+      "domain": "cfd",
+      "source_paths": ["benchmarks/cfd/references/*.json"],
+      "source_fingerprint": "c473350346d92c3679947cfeb068933a8f4795aecea57568ab645af0cd95eb4a",
+      "generation_date": "unknown",
+      "solver_product": "Ansys Fluent Student 2026 R1 / 261 (historical-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository case scripts and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "dem-solver-run-corpus": {
+      "domain": "dem",
+      "source_paths": ["benchmarks/dem/references/*.json"],
+      "source_fingerprint": "46f9851f2a1024a840062ffd54f761d813ee14e6af15adf0c3085f0a5246bd0e",
+      "generation_date": "unknown",
+      "solver_product": "Ansys Rocky 2026 R1 Student (project-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository-authored STL fixtures, case scripts, and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "electromagnetics-solver-run-corpus": {
+      "domain": "electromagnetics",
+      "source_paths": ["benchmarks/electromagnetics/references/*.json"],
+      "source_fingerprint": "2fdbf2081cd0f1f1943106ffd9b7311d1f830a6e0a0bc28d936aa3c84e1158da",
+      "generation_date": "unknown",
+      "solver_product": "Ansys Electronics Desktop / Mechanical 2026 R1 (project-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository case scripts and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "materials-solver-run-corpus": {
+      "domain": "materials",
+      "source_paths": ["benchmarks/materials/references/*.json"],
+      "source_fingerprint": "7b6ef4e20a22b77842790d89ebf4599f9e6fce107e06c867b73821efaf6003b1",
+      "generation_date": "unknown",
+      "solver_product": "Ansys MAPDL Student 2026 R1 / 261 (historical-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository case scripts and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "mechanics-solver-run-corpus": {
+      "domain": "mechanics",
+      "source_paths": ["benchmarks/mechanics/references/*.json"],
+      "source_fingerprint": "760eef3cccc15d01fe15b1ff788b2c9517addf7b5a45caa111b0fad7d92dba03",
+      "generation_date": "unknown",
+      "solver_product": "Mechanical 2026 R1 / MAPDL 261 (project-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository case scripts and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "multiphysics-solver-run-corpus": {
+      "domain": "multiphysics",
+      "source_paths": ["benchmarks/multiphysics/references/*.json"],
+      "source_fingerprint": "1fc4d35d1a896f8e04520456450fb418a58343587fc1a8b4ace06cca3e51483f",
+      "generation_date": "unknown",
+      "solver_product": "Fluent, Mechanical/MAPDL, and System Coupling 2026 R1 (project-record hints)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository cases plus ignored project-local official-assets inputs for some cases; vendor files are not tracked",
+      "proprietary_vendor_assets_involved": "yes for some cases; exact per-run inventory incomplete",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "phase-reactive-solver-run-corpus": {
+      "domain": "phase_reactive",
+      "source_paths": ["benchmarks/phase_reactive/references/*.json"],
+      "source_fingerprint": "ee03da9a9a36d92f752043b4d82dc3782c90fe2044f24c3850d6929a9dfa9a37",
+      "generation_date": "unknown",
+      "solver_product": "Ansys Fluent Student and MAPDL 2026 R1 / 261 (project-record hints)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository case scripts and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "porous-geomechanics-solver-run-corpus": {
+      "domain": "porous_geomechanics",
+      "source_paths": ["benchmarks/porous_geomechanics/references/*.json"],
+      "source_fingerprint": "48d8bd411b45fafe236a7b925f179ac2247f176c52fc58a99494b3d5abae9ba0",
+      "generation_date": "unknown",
+      "solver_product": "Ansys Student 2026 R1 / 261, Fluent and MAPDL (project-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository case scripts and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "sph-solver-run-corpus": {
+      "domain": "sph",
+      "source_paths": ["benchmarks/sph/references/*.json"],
+      "source_fingerprint": "0ebd5034522977eabbcd3092bf187abc65105554de54ece484f61f5ae31c9fe6",
+      "generation_date": "unknown",
+      "solver_product": "Ansys Rocky Student 26.1 native SPH (project-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository-authored STL fixtures, case scripts, and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    },
+    "thermal-solver-run-corpus": {
+      "domain": "thermal",
+      "source_paths": ["benchmarks/thermal/references/*.json"],
+      "source_fingerprint": "77aafa27031080e7101b00954ff02e1774f6816c4fb63d3f67cc8ac837a068e8",
+      "generation_date": "unknown",
+      "solver_product": "Ansys MAPDL 2026 R1 / 261 (historical-record hint)",
+      "license_type": "unknown",
+      "applicable_agreement": "unknown",
+      "run_purpose": "unknown",
+      "run_purpose_hint": "repository physics-validation benchmark",
+      "source_input_provenance": "repository case scripts and project-local run outputs; complete per-run input record not established",
+      "proprietary_vendor_assets_involved": "unknown",
+      "publication_basis": "unknown",
+      "status": "LEGAL_REVIEW_REQUIRED"
+    }
+  },
+  "derived_surfaces": [
+    {
+      "family": "benchmark status and reference indexes",
+      "paths": ["benchmarks/*/manifest.json", "benchmarks/catalog.json", "docs/release/SOLVER_REGRESSION_RESULTS.json"],
+      "inherits_from": "all matching domain solver-run corpora"
+    },
+    {
+      "family": "repository-authored solver reports",
+      "paths": ["docs/reports/**/*.md"],
+      "inherits_from": "matching domain solver-run corpus"
+    },
+    {
+      "family": "simulation evidence and rendered figures",
+      "paths": ["docs/assets/simulations/**/*.evidence.json", "docs/assets/simulations/**/*.svg", "docs/assets/simulations/**/*.png"],
+      "inherits_from": "review_unit recorded in each evidence JSON"
+    },
+    {
+      "family": "generated summaries and showcases",
+      "paths": ["README.md", "README.zh-CN.md", "docs/BENCHMARKS.md", "docs/BENCHMARKS.zh-CN.md", "docs/PROJECT_SHOWCASE.md", "docs/PROJECT_METRICS.md", "docs/known-limitations.md", "docs/assets/hero.svg", "docs/assets/gallery/*.svg", "docs/assets/showcase*.svg", "docs/assets/showcase/*.svg", "tools/build_gallery.py"],
+      "inherits_from": "the domain corpora supplying each displayed status or solver-derived number"
+    }
+  ],
+  "excluded_from_solver_publication_gate": [
+    "repository prose with no copied solver result",
+    "analytical equations and analytical/reference values",
+    "public factual API and product identifiers",
+    "repository-authored source and geometry that do not embed historical solver output"
+  ]
+}

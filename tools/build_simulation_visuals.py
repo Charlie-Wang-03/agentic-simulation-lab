@@ -103,6 +103,18 @@ def base_evidence(
             "solver_rerun_required_for_this_import": rerun,
             "qualification": "Numeric samples imported from the exact qualified benchmark output; no values were fabricated.",
         },
+        "publication_review": {
+            "review_unit": f"{domain.replace('_', '-')}-solver-run-corpus",
+            "generation_date": "unknown",
+            "license_type": "unknown",
+            "applicable_agreement": "unknown",
+            "run_purpose": "unknown",
+            "source_input_provenance": "See provenance.reference and provenance.source_files; legal origin and rights review is not recorded.",
+            "proprietary_vendor_assets_involved": "unknown",
+            "publication_basis": "unknown",
+            "status": "LEGAL_REVIEW_REQUIRED",
+            "reason": "The historical record does not establish the actual License Type, applicable Agreement, run purpose, vendor-asset involvement, or publication/redistribution basis.",
+        },
     }
 
 

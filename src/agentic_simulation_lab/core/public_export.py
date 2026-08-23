@@ -11,10 +11,10 @@ from collections.abc import Callable
 from pathlib import Path, PurePosixPath
 from typing import Any
 
-from .audit import GENERATED_SUFFIXES, audit_export
+from .audit import GENERATED_SUFFIXES, audit_export, audit_publication_decisions
 from .validation import validate_project
 
-POLICY_VERSION = 1
+POLICY_VERSION = 2
 ALLOWED_PREFIXES = (
     ".github/",
     "agent/",
@@ -52,6 +52,12 @@ ALLOWED_ROOT_FILES = {
 }
 ALLOWED_SPECIAL_FILES = {"config/local.example.toml"}
 EXCLUDED_PREFIXES = ("artifacts/", "config/")
+PRIVATE_ONLY_FILES = {
+    "FINALIZATION_REPORT.md",
+    "PROJECT_REFACTOR_REPORT.md",
+    "docs/release/LICENSE_PROVENANCE_REVIEW.md",
+    "migration_receipt.json",
+}
 
 
 class PublicExportError(RuntimeError):
@@ -94,6 +100,8 @@ def _selection(path: str) -> str:
     pure = PurePosixPath(path)
     if pure.is_absolute() or ".." in pure.parts or not pure.parts:
         raise PublicExportError(f"unsafe archive path: {path!r}")
+    if path in PRIVATE_ONLY_FILES:
+        return "exclude"
     if path in ALLOWED_SPECIAL_FILES or path in ALLOWED_ROOT_FILES or path.startswith(ALLOWED_PREFIXES):
         if pure.suffix.casefold() in GENERATED_SUFFIXES or path.endswith((".tmp", ".bak", "~")):
             raise PublicExportError(f"prohibited generated/proprietary file is tracked: {path}")
@@ -172,6 +180,7 @@ def export_revision(
         if auditor is not None
         else validate_project(destination) + audit_export(destination)
     )
+    publication_gate = audit_publication_decisions(destination)
     return {
         "schema_version": 1,
         "status": "PASS" if not audit_errors else "FAIL",
@@ -183,12 +192,5 @@ def export_revision(
         "excluded_tracked_files": sorted(excluded),
         "tree_sha256": _tree_hash(files),
         "audit": {"status": "PASS" if not audit_errors else "FAIL", "errors": audit_errors},
-        "publication": {
-            "status": "BLOCKED" if not (destination / "LICENSE").is_file() else "NOT_ASSESSED",
-            "reason": (
-                "approved Apache-2.0 LICENSE is missing"
-                if not (destination / "LICENSE").is_file()
-                else "clean export passed; package, CI, public-history, and commit-identity gates remain external"
-            ),
-        },
+        "publication": publication_gate,
     }

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "policy_standard": "Reasonable diligence permits a maintainer to accept low residual legal risk after a documented investigation finds no confirmed violation. This decision does not change or imply legal clearance.",
+  "future_research_boundary": "Future Ansys runs primarily for academic research, research-paper experiments, research dataset generation, or authoritative paper figures/results are a new licensing context and must not automatically inherit this historical decision.",
+  "rationales": {
+    "historical-student-2026r1-validation": {
+      "decided_at": "2026-08-22",
+      "summary": "Maintainer approval for publication of the frozen historical solver-run corpora with accepted residual contractual uncertainty.",
+      "facts_considered": [
+        "The maintainer confirmed an official free Ansys Student 2026 R1 installation.",
+        "The historical purposes were project/software development, interoperability testing, teaching/demonstration, and classical physics validation.",
+        "The historical work was not commercial work, consulting, competitive analysis, or generated for a specific research paper.",
+        "No Ansys binaries, licenses, GUI screenshots, project databases, documentation, or official vendor assets are redistributed.",
+        "Public content is limited to sanitized numerical evidence and project-rendered plots.",
+        "Extensive provenance and public-tree auditing found no confirmed redistribution violation."
+      ],
+      "residual_risk": "Publication permission for solver-derived evidence is not explicitly established, so residual contractual uncertainty remains.",
+      "vendor_approval": "This is an independent maintainer decision. It does not state or imply approval by Ansys."
+    }
+  },
+  "decisions": {
+    "acoustics-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "cfd-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "dem-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "electromagnetics-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "materials-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "mechanics-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "multiphysics-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "phase-reactive-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "porous-geomechanics-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "sph-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    },
+    "thermal-solver-run-corpus": {
+      "decision": "APPROVED_WITH_RESIDUAL_RISK",
+      "rationale": "historical-student-2026r1-validation"
+    }
+  }
+}

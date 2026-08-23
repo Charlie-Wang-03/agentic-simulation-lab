@@ -54,6 +54,18 @@
       }
     ]
   },
+  "publication_review": {
+    "review_unit": "electromagnetics-solver-run-corpus",
+    "applicable_agreement": "unknown",
+    "generation_date": "unknown",
+    "license_type": "unknown",
+    "proprietary_vendor_assets_involved": "unknown",
+    "publication_basis": "unknown",
+    "reason": "The historical record does not establish the actual License Type, applicable Agreement, run purpose, vendor-asset involvement, or publication/redistribution basis.",
+    "run_purpose": "unknown",
+    "source_input_provenance": "See provenance.reference and provenance.source_files; legal origin and rights review is not recorded.",
+    "status": "LEGAL_REVIEW_REQUIRED"
+  },
   "representation": "axisymmetric reconstruction of exported radial Mag_B grid samples",
   "schema_version": 1,
   "solver": "Maxwell 2D 261 magnetostatic",

@@ -1,6 +1,6 @@
 # Release checklist
 
-Checked: 2026-08-21
+Checked: 2026-08-22
 
 ## Local technical finalization
 
@@ -19,6 +19,7 @@ Checked: 2026-08-21
 
 - [x] Maintainer selected Apache-2.0; exact license text and package metadata implemented
 - [x] Public citation identity limited to `Charlie-Wang-03`; CFF 1.2.0 schema validation passed
+- [x] Maintainer accepted the low residual contractual risk for the 11 frozen historical corpora without marking them `CLEARED`
 - [x] Create public GitHub repository
 - [ ] Enable private vulnerability reporting if desired
 - [x] Configure repository description/topics
@@ -26,3 +27,11 @@ Checked: 2026-08-21
 - [x] Publish v0.1.0 GitHub Release
 
 Unchecked optional items remain evidence-driven. The maintainer authorized the independent public repository, the annotated `v0.1.0` tag, and the published GitHub Release after all hard gates pass. PyPI and Zenodo publication remain unauthorized and are not part of v0.1.0 finalization.
+
+## Each future public candidate
+
+- [ ] For every solver-derived public evidence set, record generation date, solver/product, actual License Type if known, applicable Agreement, run purpose, source/input provenance, proprietary/vendor asset involvement, publication basis, and publication review status
+- [ ] Apply the legal/evidence-status and maintainer-decision matrix; never infer `CLEARED` from a residual-risk approval, technical ownership, or physics `PASS`
+- [ ] Treat future academic research, paper experiments, research datasets, and authoritative paper results as a new licensing context; do not inherit this historical decision
+- [ ] Confirm the clean export contains no locally referenced official/proprietary assets or solver databases/projects
+- [ ] In GitHub Settings, manually verify Private Vulnerability Reporting, Dependabot alerts, Dependabot security updates, secret scanning, push protection, CodeQL/code scanning, and the main-branch ruleset or protection; repository files do not prove these settings

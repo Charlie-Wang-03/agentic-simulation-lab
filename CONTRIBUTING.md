@@ -4,6 +4,8 @@ Open a focused issue or pull request. Repository-owned content is licensed under
 
 The inbound model is the normal same-license model: contributors retain copyright and intentionally submitted contributions are licensed under Apache-2.0. This project does not require a CLA, DCO sign-off, real name, or private contact information.
 
+Contributors must have the rights needed to submit their code, documentation, data, geometry, images, and other assets and to provide them under the project's license.
+
 Contributions must:
 
 - keep solver integrations optional, lazy, API-first, and vendor-neutral at the agent layer;

@@ -22,6 +22,7 @@ from agentic_simulation_lab.cli import main as cli_main
 from agentic_simulation_lab.core.audit import (
     APACHE_2_LICENSE_SHA256,
     audit,
+    audit_publication_decisions,
     audit_release_metadata,
     audit_source_provenance,
 )
@@ -218,6 +219,7 @@ def main(argv: list[str] | None = None) -> int:
         "status": "PASS" if not provenance_errors else "FAIL",
         "errors": provenance_errors,
     }
+    gates["publication_decision"] = audit_publication_decisions(ROOT)
     gates["privacy"] = {"status": "PASS" if not privacy_errors else "FAIL", "errors": privacy_errors}
     gates["secrets"] = {"status": "PASS" if not secret_errors else "FAIL", "errors": secret_errors}
     gates["community_files"] = structural_gate([
@@ -392,7 +394,15 @@ def main(argv: list[str] | None = None) -> int:
         "detail": "private mother working tree is clean" if not git_detail else git_detail,
     }
 
-    overall = "READY FOR PUBLICATION" if all(gate["status"] == "PASS" for gate in gates.values()) else "NOT READY FOR PUBLICATION"
+    all_pass = all(gate["status"] == "PASS" for gate in gates.values())
+    accepted_residual_risk = gates["publication_decision"].get("warnings")
+    overall = (
+        "READY FOR PUBLICATION WITH ACCEPTED RESIDUAL LEGAL RISK"
+        if all_pass and accepted_residual_risk
+        else "READY FOR PUBLICATION"
+        if all_pass
+        else "NOT READY FOR PUBLICATION"
+    )
     payload = {
         "schema_version": 1,
         "generated_at_utc": generated_at.isoformat(),
@@ -406,7 +416,7 @@ def main(argv: list[str] | None = None) -> int:
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(payload, indent=2))
-    return 0 if overall == "READY FOR PUBLICATION" else 1
+    return 0 if all_pass else 1
 
 
 if __name__ == "__main__":

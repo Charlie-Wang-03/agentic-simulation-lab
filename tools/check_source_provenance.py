@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from agentic_simulation_lab.core.audit import audit_source_provenance
+from agentic_simulation_lab.core.audit import audit_publication_decisions, audit_source_provenance
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -25,6 +25,10 @@ def main(argv: list[str] | None = None) -> int:
         print(error)
     if not errors:
         print("source provenance: PASS")
+        decision_gate = audit_publication_decisions(target)
+        print(f"publication decision: {decision_gate['outcome']}")
+        for warning in decision_gate["warnings"]:
+            print(f"WARNING: {warning}")
     return bool(errors)
 
 

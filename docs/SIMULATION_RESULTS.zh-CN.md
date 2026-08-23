@@ -9,6 +9,8 @@
 
 这些 PNG 不是 GUI 截图，也不会补造证据中不存在的数值。每个 evidence 文件都记录求解器、单位、验证摘要、来源哈希，以及导入这份精简证据时是否需要重新运行求解器。
 
+这些记录证明的是技术来源与生成完整性，不等于法律或合同状态已经获得 clearance。下面 11 份 evidence 仍为 `LEGAL_REVIEW_REQUIRED`；maintainer 依据已记录的 reasonable-diligence policy，另行将这批冻结历史证据批准为 `APPROVED_WITH_RESIDUAL_RISK`。这不是 Ansys 的批准，也不适用于未来研究用途的运行。
+
 ## 11 个领域的代表结果
 
 | 领域 | 代表 benchmark | 图中使用的求解器证据 | 论文式 PNG | 本次升级是否需要重跑求解器 |
