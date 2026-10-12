@@ -8,6 +8,10 @@
 - Electromagnetic transient, Rocky two-way coupling, and selected SPH modes retain explicit `BLOCKED` states tied to documented edition/API limits.
 - Several legacy cases are `NOT_RUN` because no unambiguous suite evidence could be attributed during migration.
 
+## Evaluated integration — OpticStudio Student (not in catalog)
+
+In a 2026 R1 Ansys Student environment, OpticStudio 26.1 was discovered and its normal process-start canary passed. The official optiSLang batch runtime created the OpticStudio integration node and a headless project, but model loading stopped when the current Student license rejected the node's required ZOS-API access. No OpticStudio optical calculation or physics validation was executed. Optics is not one of the implemented 11 domains or 134 catalog cases. This exploration is frozen: the project does not claim a runnable OpticStudio Student automation integration.
+
 ## Catalog release qualifications
 
 These outcomes are intentionally published as limitations. They do not become `PASS` during release preparation. Publication is blocked only if the evidence is missing or inconsistent, a declared threshold is weakened, the current/historical meaning is misleading, the limitation is undisclosed, or privacy/proprietary-content gates fail.
